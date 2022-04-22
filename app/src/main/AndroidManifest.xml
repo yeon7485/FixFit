@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixFit">
         <activity
-            android:name=".WorkoutActivity"
+            android:name=".ClassifierActivity"
             android:exported="false" />
         <activity
-            android:name=".RehabilitationActivity"
+            android:name=".GalleryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TechNeckActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +25,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".WorkoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RehabilitationActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
