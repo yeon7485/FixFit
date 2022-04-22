@@ -49,9 +49,9 @@
 
         <ImageView
             android:layout_width="70dp"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
-
+            android:layout_marginEnd="5dp"
             android:src="@drawable/ic_logo_fixfit"
             app:tint="@color/white" />
 
