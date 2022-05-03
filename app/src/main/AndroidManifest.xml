@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FixFit">
         <activity
+            android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TodoActivity"
+            android:exported="true"/>
+        <activity
             android:name=".ClassifierActivity"
             android:exported="false" />
         <activity
@@ -24,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
