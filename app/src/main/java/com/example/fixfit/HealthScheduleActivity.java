@@ -23,7 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-
+//<!--김성윤 (운동스케줄러 버전 1)-->
 public class HealthScheduleActivity extends AppCompatActivity {
     public String fname = null;
     public String str = null;
