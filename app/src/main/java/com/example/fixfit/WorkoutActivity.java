@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fixfit.item.Workout;
+import com.example.fixfit.Model.WorkoutModel;
 
 public class WorkoutActivity extends AppCompatActivity {
 
     private TextView workout_txt;
     private ImageView workout_img;
-    private Workout item;
+    private WorkoutModel item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,8 @@ public class WorkoutActivity extends AppCompatActivity {
             Bundle bld = intent.getExtras();
 
             Object obj = bld.get("item");
-            if (obj != null && obj instanceof Workout) {
-                this.item = (Workout) obj;
+            if (obj != null && obj instanceof WorkoutModel) {
+                this.item = (WorkoutModel) obj;
             }
         }
 

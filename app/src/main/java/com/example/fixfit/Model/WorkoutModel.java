@@ -1,12 +1,12 @@
-package com.example.fixfit.item;
+package com.example.fixfit.Model;
 
 import java.io.Serializable;
 
-public class Workout implements Serializable {
+public class WorkoutModel implements Serializable {
     private int imgResId;
     private String workoutName;
 
-    public Workout(int imgResId, String workoutName) {
+    public WorkoutModel(int imgResId, String workoutName) {
         this.imgResId = imgResId;
         this.workoutName = workoutName;
     }

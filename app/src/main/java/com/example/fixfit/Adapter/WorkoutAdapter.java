@@ -1,4 +1,4 @@
-package com.example.fixfit;
+package com.example.fixfit.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,16 +12,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fixfit.item.Workout;
+import com.example.fixfit.Model.WorkoutModel;
+import com.example.fixfit.R;
+import com.example.fixfit.WorkoutActivity;
 
 import java.util.ArrayList;
 
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder> {
 
-    private ArrayList<Workout> mList = null;
+    private ArrayList<WorkoutModel> mList = null;
 
-    public WorkoutAdapter(ArrayList<Workout> mList) {
+    public WorkoutAdapter(ArrayList<WorkoutModel> mList) {
         this.mList = mList;
     }
     public interface WorkoutClickListener{
@@ -43,7 +45,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull WorkoutAdapter.ViewHolder holder, int position) {
-        Workout item = mList.get(position);
+        WorkoutModel item = mList.get(position);
 
         holder.item_workout_img.setImageResource(item.getImgResId());   // 사진 없어서 기본 파일로 이미지 띄움
         holder.item_workout_txt.setText(item.getWorkoutName());
@@ -57,7 +59,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
         return mList.size();
     }
 
-    public Workout getItem(int position){
+    public WorkoutModel getItem(int position){
         return mList != null ? mList.get(position) : null;
     }
 
