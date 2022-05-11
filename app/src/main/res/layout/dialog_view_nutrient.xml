@@ -19,7 +19,7 @@
         android:layout_height="1dp"/>
 
     <TextView
-        android:text="오늘/표준 몸무게"
+        android:text="몸무게"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:textSize="20sp"

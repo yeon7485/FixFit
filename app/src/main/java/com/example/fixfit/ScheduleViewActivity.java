@@ -149,28 +149,24 @@ public class ScheduleViewActivity extends AppCompatActivity {
 
             ScheduleOne schedule = schedules.get(i);
             //포맷: time-숫자-숫자2
-            //숫자: 0 = 아침 1 = 점심 2 = 저녁
+            //숫자: 0 = 아침 1 = 점심 2 = 저녁 3 = 몸무게
             //숫자2: 0=탄 1=단 2=지
 
-            int totalKcal0 = calculateKcal(
-                    getNutrientCompact(scheduleSaves, time, 0, 0),
-                    getNutrientCompact(scheduleSaves, time, 0, 1),
-                    getNutrientCompact(scheduleSaves, time, 0, 2)
-            );
+            int totalKcal0 = (int)(4.1 * (getNutrientCompact(scheduleSaves, time, 0, 0) +
+                    getNutrientCompact(scheduleSaves, time, 1, 0) +
+                    getNutrientCompact(scheduleSaves, time, 2, 0)));
 
-            int totalKcal1 = calculateKcal(
-                    getNutrientCompact(scheduleSaves, time, 1, 0),
-                    getNutrientCompact(scheduleSaves, time, 1, 1),
-                    getNutrientCompact(scheduleSaves, time, 1, 2)
-            );
+            int totalKcal1 = 9 * (getNutrientCompact(scheduleSaves, time, 0, 1) +
+                    getNutrientCompact(scheduleSaves, time, 1, 1) +
+                    getNutrientCompact(scheduleSaves, time, 2, 1));
 
-            int totalKcal2 = calculateKcal(
-                    getNutrientCompact(scheduleSaves, time, 2, 0),
-                    getNutrientCompact(scheduleSaves, time, 2, 1),
-                    getNutrientCompact(scheduleSaves, time, 2, 2)
-            );
+            int totalKcal2 = 4 * (getNutrientCompact(scheduleSaves, time, 0, 2) +
+                    getNutrientCompact(scheduleSaves, time, 1, 2) +
+                    getNutrientCompact(scheduleSaves, time, 2, 2));
 
             int totalKcal = totalKcal0 + totalKcal1 + totalKcal2;
+
+            int weight = getWeight(scheduleSaves, time);
 
             if(totalKcal0 > 0) schedule.turnOn(1); else schedule.turnOff(1);
             if(totalKcal1 > 0) schedule.turnOn(2); else schedule.turnOff(2);
@@ -182,21 +178,21 @@ public class ScheduleViewActivity extends AppCompatActivity {
 
                 dialog.show(getSupportFragmentManager(), "NutrientViewDialog");
 
-                dialog.setListener(new NutrientViewDialog.OnLoadedListener() {
-                    @Override
-                    public void OnLoadedListener() {
-                        dialog.getTime().setText(" - " + currentMonth + ". " + currentDate + ". (" + weekText[week] + ")");
-                        dialog.getKcalTotal().setText(String.valueOf(totalKcal));
-                        dialog.getNutrient1().setText(String.valueOf(totalKcal0) + "kcal");
-                        dialog.getNutrient2().setText(String.valueOf(totalKcal1) + "kcal");
-                        dialog.getNutrient3().setText(String.valueOf(totalKcal2) + "kcal");
-                    }
+                dialog.setListener(() -> {
+                    dialog.getTime().setText(" - " + currentMonth + ". " + currentDate + ". (" + weekText[week] + ")");
+                    dialog.getKg().setText(String.valueOf(weight));
+                    dialog.getKcalTotal().setText(String.valueOf(totalKcal));
+                    dialog.getNutrient1().setText(String.valueOf(totalKcal0) + "kcal");
+                    dialog.getNutrient2().setText(String.valueOf(totalKcal1) + "kcal");
+                    dialog.getNutrient3().setText(String.valueOf(totalKcal2) + "kcal");
                 });
             });
 
             schedule.setOnLongClickListener(view -> {
                 InputNutrientDialog dialog = new InputNutrientDialog();
-                dialog.setListener((time2, nutrient, value) -> setNutrient(scheduleSaves, time, time2, nutrient, value));
+                dialog.setListener((int time2, int nutrient, int value) -> {
+                    setNutrient(scheduleSaves, time, time2, nutrient, value);
+                });
                 dialog.show(getSupportFragmentManager(), "YearMonthPicker");
                 return true;
             });
@@ -206,6 +202,7 @@ public class ScheduleViewActivity extends AppCompatActivity {
     }
 
     public void setNutrient(SharedPreferences scheduleSaves, String time, int time2, int nutrientType, int value) {
+        Log.d("schedulesview", "set neutrient: " + time + ", timing: " + time2 + ", nutrientType: " + nutrientType + ", value: " + value);
         SharedPreferences.Editor editor = scheduleSaves.edit();
 
         editor.putInt(createKey(time, time2, nutrientType), value);
@@ -214,6 +211,10 @@ public class ScheduleViewActivity extends AppCompatActivity {
 
         // 업데이트
         initData();
+    }
+
+    public int getWeight(SharedPreferences scheduleSaves, String time) {
+        return getNutrient(scheduleSaves, createKey(time, 3, 0));
     }
 
     public int getNutrientCompact(SharedPreferences scheduleSaves, String time, int time2, int nutrientType) {
@@ -231,9 +232,9 @@ public class ScheduleViewActivity extends AppCompatActivity {
         return time + "-" + time2 + "-" + nutrientType;
     }
 
-    public int calculateKcal(int carbohydrate, int fat, int protein) {
-        return (int) (4.1 * carbohydrate + 9 * fat + 4 * protein);
-    }
+//    public int calculateKcal(int carbohydrate, int fat, int protein) {
+//        return (int) (4.1 * carbohydrate + 9 * fat + 4 * protein);
+//    }
 
     public void initSchedule() {
         initSchedulesLine((LinearLayout) findViewById(R.id.frag_schedule_1));

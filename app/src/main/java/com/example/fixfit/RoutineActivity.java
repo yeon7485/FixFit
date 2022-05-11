@@ -110,6 +110,14 @@ public class RoutineActivity extends AppCompatActivity {
                     checkBox.setChecked(false);
                 }
 
+                convertView.findViewById(R.id.frag_routine_remove).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        routines.remove(position);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,28 @@ public class InputNutrientDialog extends DialogFragment {
         View dialog = inflater.inflate(R.layout.dialog_register_nutrient, null);
 
         spinner = dialog.findViewById(R.id.dialog_register_type);
-        spinner.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList("아침", "점심", "저녁")));
+        spinner.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, Arrays.asList("아침", "점심", "저녁", "몸무게")));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 3) {
+
+                    btnConfirm1.setText("등록");
+                    btnConfirm2.setEnabled(false);
+                    btnConfirm3.setEnabled(false);
+                } else {
+                    btnConfirm1.setText("탄수화물");
+                    btnConfirm2.setEnabled(true);
+                    btnConfirm3.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         btnConfirm1 = dialog.findViewById(R.id.dialog_register_n1);
         btnConfirm2 = dialog.findViewById(R.id.dialog_register_n2);
@@ -53,6 +75,9 @@ public class InputNutrientDialog extends DialogFragment {
 
         btnConfirm1.setOnClickListener((View.OnClickListener) view -> {
             listener.onDateSet(spinner.getSelectedItemPosition(), 0, Integer.parseInt(input.getText().toString()));
+
+            // 몸무게는 무조건 아침이고 3번 time2 0 nutrient 3
+
             InputNutrientDialog.this.getDialog().cancel();
         });
 
