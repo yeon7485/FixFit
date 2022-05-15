@@ -21,6 +21,25 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.FixFit">
         <activity
+            android:name=".RoutineActivity"
+            android:exported="true">
+<!--                        <intent-filter>-->
+<!--                            <action android:name="android.intent.action.MAIN" />-->
+
+<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                        </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ScheduleViewActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
@@ -34,14 +53,13 @@
             android:exported="false" />
         <activity
             android:name=".TechNeckActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
         <activity
             android:name=".RehabilitationActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".HealthScheduleActivity"
             android:exported="true">
@@ -58,9 +76,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
