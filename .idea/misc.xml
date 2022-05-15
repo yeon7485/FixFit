@@ -27,7 +27,17 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/new_task.xml" value="0.190625" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/task_layout.xml" value="0.1125" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/button_drawer.xml" value="0.1205" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1205" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/icon_image.xml" value="0.1675" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_gps.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_main.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_weather.xml" value="0.2" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_workout.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/task_layout.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/todo_list.xml" value="0.109375" />
       </map>
     </option>
   </component>
