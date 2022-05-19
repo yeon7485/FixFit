@@ -1,4 +1,4 @@
-package com.cookandroid.navi;
+package com.cookandroid.fixfit;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
