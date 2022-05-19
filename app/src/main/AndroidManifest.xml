@@ -28,9 +28,6 @@
             android:name=".ClassifierActivity"
             android:exported="false" />
         <activity
-            android:name=".GalleryActivity"
-            android:exported="false" />
-        <activity
             android:name=".TechNeckActivity"
             android:exported="true" />
         <activity
