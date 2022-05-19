@@ -33,7 +33,7 @@ public class WeatherActivity extends AppCompatActivity {
     Context context = WeatherActivity.this;
     TextView tv_name, tv_country;
     ImageView iv_weather;
-    TextView tv_temp, tv_main, tv_description;
+    TextView tv_temp, tv_main;
     TextView tv_wind, tv_cloud, tv_humidity;
     APIService apiInterface = null;
 
