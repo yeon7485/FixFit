@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ScheduleViewActivity extends AppCompatActivity {
+public class DietScheduleActivity extends AppCompatActivity {
 
     private List<ScheduleOne> schedules = new ArrayList<>();
 
@@ -33,7 +33,7 @@ public class ScheduleViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_view);
+        setContentView(R.layout.activity_diet_schedule);
 
         timeView = findViewById(R.id.frag_schedule_time);
         monthView = findViewById(R.id.frag_schedule_month);
@@ -52,8 +52,8 @@ public class ScheduleViewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 YearMonthPickerDialog pd = new YearMonthPickerDialog(year, month);
                 pd.setListener((datePicker, year, month, day) -> {
-                    ScheduleViewActivity.this.year = year;
-                    ScheduleViewActivity.this.month = month - 1; // 아마..
+                    DietScheduleActivity.this.year = year;
+                    DietScheduleActivity.this.month = month - 1; // 아마..
 
                     initData();
                 });

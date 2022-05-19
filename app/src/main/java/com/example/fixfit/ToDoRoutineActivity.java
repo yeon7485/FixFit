@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class RoutineActivity extends AppCompatActivity {
+public class ToDoRoutineActivity extends AppCompatActivity {
 
     private ListView list;
 
@@ -31,7 +31,7 @@ public class RoutineActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_routine);
+        setContentView(R.layout.activity_todo_routine);
 
         preferences = getSharedPreferences("routines", MODE_PRIVATE);
 

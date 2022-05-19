@@ -43,6 +43,67 @@
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/frag_routine.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/task_layout.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/todo_list.xml" value="0.109375" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_routine.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_schedule_view.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_workout.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/dialog_register_nutrient.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/dialog_register_routine.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/dialog_view_nutrient.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/dialog_year_month_picker.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_guide.xml" value="0.18" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine_plus.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_setup.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/new_task.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/todo_list.xml" value="0.13903985507246377" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/menu/bottom_menu.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Downloads/FixFit-master/app/src/main/res/layout/activity_schedule_view.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/cjmbe/Downloads/FixFit-master/app/src/main/res/layout/dialog_year_month_picker.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/cjmbe/Downloads/FixFit-master/app/src/main/res/layout/frag_guide.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/border.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/button_border.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/button_drawer.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_add.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_directions_run_24.xml" value="0.297" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_baseline_wb_sunny_24.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_gallery.xml" value="0.297" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_logo_fixfit.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_realtime.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_rehabilitation.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_report.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/ic_tech_neck.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/item_workout.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/oval_style.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/schedule_view_nutrient.xml" value="0.297" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/drawable/title_bar.xml" value="0.2985" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_classifier.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_gallery.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_health_schedule.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_rehabilitation.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_routine.xml" value="0.67" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_schedule_view.xml" value="0.5" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_tech_neck.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/activity_workout.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/dialog_register.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/dialog_register_routine.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/dialog_view_nutrient.xml" value="0.3016304347826087" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/dialog_year_month_picker.xml" value="0.1875" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/frag_routine.xml" value="0.5" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/frag_routine_plus.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/frag_schedule.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/item_workout.xml" value="0.1875" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/new_task.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/schedule_one.xml" value="0.33611111111111114" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/task_layout.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/ehe12/Desktop/FixFit-master/app/src/main/res/layout/year_month_picker.xml" value="0.1" />
       </map>
     </option>
   </component>
