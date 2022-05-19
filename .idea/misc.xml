@@ -35,7 +35,29 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/task_layout.xml" value="0.1125" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/tech_neck_realtime.xml" value="0.25364583333333335" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/button_drawer.xml" value="0.1205" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1205" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/ic_report.xml" value="0.219" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/icon_image.xml" value="0.1675" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_classifier.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_diet_schedule.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_gps.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_main.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_schedule_view.xml" value="0.2" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_splash.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_weather.xml" value="0.2" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_workout.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_view_nutrient.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_year_month_picker.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/frag_guide.xml" value="0.13541666666666666" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/frag_home.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/frag_routine.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/frag_weather.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/task_layout.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/todo_list.xml" value="0.109375" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/menu/bottom_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
