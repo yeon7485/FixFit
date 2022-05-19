@@ -26,14 +26,16 @@ public class FragHome extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 액티비티 나오게 하셔야해욥
+                Intent intent = new Intent(getActivity(), TechNeckActivity.class);
+                startActivity(intent);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 액티비티 나오게 하셔야해욥
+                Intent intent = new Intent(getActivity(), RehabilitationActivity.class);
+                startActivity(intent);
             }
         });
 
