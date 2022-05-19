@@ -37,10 +37,12 @@ public class FragHome extends Fragment {
             }
         });
 
+        //식단기록 액티비티 연결
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 액티비티 나오게 하셔야해욥
+                Intent intent = new Intent(getActivity(), DietScheduleActivity.class);
+                startActivity(intent);
             }
         });
         //운동기록 액티비티 연결
