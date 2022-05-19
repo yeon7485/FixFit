@@ -2,6 +2,8 @@
     <string name="app_name">FixFit</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weather_url">http://api.openweathermap.org/</string>
+    <string name="weather_app_id">20abdec9a85cf5140614bbaf66f9e329</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="model">Model:</string>
     <string-array name="models">
