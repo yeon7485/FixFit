@@ -96,7 +96,7 @@
                         android:orientation="horizontal">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/lower_back_recyclerview"
+                        android:id="@+id/waist_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">

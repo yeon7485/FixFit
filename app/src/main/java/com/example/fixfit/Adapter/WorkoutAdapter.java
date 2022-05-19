@@ -22,9 +22,11 @@ import java.util.ArrayList;
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder> {
 
     private ArrayList<WorkoutModel> mList = null;
+    private ArrayList<Integer> codeList = null;
 
-    public WorkoutAdapter(ArrayList<WorkoutModel> mList) {
+    public WorkoutAdapter(ArrayList<WorkoutModel> mList, ArrayList<Integer> codeList) {
         this.mList = mList;
+        this.codeList = codeList;
     }
     public interface WorkoutClickListener{
         void onItemClicked(int position);
@@ -63,6 +65,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
         return mList != null ? mList.get(position) : null;
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView item_workout_img;
         TextView item_workout_txt;
@@ -82,6 +85,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
                     Log.v("position", String.valueOf(pos));
                     Intent intent = new Intent(v.getContext(), WorkoutActivity.class);
                     intent.putExtra("item", getItem(pos));
+                    intent.putExtra("code", codeList.get(pos));
                     v.getContext().startActivity(intent);
                 }
             });

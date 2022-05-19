@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fixfit">
+
+    <uses-sdk tools:overrideLibrary="           androidx.camera.camera2, androidx.camera.core,           androidx.camera.view, androidx.camera.lifecycle" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".TodoActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ClassifierActivity"
             android:exported="false" />
@@ -28,16 +32,12 @@
             android:exported="false" />
         <activity
             android:name=".TechNeckActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
         <activity
             android:name=".RehabilitationActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".HealthScheduleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,6 +45,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HealthScheduleActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
