@@ -56,7 +56,6 @@ public class WeatherActivity extends AppCompatActivity {
         iv_weather = (ImageView) findViewById(R.id.iv_weather);
         tv_temp = (TextView) findViewById(R.id.tv_temp);
         tv_main = (TextView) findViewById(R.id.tv_main);
-        tv_description = (TextView) findViewById(R.id.tv_description);
         tv_wind = (TextView) findViewById(R.id.tv_wind);
         tv_cloud = (TextView) findViewById(R.id.tv_cloud);
         tv_humidity = (TextView) findViewById(R.id.tv_humidity);
@@ -125,12 +124,226 @@ public class WeatherActivity extends AppCompatActivity {
                 .error(R.drawable.icon_image)
                 .into(iv_weather);
         tv_temp.setText(doubleToStrFormat(2, model.getMain().getTemp() - 273.15) + " 'C");  //소수점 2번째 자리까지 반올림하기
-//        if(model.getWeather().get(0).getMain().equals("Clear")){
-//            tv_main.setText("맑음");
-//        }
-        tv_main.setText(model.getWeather().get(0).getMain());
 
-        tv_description.setText(model.getWeather().get(0).getDescription());
+        switch (model.getWeather().get(0).getId()){
+            case  "200":
+                tv_main.setText("가벼운 비를 동반한 천둥구름");
+                break;
+            case  "201":
+                tv_main.setText("비를 동반한 천둥구름");
+                break;
+            case  "202":
+                tv_main.setText("폭우를 동반한 천둥구름");
+                break;
+            case  "210":
+                tv_main.setText("약한 천둥구름");
+                break;
+            case  "211":
+                tv_main.setText("천둥구름");
+                break;
+            case  "212":
+                tv_main.setText("강한 천둥구름");
+                break;
+            case  "221":
+                tv_main.setText("불규칙적 천둥구름");
+                break;
+            case  "230":
+                tv_main.setText("약한 연무를 동반한 천둥구름");
+                break;
+            case  "231":
+                tv_main.setText("연무를 동반한 천둥구름");
+                break;
+            case  "232":
+                tv_main.setText("강한 안개비를 동반한 천둥구름");
+                break;
+            case  "300":
+                tv_main.setText("가벼운 안개비");
+                break;
+            case  "302":
+                tv_main.setText("강한 안개비");
+                break;
+            case  "310":
+                tv_main.setText("가벼운 적은비");
+                break;
+            case  "311":
+                tv_main.setText("적은비");
+                break;
+            case  "312":
+                tv_main.setText("강한 적은비");
+                break;
+            case  "313":
+                tv_main.setText("소나기와 안개비");
+                break;
+            case  "314":
+                tv_main.setText("강한 소나기와 안개비");
+                break;
+            case  "321":
+                tv_main.setText("소나기");
+                break;
+            case  "500":
+                tv_main.setText("악한 비");
+                break;
+            case  "501":
+                tv_main.setText("중간 비");
+                break;
+            case  "502":
+                tv_main.setText("강한 비");
+                break;
+            case  "503":
+                tv_main.setText("매우 강한 비");
+                break;
+            case  "504":
+                tv_main.setText("극심한 비");
+                break;
+            case  "511":
+                tv_main.setText("우박");
+                break;
+            case  "520":
+                tv_main.setText("약한 소나기 비");
+                break;
+            case  "521":
+                tv_main.setText("소나기 비");
+                break;
+            case  "522":
+                tv_main.setText("강한 소나기 비");
+                break;
+            case  "531":
+                tv_main.setText("불규칙적 소나기 비");
+                break;
+            case  "600":
+                tv_main.setText("가벼운 눈");
+                break;
+            case  "601":
+                tv_main.setText("눈");
+                break;
+            case  "602":
+                tv_main.setText("강한 눈");
+                break;
+            case  "611":
+                tv_main.setText("진눈깨비");
+                break;
+            case  "612":
+                tv_main.setText("소나기 진눈깨비");
+                break;
+            case  "615":
+                tv_main.setText("약한 비와 눈");
+                break;
+            case  "616":
+                tv_main.setText("비와 눈");
+                break;
+            case  "620":
+                tv_main.setText("약한 소나기 눈");
+                break;
+            case  "621":
+                tv_main.setText("소나기 눈");
+                break;
+            case  "622":
+                tv_main.setText("강한 소나기 눈");
+                break;
+            case  "701":
+                tv_main.setText("박무");
+                break;
+            case  "711":
+                tv_main.setText("연기");
+                break;
+            case  "721":
+                tv_main.setText("연무");
+                break;
+            case  "731":
+                tv_main.setText("모래 먼지");
+                break;
+            case  "741":
+                tv_main.setText("안개");
+                break;
+            case  "751":
+                tv_main.setText("모래");
+                break;
+            case  "761":
+                tv_main.setText("먼지");
+                break;
+            case  "762":
+                tv_main.setText("화산재");
+                break;
+            case  "771":
+                tv_main.setText("돌풍");
+                break;
+            case  "781":
+                tv_main.setText("토네이도");
+                break;
+            case  "800":
+                tv_main.setText("구름 한 점 없는 맑은 하늘");
+                break;
+            case  "801":
+                tv_main.setText("약간의 구름이 낀 하늘");
+                break;
+            case  "802":
+                tv_main.setText("드문드문 구름이 낀 하늘");
+                break;
+            case  "803":
+                tv_main.setText("구름이 거의 없는 하늘");
+                break;
+            case  "804":
+                tv_main.setText("구름으로 뒤덮인 흐린 하늘");
+                break;
+            case  "900":
+                tv_main.setText("토네이도");
+                break;
+            case  "901":
+                tv_main.setText("태풍");
+                break;
+            case  "902":
+                tv_main.setText("허리케인");
+                break;
+            case  "903":
+                tv_main.setText("한랭");
+                break;
+            case  "904":
+                tv_main.setText("고온");
+                break;
+            case  "905":
+                tv_main.setText("바람부는");
+                break;
+            case  "906":
+                tv_main.setText("우박");
+                break;
+            case  "951":
+                tv_main.setText("바람이 거의 없는");
+                break;
+            case  "952":
+                tv_main.setText("약한 바람");
+                break;
+            case  "953":
+                tv_main.setText("부드러운 바람");
+                break;
+            case  "954":
+                tv_main.setText("중간 세기 바람");
+                break;
+            case  "955":
+                tv_main.setText("신선한 바람");
+                break;
+            case  "956":
+                tv_main.setText("센 바람");
+                break;
+            case  "957":
+                tv_main.setText("돌풍에 가까운 센 바람");
+                break;
+            case  "958":
+                tv_main.setText("돌풍");
+                break;
+            case  "959":
+                tv_main.setText("심각한 돌풍");
+                break;
+            case  "960":
+                tv_main.setText("폭풍");
+                break;
+            case  "961":
+                tv_main.setText("강한 폭풍");
+                break;
+            case  "962":
+                tv_main.setText("허리케인");
+                break;
+        }
+
         tv_wind.setText(doubleToStrFormat(2, model.getWind().getSpeed()) + " m/s");
         tv_cloud.setText(doubleToStrFormat(2, model.getClouds().getAll()) + " %");
         tv_humidity.setText(doubleToStrFormat(2, model.getMain().getHumidity()) + " %");

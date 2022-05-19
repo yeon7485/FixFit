@@ -2,6 +2,7 @@
 package com.example.fixfit;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -31,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-
             switch (item.getItemId())
             {
                 case R.id.action_home:
@@ -49,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_list:
                     transaction.replace(R.id.frameLayout, fraList).commitAllowingStateLoss();
                     break;
-                case R.id.action_weather:
-                    transaction.replace(R.id.frameLayout, fragWeather).commitAllowingStateLoss();
-                    break;
 
  */
+                case R.id.action_weather:
+                    Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                    startActivity(intent);
+                    break;
+
                 case R.id.action_setup:
                     transaction.replace(R.id.frameLayout, fragSetup).commitAllowingStateLoss();
                     break;
