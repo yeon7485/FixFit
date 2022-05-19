@@ -3,23 +3,18 @@ package com.example.fixfit;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,7 +27,8 @@ public class HealthScheduleActivity extends AppCompatActivity {
     public TextView diaryTextView, textView2;
     //    public TextView textView3;
     public EditText contextEditText;
-    public LinearLayout schedule_layout;
+    public FrameLayout schedule_layout;
+    public String ViewIndex = "0";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,10 +58,10 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 textView2.setVisibility(View.INVISIBLE);
                 cha_Btn.setVisibility(View.INVISIBLE);
                 del_Btn.setVisibility(View.INVISIBLE);
-                Log.v("ssss", "1111111");
-                diaryTextView.setText(String.format("%d / %d / %d", year, month + 1, dayOfMonth));
+                diaryTextView.setText(String.format("%d / %d / %d  운동일지", year, month + 1, dayOfMonth));
                 contextEditText.setText("");
                 checkDay(year, month, dayOfMonth, userID);
+
             }
         });
         save_Btn.setOnClickListener(new View.OnClickListener() {
@@ -81,9 +77,13 @@ public class HealthScheduleActivity extends AppCompatActivity {
                     del_Btn.setVisibility(View.VISIBLE);
                     contextEditText.setVisibility(View.INVISIBLE);
                     textView2.setVisibility(View.VISIBLE);
+                    ViewIndex = "0";
+
                 } else {
+                    ViewIndex ="1";
                     Toast.makeText(getApplicationContext(), "내용을 입력해주세요!!!", Toast.LENGTH_LONG).show();
                 }
+                Log.i("index", ViewIndex);
             }
         });
     }
@@ -99,14 +99,14 @@ public class HealthScheduleActivity extends AppCompatActivity {
             fis.close();
 
             str = new String(fileData);
-            Log.v("ssss", "2222222");
             contextEditText.setVisibility(View.INVISIBLE);
             textView2.setVisibility(View.VISIBLE);
             textView2.setText(str);
             save_Btn.setVisibility(View.INVISIBLE);
             cha_Btn.setVisibility(View.VISIBLE);
             del_Btn.setVisibility(View.VISIBLE);
-
+            ViewIndex = "0";
+            Log.i("index", ViewIndex);
             cha_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -118,8 +118,9 @@ public class HealthScheduleActivity extends AppCompatActivity {
                     cha_Btn.setVisibility(View.INVISIBLE);
                     del_Btn.setVisibility(View.INVISIBLE);
                     textView2.setText(contextEditText.getText());
+                    ViewIndex = "1";
+                    Log.i("index", ViewIndex);
                 }
-
             });
             del_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -142,10 +143,14 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 cha_Btn.setVisibility(View.INVISIBLE);
                 del_Btn.setVisibility(View.INVISIBLE);
                 contextEditText.setVisibility(View.VISIBLE);
-                Log.v("없어", "없어");
+                ViewIndex = "1";
+                Log.i("index", ViewIndex);
+
             }
 
         } catch (Exception e) {
+            ViewIndex = "1";
+            Log.i("index", ViewIndex);
             e.printStackTrace();
         }
     }
@@ -176,6 +181,16 @@ public class HealthScheduleActivity extends AppCompatActivity {
             fos.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    //상황별 뒤로가기 버튼 이벤트
+    @Override
+    public void onBackPressed() {
+        if(ViewIndex.equals("1")){
+            schedule_layout.setVisibility(View.INVISIBLE);
+            ViewIndex = "0";
+        }else{
+            super.onBackPressed();
         }
     }
 }
