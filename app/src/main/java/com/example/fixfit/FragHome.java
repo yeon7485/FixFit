@@ -1,10 +1,10 @@
 package com.example.fixfit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -43,11 +43,12 @@ public class FragHome extends Fragment {
                 // 액티비티 나오게 하셔야해욥
             }
         });
-
+        //운동기록 액티비티 연결
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 액티비티 나오게 하셔야해욥
+                Intent intent = new Intent(getActivity(), HealthScheduleActivity.class);
+                startActivity(intent);
             }
         });
 
