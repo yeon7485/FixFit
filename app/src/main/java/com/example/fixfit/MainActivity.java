@@ -44,14 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_guide:
                     transaction.replace(R.id.frameLayout, fragGuide).commitAllowingStateLoss();
                     break;
-/*
-                리스트랑 날씨쪽 xml만들어야해요
 
                 case R.id.action_list:
-                    transaction.replace(R.id.frameLayout, fraList).commitAllowingStateLoss();
+                    Intent intent2 = new Intent(MainActivity.this, ToDoRoutineActivity.class);
+                    startActivity(intent2);
                     break;
 
- */
                 case R.id.action_weather:
                     Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
                     startActivity(intent);
