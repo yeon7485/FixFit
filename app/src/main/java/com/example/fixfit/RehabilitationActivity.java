@@ -27,7 +27,7 @@ public class RehabilitationActivity extends AppCompatActivity implements View.On
     int[] knee_img = {R.drawable.knee_1};
     String[] knee_txt = {"앉아서 다리펴기"};
 
-    WorkoutAdapter lower_back_adapter;
+    WorkoutAdapter waist_adapter;
     WorkoutAdapter knee_adapter;
 
     @Override
@@ -49,8 +49,8 @@ public class RehabilitationActivity extends AppCompatActivity implements View.On
         for (int i = 0; i < waist_img.length; i++) {
             waistList.add(new WorkoutModel(waist_img[i], waist_txt[i]));
         }
-        lower_back_adapter = new WorkoutAdapter(waistList);
-        waist_recyclerview.setAdapter(lower_back_adapter);
+        waist_adapter = new WorkoutAdapter(waistList);
+        waist_recyclerview.setAdapter(waist_adapter);
 
         for (int i = 0; i < knee_img.length; i++) {
             kneeList.add(new WorkoutModel(knee_img[i], knee_txt[i]));
