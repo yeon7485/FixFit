@@ -20,25 +20,26 @@
         android:theme="@style/Theme.FixFit">
         <activity
             android:name=".ToDoRoutineActivity"
-            android:exported="true">
-<!--                        <intent-filter>-->
-<!--                            <action android:name="android.intent.action.MAIN" />-->
-
-<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--                        </intent-filter>-->
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".ClassifierActivity"
             android:exported="false" />
         <activity
             android:name=".TechNeckActivity"
             android:exported="true" />
+
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
         <activity
             android:name=".RehabilitationActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".HealthScheduleActivity"
             android:exported="true">
@@ -46,23 +47,14 @@
         </activity>
         <activity
             android:name=".DietScheduleActivity"
-            android:exported="true">
-
-
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".WeatherActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

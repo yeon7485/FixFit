@@ -132,8 +132,8 @@ public abstract class CameraActivity extends AppCompatActivity
         threadsTextView = findViewById(R.id.threads);
         plusImageView = findViewById(R.id.plus);
         minusImageView = findViewById(R.id.minus);
-//        modelSpinner = findViewById(R.id.model_spinner);
-//        deviceSpinner = findViewById(R.id.device_spinner);
+        modelSpinner = findViewById(R.id.model_spinner);
+        deviceSpinner = findViewById(R.id.device_spinner);
         bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         gestureLayout = findViewById(R.id.gesture_layout);
         sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
