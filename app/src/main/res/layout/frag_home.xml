@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="자세 판정"
+                android:text="거북목 판정"
                 android:textSize="20dp"
                 android:layout_gravity="center|bottom"/>
 

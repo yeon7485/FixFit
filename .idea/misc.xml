@@ -19,13 +19,21 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_gallery.xml" value="0.2" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_main.xml" value="0.1490036231884058" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_real_time.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.264" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_splash.xml" value="0.1125" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_tech_neck.xml" value="0.264" />
-        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_workout.xml" value="0.16" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_workout.xml" value="0.17898832684824903" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/camera_connection_fragment.xml" value="0.1" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_finish.xml" value="0.10131712259371833" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_timer.xml" value="0.1082427536231884" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/frag_home.xml" value="0.12335359675785208" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/item_workout.xml" value="0.25364583333333335" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/new_task.xml" value="0.190625" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/realtime.xml" value="0.136" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/task_layout.xml" value="0.1125" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/tech_neck_realtime.xml" value="0.25364583333333335" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/button_drawer.xml" value="0.1205" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1205" />

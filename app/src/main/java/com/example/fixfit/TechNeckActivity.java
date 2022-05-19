@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class TechNeckActivity extends AppCompatActivity implements View.OnClickListener {
 
-    LinearLayout tech_neck_realtime, tech_neck_gallery;
+    LinearLayout tech_neck_realtime;
 
 
     @Override
@@ -18,10 +18,8 @@ public class TechNeckActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_tech_neck);
 
         tech_neck_realtime = (LinearLayout) findViewById(R.id.tech_neck_realtime);
-        tech_neck_gallery = (LinearLayout) findViewById(R.id.tech_neck_gallery);
 
         tech_neck_realtime.setOnClickListener(this);
-        tech_neck_gallery.setOnClickListener(this);
     }
 
     @Override
@@ -29,11 +27,7 @@ public class TechNeckActivity extends AppCompatActivity implements View.OnClickL
         Intent intent;
         switch (view.getId()) {
             case R.id.tech_neck_realtime:
-//                intent = new Intent(this, StudentsHall.class);
-//                startActivity(intent);
-                break;
-            case R.id.tech_neck_gallery:
-                intent = new Intent(this, GalleryActivity.class);
+                intent = new Intent(this, ClassifierActivity.class);
                 startActivity(intent);
                 break;
         }

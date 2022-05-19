@@ -66,6 +66,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/classifier_preview"
             android:layout_width="270dp"
             android:layout_height="270dp"
             android:layout_gravity="center"

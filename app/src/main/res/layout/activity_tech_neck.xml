@@ -58,18 +58,46 @@
     </LinearLayout>
 
 
-<!--    실시간 감지-->
     <LinearLayout
-        android:id="@+id/tech_neck_realtime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="50dp"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:background="@drawable/teckneck"
+            app:tint="@color/main_color_1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="오른쪽을 보고\n상반신만 나오게\n옆으로 서주세요 ☺"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:lineSpacingExtra="10dp"
+            android:fontFamily="@font/cafe24_ssurround_air"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tech_neck_realtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="50dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_realtime"
             app:tint="@color/main_color_1"/>
@@ -77,42 +105,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text=" 실시간 감지"
+            android:layout_marginTop="10dp"
+            android:text="촬영하러 가기"
             android:layout_gravity="center"
-            android:fontFamily="@font/cafe24_ssurround_air"
-            android:textSize="30sp"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
-
-<!--    갤러리에서 불러오기-->
-    <LinearLayout
-        android:id="@+id/tech_neck_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginHorizontal="50dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_gallery"
-            app:tint="@color/main_color_1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="갤러리에서 불러오기"
             android:gravity="center"
-            android:layout_gravity="center"
+            android:lineSpacingExtra="10dp"
             android:fontFamily="@font/cafe24_ssurround_air"
             android:textSize="30sp"
             android:textColor="@color/black"/>
 
     </LinearLayout>
+
 
 </LinearLayout>
