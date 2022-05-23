@@ -46,39 +46,44 @@ public class FragSetup extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 parent.getItemAtPosition(position);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
                 if(position == 0){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    try{
+                        builder.setTitle("프로필 설정");
+                        builder.setView(dialogView);
+                        builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                    builder.setTitle("프로필 설정");
-                    builder.setView(dialogView);
-                    builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
 
-                        }
-                    });
+                        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String name = dlgName.getText().toString();
+                                String height = dlgHeight.getText().toString();
+                                String birth = dlgBirth.getText().toString();
 
-                    builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String name = dlgName.getText().toString();
-                            String height = dlgHeight.getText().toString();
-                            String birth = dlgBirth.getText().toString();
+                                int checkedId = dialog_rg.getCheckedRadioButtonId();
+                                RadioButton rb = (RadioButton) dialogView.findViewById(checkedId);
 
-                            int checkedId = dialog_rg.getCheckedRadioButtonId();
-                            RadioButton rb = (RadioButton) dialogView.findViewById(checkedId);
+                                String sex = rb.getText().toString();
 
-                            String sex = rb.getText().toString();
+                                MainActivity main = (MainActivity) getActivity();
+                                main.getTextData(name, sex, height, birth);
 
-                            MainActivity main = (MainActivity) getActivity();
-                            main.getTextData(name, sex, height, birth);
+                                Toast.makeText(getActivity(), "수정완료", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                            Toast.makeText(getActivity(), "수정완료", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        builder.show();
+                    }
+                    catch (Exception e){
 
-                    builder.show();
+                    }
+
                 }
 
                 else if(position == 1){
