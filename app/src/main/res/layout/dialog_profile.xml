@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="이름"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/dlgName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:hint="이름을 입력하시오"
+            android:textSize="12sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="성별"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <RadioGroup
+            android:id="@+id/dialog_rg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/dialog_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남자"
+                android:textSize="12sp"/>
+
+            <RadioButton
+                android:id="@+id/dialog_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자"
+                android:textSize="12sp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="키"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/dlgHeight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:hint="키를 입력하시오"
+            android:textSize="12sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="생년월일"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/dlgBirth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:hint="생년월일을 입력하시오 (예: 1997.01.01)"
+            android:textSize="12sp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
