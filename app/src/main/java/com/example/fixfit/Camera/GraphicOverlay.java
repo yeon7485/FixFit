@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.google.common.base.Preconditions;
@@ -207,7 +208,8 @@ public class GraphicOverlay extends View {
     if (viewAspectRatio > imageAspectRatio) {
       // The image needs to be vertically cropped to be displayed in this view.
       scaleFactor = (float) getWidth() / imageWidth;
-      postScaleHeightOffset = ((float) getWidth() / imageAspectRatio - getHeight()) / 2;
+      // 밑에 잘리는거 맞추기 위해 조정
+      postScaleHeightOffset = ((float) getWidth() / imageAspectRatio - getHeight()) / 2 - 190;
     } else {
       // The image needs to be horizontally cropped to be displayed in this view.
       scaleFactor = (float) getHeight() / imageHeight;
