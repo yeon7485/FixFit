@@ -3,7 +3,10 @@ package com.example.fixfit;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +22,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.io.IOException;
+
 public class FragSetup extends Fragment {
-    public FragSetup(){}
+    public FragSetup() {
+    }
+
+    int REQUEST_IMAGE_CODE = 1001;
 
     @Nullable
     @Override
@@ -34,11 +42,11 @@ public class FragSetup extends Fragment {
 
         final RadioGroup dialog_rg = (RadioGroup) dialogView.findViewById(R.id.dialog_rg);
 
-        String [] data = {"프로필 설정", "프로필 이미지 설정", "글자 크기 설정"};
+        String[] data = {"프로필 설정", "프로필 이미지 설정", "글자 크기 설정"};
 
 
         ListView list = (ListView) view.findViewById(R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,data);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, data);
         list.setAdapter(adapter);
 
 
@@ -48,8 +56,8 @@ public class FragSetup extends Fragment {
                 parent.getItemAtPosition(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                if(position == 0){
-                    try{
+                if (position == 0) {
+                    try {
                         builder.setTitle("프로필 설정");
                         builder.setView(dialogView);
                         builder.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
@@ -79,19 +87,32 @@ public class FragSetup extends Fragment {
                         });
 
                         builder.show();
-                    }
-                    catch (Exception e){
+                    } catch (Exception e) {
 
                     }
 
-                }
-
-                else if(position == 1){
-                    // 갤러리에서 사진 불러오는 액티비티 있지 않았나요??
+                } else if (position == 1) {
+                    Intent in = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(in, REQUEST_IMAGE_CODE);
                 }
 
             }
         });
+
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CODE) {
+            Uri image = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), image);
+                ((MainActivity) getActivity()).ImgProfile.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
