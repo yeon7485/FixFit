@@ -22,13 +22,13 @@
             android:layout_marginHorizontal="15dp"
             android:orientation="vertical">
 
-
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
+                android:scaleType="fitXY"
                 android:id="@+id/ImgProfile"
-                android:background="@null" />
+                android:background="@drawable/default_profile" />
 
             <TextView
                 android:layout_width="match_parent"
