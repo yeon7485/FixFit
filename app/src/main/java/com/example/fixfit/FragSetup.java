@@ -1,4 +1,4 @@
-package com.cookandroid.fixfit;
+package com.example.fixfit;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

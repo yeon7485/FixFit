@@ -58,8 +58,25 @@
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/task_layout.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/todo_list.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/menu/bottom_menu.xml" value="0.1" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/drawable/custom_checkbox.xml" value="0.1955" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.1955" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/drawable/ic_baseline_format_list_numbered_24.xml" value="0.1955" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/drawable/ic_launcher_checked_background.xml" value="0.1955" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/drawable/ic_launcher_unchecked_background.xml" value="0.1955" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_diet_schedule.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_health_schedule.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_rehabilitation.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_tech_neck.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_todo_routine.xml" value="0.1875" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/activity_weather.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/dialog_profile.xml" value="0.33" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_guide.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine.xml" value="0.33" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine_plus.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_setup.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/tech_neck_realtime.xml" value="0.13496376811594202" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1955" />
+        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1955" />
       </map>
     </option>
   </component>
