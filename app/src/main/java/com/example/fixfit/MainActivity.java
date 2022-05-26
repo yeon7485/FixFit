@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private FragHome fragHome = new FragHome();
     private FragGuide fragGuide = new FragGuide();
     private FragSetup fragSetup = new FragSetup();
+
     TextView tName, tSex, tHeight, tBirth;
-    
+    ImageView ImgProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+           
+        ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
