@@ -22,17 +22,19 @@
             android:layout_marginHorizontal="15dp"
             android:orientation="vertical">
 
-
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:background="@null" />
+                android:scaleType="fitXY"
+                android:id="@+id/ImgProfile"
+                android:background="@drawable/default_profile" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="이름"
+                android:id="@+id/tName"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -106,10 +108,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="xxxx.xx.xx"
+                android:id="@+id/tBirth"
                 android:layout_marginBottom="7dp"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
-
 
         </LinearLayout>
 

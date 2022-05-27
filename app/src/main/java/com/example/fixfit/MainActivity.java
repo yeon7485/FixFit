@@ -5,6 +5,8 @@ package com.example.fixfit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private FragGuide fragGuide = new FragGuide();
     private FragSetup fragSetup = new FragSetup();
 
+    TextView tName, tSex, tHeight, tBirth;
+    ImageView ImgProfile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+           
+        ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -62,5 +70,17 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }
+    }
+    
+    public void getTextData(String name, String sex, String height, String birth){
+        tName = findViewById(R.id.tName);
+        tSex = findViewById(R.id.tSex);
+        tHeight = findViewById(R.id.tHeight);
+        tBirth = findViewById(R.id.tBirth);
+
+        tName.setText(name);
+        tSex.setText(sex);
+        tHeight.setText(height + " cm");
+        tBirth.setText(birth);
     }
 }
