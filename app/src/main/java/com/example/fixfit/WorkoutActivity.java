@@ -1,7 +1,5 @@
 package com.example.fixfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fixfit.Camera.CameraSource;
 import com.example.fixfit.Camera.CameraSourcePreview;
 import com.example.fixfit.Camera.GraphicOverlay;
@@ -23,8 +23,6 @@ import com.example.fixfit.Camera.PreferenceUtils;
 import com.example.fixfit.Model.WorkoutModel;
 import com.example.fixfit.posedetector.PoseDetectorProcessor;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
-
-import org.checkerframework.checker.units.qual.g;
 
 import java.io.IOException;
 
@@ -197,6 +195,7 @@ public class WorkoutActivity extends AppCompatActivity {
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
                         finish();
                     }
                 });
@@ -212,17 +211,14 @@ public class WorkoutActivity extends AppCompatActivity {
     private void showDialog() {
         dialog_timer = (LinearLayout) View.inflate(WorkoutActivity.this, R.layout.dialog_timer, null);
         AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
-
         Spinner spinner = (Spinner) dialog_timer.findViewById(R.id.timer_second);
         ArrayAdapter adapter = new ArrayAdapter(WorkoutActivity.this, android.R.layout.simple_spinner_item, seconds);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
         dlg.setView(dialog_timer);
         dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 long time = Long.parseLong(spinner.getSelectedItem().toString()) * 1000;
                 Log.v("timer", spinner.getSelectedItem().toString());
                 timerStartStop(time);
@@ -232,7 +228,6 @@ public class WorkoutActivity extends AppCompatActivity {
     }
 
     private void timerStartStop(long time){
-
         if(mTimerRunning) mCountDownTimer.cancel();
         startTimer(time);
     }
