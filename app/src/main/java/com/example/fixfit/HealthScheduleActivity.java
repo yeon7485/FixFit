@@ -1,6 +1,7 @@
 package com.example.fixfit;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +17,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fixfit.fragment.WorkOutDialog;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+
 //<!--김성윤 (운동스케줄러 버전 1)-->
 public class HealthScheduleActivity extends AppCompatActivity {
     public String fname = null;
@@ -29,11 +38,14 @@ public class HealthScheduleActivity extends AppCompatActivity {
     public EditText contextEditText;
     public FrameLayout schedule_layout;
     public String ViewIndex = "0";
+    public static Context mContext;
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference("WorkOutSet");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_schedule);
+        mContext = this;
         calendarView = findViewById(R.id.calendarView);
         diaryTextView = findViewById(R.id.diaryTextView);
         save_Btn = findViewById(R.id.save_Btn);
@@ -47,7 +59,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
         final String userID = intent.getStringExtra("userID");
-//        textView3.setText(name+"님의 운동 기록");
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -62,8 +73,47 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 contextEditText.setText("");
                 checkDay(year, month, dayOfMonth, userID);
 
+                //dialog 띄우기
+                WorkOutDialog dialog = new WorkOutDialog();
+
+                dialog.show(getSupportFragmentManager(), "DialogWorkOut");
+
+                dialog.setListener(() -> {
+                    String date = year + "-" + (month + 1) + "-" + dayOfMonth;
+                    dialog.getTime().setText(" - " + year + ". " + (month + 1) + "." + dayOfMonth);
+//                    dialog.getPose1000().setText(String.valueOf(0));
+//                    dialog.getPose2000().setText(String.valueOf(0));
+//                    dialog.getPose2001().setText(String.valueOf(0));
+//                    dialog.getPose3000().setText(String.valueOf(0));
+                    db.child(date).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                if (ds.getKey().equals("1000")) {
+                                    dialog.getPose1000().setText(String.valueOf(ds.getValue()));
+                                }
+                                if (ds.getKey().equals("2000")) {
+                                    dialog.getPose2000().setText(String.valueOf(ds.getValue()));
+                                }
+                                if (ds.getKey().equals("2001")) {
+                                    dialog.getPose2001().setText(String.valueOf(ds.getValue()));
+                                }
+                                if (ds.getKey().equals("3000")) {
+                                    dialog.getPose3000().setText(String.valueOf(ds.getValue()));
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                });
+
             }
         });
+
         save_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,7 +130,7 @@ public class HealthScheduleActivity extends AppCompatActivity {
                     ViewIndex = "0";
 
                 } else {
-                    ViewIndex ="1";
+                    ViewIndex = "1";
                     Toast.makeText(getApplicationContext(), "내용을 입력해주세요!!!", Toast.LENGTH_LONG).show();
                 }
                 Log.i("index", ViewIndex);
@@ -89,7 +139,7 @@ public class HealthScheduleActivity extends AppCompatActivity {
     }
 
     public void checkDay(int cYear, int cMonth, int cDay, String userID) {
-        fname = "" + userID + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt";//저장할 파일 이름설정
+        fname = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt";//저장할 파일 이름설정
         FileInputStream fis = null;//FileStream fis 변수
 
         try {
@@ -106,7 +156,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
             cha_Btn.setVisibility(View.VISIBLE);
             del_Btn.setVisibility(View.VISIBLE);
             ViewIndex = "0";
-            Log.i("index", ViewIndex);
             cha_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -119,7 +168,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
                     del_Btn.setVisibility(View.INVISIBLE);
                     textView2.setText(contextEditText.getText());
                     ViewIndex = "1";
-                    Log.i("index", ViewIndex);
                 }
             });
             del_Btn.setOnClickListener(new View.OnClickListener() {
@@ -144,13 +192,11 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 del_Btn.setVisibility(View.INVISIBLE);
                 contextEditText.setVisibility(View.VISIBLE);
                 ViewIndex = "1";
-                Log.i("index", ViewIndex);
 
             }
 
         } catch (Exception e) {
             ViewIndex = "1";
-            Log.i("index", ViewIndex);
             e.printStackTrace();
         }
     }
@@ -176,20 +222,21 @@ public class HealthScheduleActivity extends AppCompatActivity {
         String content = contextEditText.getText().toString();
         try {
             fos = openFileOutput(readDay, MODE_NO_LOCALIZED_COLLATORS);
-
             fos.write((content).getBytes());
             fos.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
     //상황별 뒤로가기 버튼 이벤트
     @Override
     public void onBackPressed() {
-        if(ViewIndex.equals("1")){
+        if (ViewIndex.equals("1")) {
             schedule_layout.setVisibility(View.INVISIBLE);
             ViewIndex = "0";
-        }else{
+        } else {
             super.onBackPressed();
         }
     }

@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/drawable/schedule_view_nutrient.xml" value="0.1" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_capture.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_classifier.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_diet_schedule.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_gallery.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1539855072463768" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_todo_routine.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_finish.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_profile.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_register_nutrient.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_register_routine.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_timer.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_view_nutrient.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/dialog_workout.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fixfit.Camera.CameraSource;
@@ -22,9 +23,18 @@ import com.example.fixfit.Camera.GraphicOverlay;
 import com.example.fixfit.Camera.PreferenceUtils;
 import com.example.fixfit.Model.WorkoutModel;
 import com.example.fixfit.posedetector.PoseDetectorProcessor;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class WorkoutActivity extends AppCompatActivity {
 
@@ -40,7 +50,9 @@ public class WorkoutActivity extends AppCompatActivity {
     private GraphicOverlay graphicOverlay;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
+    private String date;
 
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference("WorkOutSet");
 
 
     private final String[] seconds = {"-초-", "10", "20", "30", "40", "50"};
@@ -49,7 +61,6 @@ public class WorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-
         workout_txt = (TextView) findViewById(R.id.workout_txt);
         workout_img = (ImageView) findViewById(R.id.workout_img);
         workout_timer = (LinearLayout) findViewById(R.id.workout_timer);
@@ -86,13 +97,18 @@ public class WorkoutActivity extends AppCompatActivity {
 //        startCameraSource();
 
 
-
         workout_timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
             }
         });
+
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.KOREA);
+        SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
+        date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
 
     }
 
@@ -182,10 +198,9 @@ public class WorkoutActivity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 String format;
-                if(l < 10000){
+                if (l < 10000) {
                     format = "00 : 0" + l / 1000;
-                }
-                else {
+                } else {
                     format = "00 : " + l / 1000;
                 }
                 workout_time_txt.setText(format);
@@ -193,6 +208,8 @@ public class WorkoutActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+
+
                 mTimerRunning = false;
                 dialog_finish = (LinearLayout) View.inflate(WorkoutActivity.this, R.layout.dialog_finish, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
@@ -200,6 +217,48 @@ public class WorkoutActivity extends AppCompatActivity {
                 dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (poseCode) {
+                            case 1000:
+                                db.child(date).child("1000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("1000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 2000:
+                                db.child(date).child("2000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("2000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 2001:
+                                db.child(date).child("2001").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("2001").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 3000:
+                                db.child(date).child("3000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("3000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                        }
 
                         finish();
                     }
@@ -232,8 +291,8 @@ public class WorkoutActivity extends AppCompatActivity {
         dlg.show();
     }
 
-    private void timerStartStop(long time){
-        if(mTimerRunning) mCountDownTimer.cancel();
+    private void timerStartStop(long time) {
+        if (mTimerRunning) mCountDownTimer.cancel();
         startTimer(time);
     }
 }

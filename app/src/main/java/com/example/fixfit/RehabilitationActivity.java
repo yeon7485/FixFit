@@ -1,21 +1,34 @@
 package com.example.fixfit;
 
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.example.fixfit.Adapter.WorkoutAdapter;
 import com.example.fixfit.Model.WorkoutModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
 
-public class RehabilitationActivity extends AppCompatActivity{
+public class RehabilitationActivity extends AppCompatActivity {
 
     private RecyclerView neck_recyclerview, waist_recyclerview, knee_recyclerview;
     private RecyclerView.LayoutManager layoutManager;
+
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference("WorkOutSet");
+    private String date;
 
     ArrayList<WorkoutModel> neckList = new ArrayList<>();
     ArrayList<WorkoutModel> waistList = new ArrayList<>();
@@ -78,5 +91,37 @@ public class RehabilitationActivity extends AppCompatActivity{
         }
         knee_adapter = new WorkoutAdapter(kneeList, kneeCodeList);
         knee_recyclerview.setAdapter(knee_adapter);
+
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.KOREA);
+        SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
+        date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
+
+
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int check = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    if (ds.getKey().equals(date)) {
+                        check = 1;
+                    }
+                }
+                if (check == 0) {
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("1000", "0");
+                    map.put("2000", "0");
+                    map.put("2001", "0");
+                    map.put("3000", "0");
+                    db.child(date).setValue(map);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
