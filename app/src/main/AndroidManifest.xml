@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -25,6 +26,18 @@
         android:theme="@style/Theme.FixFit"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CaptureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClassifierActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".TeckNeckActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".GalleryActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ToDoRoutineActivity"
             android:exported="true" />
         <activity
@@ -32,21 +45,18 @@
             android:exported="false" />
         <activity
             android:name=".TechNeckActivity"
-            android:exported="true" />
+            android:exported="true" >
 
+        </activity>
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
         <activity
             android:name=".RehabilitationActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".HealthScheduleActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".DietScheduleActivity"
             android:exported="true" />
@@ -55,13 +65,12 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

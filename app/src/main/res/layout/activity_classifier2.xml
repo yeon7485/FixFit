@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ClassifierActivity2">
+
+
+    <!--    상단바-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/title_bar">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="15dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/oval_style" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginVertical="10dp"
+                android:src="@drawable/ic_tech_neck"
+                app:tint="@color/main_color_1" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/cafe24_ssurround"
+            android:gravity="center"
+            android:text="거북목 판정"
+            android:textColor="@color/black"
+            android:textSize="27sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_logo_fixfit"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+
+    <!--    불러온 사진 이미지뷰-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/rootView"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/preview"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/no_photo"
+            app:layout_constraintEnd_toEndOf="@id/rootView"
+            app:layout_constraintStart_toStartOf="@id/rootView"
+            app:layout_constraintTop_toTopOf="@id/rootView"/>
+
+        <com.example.fixfit.Camera.GraphicOverlay
+            android:id="@+id/neck_overlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="@id/preview"
+            app:layout_constraintRight_toRightOf="@id/preview"
+            app:layout_constraintTop_toTopOf="@id/preview"
+            app:layout_constraintBottom_toBottomOf="@id/preview"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/neck_angle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/cafe24_ssurround_air"
+        android:gravity="center"
+        android:lineSpacingExtra="10dp"
+        android:text="angle"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+
+</LinearLayout>

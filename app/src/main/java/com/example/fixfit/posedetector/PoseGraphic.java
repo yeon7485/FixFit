@@ -60,6 +60,7 @@ public class PoseGraphic extends Graphic {
     private float zMin = Float.MAX_VALUE;
     private float zMax = Float.MIN_VALUE;
     private int poseCode;
+    private double neckAngle;
 
     private final List<String> poseClassification;
     private final Paint classificationTextPaint;
@@ -123,6 +124,7 @@ public class PoseGraphic extends Graphic {
         }
 
         PoseLandmark nose = pose.getPoseLandmark(PoseLandmark.NOSE);
+        PoseLandmark rightEar = pose.getPoseLandmark(PoseLandmark.RIGHT_EAR);
 
         PoseLandmark leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER);
         PoseLandmark rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER);
@@ -142,8 +144,6 @@ public class PoseGraphic extends Graphic {
         PoseLandmark leftFootIndex = pose.getPoseLandmark(PoseLandmark.LEFT_FOOT_INDEX);
         PoseLandmark rightFootIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX);
 
-        drawLine(canvas, leftShoulder, rightShoulder, whitePaint);
-        drawLine(canvas, leftHip, rightHip, whitePaint);
 
         //각도 계산
         //waist 1
@@ -197,139 +197,159 @@ public class PoseGraphic extends Graphic {
                 pose.getPoseLandmark(PoseLandmark.RIGHT_ANKLE),
                 pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX));
 
-        long arm = 0, shoulder = 0, hip = 0, knee = 0, lKnee = 0, rKnee = 0, foot = 0;
-        Log.v("poseCode", String.valueOf(poseCode));
-        if (poseCode < 2000) {
-            if (poseCode == 1000) {
-                arm = 175;
-                shoulder = 113;
-                hip = 83;
-                knee = 90;
-            } else if (poseCode == 1002) {
-                arm = 175;
-                shoulder = 113;
-                hip = 83;
-                knee = 94;
-            }
-        } else if (poseCode < 3000) {
-            if (poseCode == 2000) {
-                hip = 97;
-                lKnee = 168;
-                rKnee = 90;
-                foot = 90;
-            }
+        neckAngle = getNeckAngle(
+                pose.getPoseLandmark(PoseLandmark.LEFT_EAR),
+                pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER));
+
+        if(poseCode == 101){
+            drawLine(canvas, rightEar, rightShoulder, redPaint);
         }
+        else {
 
-        if (poseCode < 3000 && poseCode >= 2000) {
-            drawLine(canvas, leftShoulder, leftElbow, whitePaint);
-            drawLine(canvas, leftElbow, leftWrist, whitePaint);
-            drawLine(canvas, rightShoulder, rightElbow, whitePaint);
-            drawLine(canvas, rightElbow, rightWrist, whitePaint);
-            drawLine(canvas, leftShoulder, leftHip, whitePaint);
-            drawLine(canvas, leftElbow, leftShoulder, whitePaint);
-            drawLine(canvas, rightShoulder, rightHip, whitePaint);
-            drawLine(canvas, rightElbow, rightShoulder, whitePaint);
+            drawLine(canvas, leftShoulder, rightShoulder, whitePaint);
+            drawLine(canvas, leftHip, rightHip, whitePaint);
 
-        } else {
-            // 왼쪽 팔 각도
-            if (round(leftArmAngle) >= (arm - 15) && round(leftArmAngle) <= (arm + 15)) {
-                drawLine(canvas, leftShoulder, leftElbow, rightPaint);
-                drawLine(canvas, leftElbow, leftWrist, rightPaint);
+            long arm = 0, shoulder = 0, hip = 0, knee = 0, lKnee = 0, rKnee = 0, foot = 0;
+            Log.v("poseCode", String.valueOf(poseCode));
+            if (poseCode < 2000) {
+                switch (poseCode) {
+                    case 1000:
+                        arm = 75;
+                        shoulder = 145;
+                        break;
+                }
+            } else if (poseCode < 3000) {
+                switch (poseCode) {
+                    case 2000:
+                        arm = 175;
+                        shoulder = 113;
+                        hip = 83;
+                        knee = 90;
+                        break;
+                    case 2001:
+                        arm = 175;
+                        shoulder = 113;
+                        hip = 83;
+                        knee = 94;
+                        break;
+                }
             } else {
-                drawLine(canvas, leftShoulder, leftElbow, leftPaint);
-                drawLine(canvas, leftElbow, leftWrist, leftPaint);
+                switch (poseCode) {
+                    case 3000:
+                        hip = 97;
+                        lKnee = 150;
+                        rKnee = 90;
+                        foot = 90;
+                        break;
+                }
             }
-            // 오른쪽 팔 각도
-            if (round(rightArmAngle) >= (arm - 15) && round(rightArmAngle) <= (arm + 15)) {
-                drawLine(canvas, rightShoulder, rightElbow, rightPaint);
-                drawLine(canvas, rightElbow, rightWrist, rightPaint);
+
+
+            // 무릎 재활 운동일 때
+            if (poseCode < 4000 && poseCode >= 3000) {
+                drawLine(canvas, leftShoulder, leftElbow, whitePaint);
+                drawLine(canvas, leftElbow, leftWrist, whitePaint);
+                drawLine(canvas, rightShoulder, rightElbow, whitePaint);
+                drawLine(canvas, rightElbow, rightWrist, whitePaint);
+                drawLine(canvas, leftShoulder, leftHip, whitePaint);
+                drawLine(canvas, leftElbow, leftShoulder, whitePaint);
+                drawLine(canvas, rightShoulder, rightHip, whitePaint);
+                drawLine(canvas, rightElbow, rightShoulder, whitePaint);
+
             } else {
-                drawLine(canvas, rightShoulder, rightElbow, leftPaint);
-                drawLine(canvas, rightElbow, rightWrist, leftPaint);
+                // 왼쪽 팔 각도
+                if (round(leftArmAngle) >= (arm - 15) && round(leftArmAngle) <= (arm + 15)) {
+                    drawLine(canvas, leftShoulder, leftElbow, rightPaint);
+                    drawLine(canvas, leftElbow, leftWrist, rightPaint);
+                } else {
+                    drawLine(canvas, leftShoulder, leftElbow, leftPaint);
+                    drawLine(canvas, leftElbow, leftWrist, leftPaint);
+                }
+                // 오른쪽 팔 각도
+                if (round(rightArmAngle) >= (arm - 15) && round(rightArmAngle) <= (arm + 15)) {
+                    drawLine(canvas, rightShoulder, rightElbow, rightPaint);
+                    drawLine(canvas, rightElbow, rightWrist, rightPaint);
+                } else {
+                    drawLine(canvas, rightShoulder, rightElbow, leftPaint);
+                    drawLine(canvas, rightElbow, rightWrist, leftPaint);
+                }
+
+                // 왼쪽 어깨 각도
+                if (round(leftShoulderAngle) >= (shoulder - 15) && round(leftShoulderAngle) <= (shoulder + 15)) {
+                    drawLine(canvas, leftShoulder, leftHip, rightPaint);
+                    drawLine(canvas, leftElbow, leftShoulder, rightPaint);
+                } else {
+                    drawLine(canvas, leftShoulder, leftHip, leftPaint);
+                    drawLine(canvas, leftElbow, leftShoulder, leftPaint);
+                }
+                // 오른쪽 어깨 각도
+                if (round(rightShoulderAngle) >= (shoulder - 15) && round(rightShoulderAngle) <= (shoulder + 15)) {
+                    drawLine(canvas, rightShoulder, rightHip, rightPaint);
+                    drawLine(canvas, rightElbow, rightShoulder, rightPaint);
+                } else {
+                    drawLine(canvas, rightShoulder, rightHip, leftPaint);
+                    drawLine(canvas, rightElbow, rightShoulder, leftPaint);
+                }
+            }
+            if (poseCode >= 2000) {
+                // 왼쪽 힙 각도
+                if (round(leftHipAngle) >= (hip - 15) && round(leftHipAngle) <= (hip + 15)) {
+                    drawLine(canvas, leftShoulder, leftHip, rightPaint);
+                    drawLine(canvas, leftHip, leftKnee, rightPaint);
+                } else {
+                    drawLine(canvas, leftShoulder, leftHip, leftPaint);
+                    drawLine(canvas, leftHip, leftKnee, leftPaint);
+                }
+                // 오른쪽 힙 각도
+                if (round(rightHipAngle) >= (hip - 15) && round(rightHipAngle) <= (hip + 15)) {
+                    drawLine(canvas, rightShoulder, rightHip, rightPaint);
+                    drawLine(canvas, rightHip, rightKnee, rightPaint);
+                } else {
+                    drawLine(canvas, rightShoulder, rightHip, leftPaint);
+                    drawLine(canvas, rightHip, rightKnee, leftPaint);
+                }
+
+                // 왼쪽 무릎 각도
+                if (round(leftKneeAngle) >= (lKnee - 15) && round(leftKneeAngle) <= (lKnee + 15)) {
+                    drawLine(canvas, leftKnee, leftHip, rightPaint);
+                    drawLine(canvas, leftKnee, leftAnkle, rightPaint);
+                } else {
+                    drawLine(canvas, leftKnee, leftHip, leftPaint);
+                    drawLine(canvas, leftKnee, leftAnkle, leftPaint);
+                }
+                // 오른쪽 무릎 각도
+                if (round(rightKneeAngle) >= (rKnee - 15) && round(rightKneeAngle) <= (rKnee + 15)) {
+                    drawLine(canvas, rightKnee, rightHip, rightPaint);
+                    drawLine(canvas, rightKnee, rightAnkle, rightPaint);
+                } else {
+                    drawLine(canvas, rightKnee, rightHip, leftPaint);
+                    drawLine(canvas, rightKnee, rightAnkle, leftPaint);
+                }
             }
 
-            // 왼쪽 어깨 각도
-            if (round(leftShoulderAngle) >= (shoulder - 15) && round(leftShoulderAngle) <= (shoulder + 15)) {
-                drawLine(canvas, leftShoulder, leftHip, rightPaint);
-                drawLine(canvas, leftElbow, leftShoulder, rightPaint);
-            } else {
-                drawLine(canvas, leftShoulder, leftHip, leftPaint);
-                drawLine(canvas, leftElbow, leftShoulder, leftPaint);
-            }
-            // 오른쪽 어깨 각도
-            if (round(rightShoulderAngle) >= (shoulder - 15) && round(rightShoulderAngle) <= (shoulder + 15)) {
-                drawLine(canvas, rightShoulder, rightHip, rightPaint);
-                drawLine(canvas, rightElbow, rightShoulder, rightPaint);
-            } else {
-                drawLine(canvas, rightShoulder, rightHip, leftPaint);
-                drawLine(canvas, rightElbow, rightShoulder, leftPaint);
-            }
+            Log.v("leftArmAngle", String.valueOf(leftArmAngle));
         }
-
-        // 왼쪽 힙 각도
-        if (round(leftHipAngle) >= (hip - 15) && round(leftHipAngle) <= (hip + 15)) {
-            drawLine(canvas, leftShoulder, leftHip, rightPaint);
-            drawLine(canvas, leftHip, leftAnkle, rightPaint);
-        } else {
-            drawLine(canvas, leftShoulder, leftHip, leftPaint);
-            drawLine(canvas, leftHip, leftAnkle, leftPaint);
-        }
-        // 오른쪽 힙 각도
-        if (round(rightHipAngle) >= (hip - 15) && round(rightHipAngle) <= (hip + 15)) {
-            drawLine(canvas, rightShoulder, rightHip, rightPaint);
-            drawLine(canvas, rightHip, rightKnee, rightPaint);
-        } else {
-            drawLine(canvas, rightShoulder, rightHip, leftPaint);
-            drawLine(canvas, rightHip, rightKnee, leftPaint);
-        }
-
-        // 왼쪽 무릎 각도
-        if (round(leftKneeAngle) >= (lKnee - 15) && round(leftKneeAngle) <= (lKnee + 15)) {
-            drawLine(canvas, leftHip, leftHip, rightPaint);
-            drawLine(canvas, leftKnee, leftAnkle, rightPaint);
-        } else {
-            drawLine(canvas, leftKnee, leftHip, leftPaint);
-            drawLine(canvas, leftKnee, leftAnkle, leftPaint);
-        }
-        // 오른쪽 무릎 각도
-        if (round(rightKneeAngle) >= (rKnee - 15) && round(rightKneeAngle) <= (rKnee + 15)) {
-            drawLine(canvas, rightKnee, rightHip, rightPaint);
-            drawLine(canvas, rightKnee, rightAnkle, rightPaint);
-        } else {
-            drawLine(canvas, rightKnee, rightHip, leftPaint);
-            drawLine(canvas, rightKnee, rightAnkle, leftPaint);
-        }
-        Log.v("leftArmAngle", String.valueOf(leftArmAngle));
-
-
-
-//
-//        // Left body
-//        drawLine(canvas, leftShoulder, leftElbow, leftPaint);
-//        drawLine(canvas, leftElbow, leftWrist, leftPaint);
-//        drawLine(canvas, leftShoulder, leftHip, leftPaint);
-//        drawLine(canvas, leftHip, leftKnee, leftPaint);
-//        drawLine(canvas, leftKnee, leftAnkle, leftPaint);
-//        drawLine(canvas, leftAnkle, leftHeel, leftPaint);
-//        drawLine(canvas, leftHeel, leftFootIndex, leftPaint);
-
-        // Right body
-
-//        drawLine(canvas, rightShoulder, rightHip, rightPaint);
-//        drawLine(canvas, rightHip, rightKnee, rightPaint);
-//        drawLine(canvas, rightKnee, rightAnkle, rightPaint);
-//        drawLine(canvas, rightAnkle, rightHeel, rightPaint);
-//        drawLine(canvas, rightHeel, rightFootIndex, rightPaint);
-
-
     }
 
     void drawPoint(Canvas canvas, PoseLandmark landmark, Paint paint) {
         PointF3D point = landmark.getPosition3D();
         maybeUpdatePaintColor(paint, canvas, point.getZ());
-        if (landmark.getLandmarkType() == 0 || (landmark.getLandmarkType() >= 11 && landmark.getLandmarkType() <= 16)
-                || (landmark.getLandmarkType() >= 23 && landmark.getLandmarkType() <= 28 || landmark.getLandmarkType() == 31 || landmark.getLandmarkType() == 32)) {
-            canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
+        if(poseCode == 101){
+            if (landmark.getLandmarkType() == PoseLandmark.RIGHT_EAR || landmark.getLandmarkType() == PoseLandmark.RIGHT_SHOULDER) {
+                canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
+            }
+        }
+        else {
+            if (landmark.getLandmarkType() == 0 || (landmark.getLandmarkType() >= 11 && landmark.getLandmarkType() <= 16)) {
+                canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
+            }
+
+            if (poseCode >= 2000) {
+                if ((landmark.getLandmarkType() >= 23 && landmark.getLandmarkType() <= 28
+                        || landmark.getLandmarkType() == 31 || landmark.getLandmarkType() == 32)) {
+                    canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
+                }
+            }
         }
     }
 
@@ -369,5 +389,25 @@ public class PoseGraphic extends Graphic {
         return result;
     }
 
+    public double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
+        double dy = endPoint.getPosition().y-startPoint.getPosition().y;
+        double dx = endPoint.getPosition().x-startPoint.getPosition().x;
+        double angle = Math.atan(dy/dx) * (180.0/Math.PI);
+        double degree = Math.toDegrees(Math.atan2(dx, dy));
+
+
+        if(dx < 0.0) {
+            angle += 180.0;
+        } else {
+            if(dy<0.0) angle += 360.0;
+        }
+
+        //return angle;
+        return Math.abs(degree);
+    }
+
+    public double getTechNeck(){
+        return neckAngle;
+    }
 
 }
