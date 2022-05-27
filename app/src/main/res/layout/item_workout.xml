@@ -20,8 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:text="등 들어올리기"
+        android:text="스트레칭"
         android:textSize="20sp"
+        android:layout_gravity="center"
         android:fontFamily="@font/cafe24_ssurround_air"/>
 
 </LinearLayout>

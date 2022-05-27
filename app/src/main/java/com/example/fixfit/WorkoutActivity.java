@@ -34,7 +34,7 @@ public class WorkoutActivity extends AppCompatActivity {
     private LinearLayout dialog_timer, dialog_finish;
     private WorkoutModel item;
     private int poseCode;
-    private static final String TAG = "RealTimeActivity";
+    private static final String TAG = "WorkoutActivity";
     private CameraSourcePreview preview;
     private CameraSource cameraSource = null;
     private GraphicOverlay graphicOverlay;
@@ -80,6 +80,11 @@ public class WorkoutActivity extends AppCompatActivity {
 
         createCameraSource();
         startCameraSource();
+//        cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
+        Log.v("facing", String.valueOf(cameraSource.getCameraFacing()));
+//        preview.stop();
+//        startCameraSource();
+
 
 
         workout_timer.setOnClickListener(new View.OnClickListener() {

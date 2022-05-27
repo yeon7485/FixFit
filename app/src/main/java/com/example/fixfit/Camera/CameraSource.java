@@ -41,6 +41,7 @@ import com.example.fixfit.Camera.PreferenceUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.List;
 
@@ -79,7 +80,7 @@ public class CameraSource {
 
     private Camera camera;
 
-    private int facing = CAMERA_FACING_BACK;
+    private int facing = CAMERA_FACING_FRONT;
 
     /**
      * Rotation of the device, and thus the associated preview images captured from the device.
@@ -376,6 +377,7 @@ public class CameraSource {
         // the desired values and the actual values for width and height.  This is certainly not the
         // only way to select the best size, but it provides a decent tradeoff between using the
         // closest aspect ratio vs. using the closest pixel area.
+
         SizePair selectedPair = null;
         int minDiff = Integer.MAX_VALUE;
         for (SizePair sizePair : validPreviewSizes) {
@@ -387,7 +389,6 @@ public class CameraSource {
                 minDiff = diff;
             }
         }
-
         return selectedPair;
     }
 
@@ -411,6 +412,10 @@ public class CameraSource {
             preview = previewSize;
             picture = pictureSize;
         }
+
+        public int getPreviewSize(){
+            return preview.getWidth();
+        }
     }
 
     /**
@@ -429,7 +434,6 @@ public class CameraSource {
         List<SizePair> validPreviewSizes = new ArrayList<>();
         for (Camera.Size previewSize : supportedPreviewSizes) {
             float previewAspectRatio = (float) previewSize.width / (float) previewSize.height;
-
             // By looping through the picture sizes in order, we favor the higher resolutions.
             // We choose the highest resolution in order to support taking the full resolution
             // picture later.
@@ -452,7 +456,7 @@ public class CameraSource {
                 validPreviewSizes.add(new SizePair(previewSize, null));
             }
         }
-
+        Log.v("previewSize", String.valueOf(validPreviewSizes.get(0).getPreviewSize()));
         return validPreviewSizes;
     }
 
@@ -499,8 +503,8 @@ public class CameraSource {
      */
     private void setRotation(Camera camera, Camera.Parameters parameters, int cameraId) {
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
-        int degrees = 90;
-        int rotation = Surface.ROTATION_90;
+        int degrees = 0;
+        int rotation = Surface.ROTATION_0;
 
         CameraInfo cameraInfo = new CameraInfo();
         Camera.getCameraInfo(cameraId, cameraInfo);

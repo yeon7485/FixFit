@@ -53,6 +53,7 @@ public class PoseDetectorProcessor
   private final Context context;
   private final int poseCode;
   private final Executor classificationExecutor;
+  private PoseGraphic poseGraphic;
 
   private PoseClassifierProcessor poseClassifierProcessor;
   /** Internal class to hold Pose and classification results. */
@@ -143,15 +144,15 @@ public class PoseDetectorProcessor
   protected void onSuccess(
       @NonNull PoseWithClassification poseWithClassification,
       @NonNull GraphicOverlay graphicOverlay) {
-    graphicOverlay.add(
-        new PoseGraphic(
+    poseGraphic = new PoseGraphic(
             graphicOverlay,
             poseWithClassification.pose,
             poseCode,
             showInFrameLikelihood,
             visualizeZ,
             rescaleZForVisualization,
-            poseWithClassification.classificationResult));
+            poseWithClassification.classificationResult);
+    graphicOverlay.add(poseGraphic);
   }
 
   @Override

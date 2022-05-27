@@ -59,9 +59,10 @@
 
 
 <!--    재활 치료 운동-->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,11 +82,11 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/cafe24_ssurround_air"
                     android:gravity="center"
-                    android:text="허리 재활운동"
+                    android:text="목 재활운동"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
-                <ScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp">
@@ -96,7 +97,7 @@
                         android:orientation="horizontal">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/waist_recyclerview"
+                        android:id="@+id/neck_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
@@ -104,7 +105,7 @@
                     </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
-                </ScrollView>
+                </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
 
@@ -126,11 +127,11 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/cafe24_ssurround_air"
                     android:gravity="center"
-                    android:text="무릎 재활운동"
+                    android:text="허리 재활운동"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
-                <ScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp">
@@ -141,7 +142,7 @@
                         android:orientation="horizontal">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/knee_recyclerview"
+                            android:id="@+id/waist_recyclerview"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
@@ -149,7 +150,7 @@
                         </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
-                </ScrollView>
+                </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
 
@@ -172,11 +173,11 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/cafe24_ssurround_air"
                     android:gravity="center"
-                    android:text="머리/목 자세 교정"
+                    android:text="무릎 자세 교정"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
-                <ScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="12dp">
@@ -187,7 +188,7 @@
                         android:orientation="horizontal">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/neck_recyclerview"
+                            android:id="@+id/knee_recyclerview"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
@@ -195,12 +196,12 @@
                         </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
-                </ScrollView>
+                </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
