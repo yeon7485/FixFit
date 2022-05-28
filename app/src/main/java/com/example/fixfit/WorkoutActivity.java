@@ -32,7 +32,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 
-import org.checkerframework.checker.units.qual.g;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
