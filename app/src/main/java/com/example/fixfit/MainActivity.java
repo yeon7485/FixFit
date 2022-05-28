@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private FragGuide fragGuide = new FragGuide();
     private FragSetup fragSetup = new FragSetup();
 
+    public final String PREFERENCE = "com.example.fixfit";
+    public final String image = "image";
+
     TextView tName, tSex, tHeight, tBirth;
     ImageView ImgProfile;
 
@@ -29,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tName = findViewById(R.id.tName);
+        tSex = findViewById(R.id.tSex);
+        tHeight = findViewById(R.id.tHeight);
+        tBirth = findViewById(R.id.tBirth);
+
+        tName.setText(getPreferenceString("name"));
+        tSex.setText(getPreferenceString("sex"));
+        tHeight.setText(getPreferenceString("height"));
+        tBirth.setText(getPreferenceString("birth"));
+        
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
 
@@ -36,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
            
         ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
-
+        ImgProfile.setImageBitmap(getBitmap(image));
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
@@ -66,21 +79,51 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_setup:
                     transaction.replace(R.id.frameLayout, fragSetup).commitAllowingStateLoss();
                     break;
-
             }
             return true;
         }
     }
     
     public void getTextData(String name, String sex, String height, String birth){
-        tName = findViewById(R.id.tName);
-        tSex = findViewById(R.id.tSex);
-        tHeight = findViewById(R.id.tHeight);
-        tBirth = findViewById(R.id.tBirth);
+        setPreference("name", name);
+        setPreference("sex", sex);
+        setPreference("height", height + " cm");
+        setPreference("birth", birth);
 
-        tName.setText(name);
-        tSex.setText(sex);
-        tHeight.setText(height + " cm");
-        tBirth.setText(birth);
+        tName.setText(getPreferenceString("name"));
+        tSex.setText(getPreferenceString("sex"));
+        tHeight.setText(getPreferenceString("height"));
+        tBirth.setText(getPreferenceString("birth"));
+    }
+   
+    public void setPreference(String key, String value){
+        SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public String getPreferenceString(String key){
+        SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
+        return pref.getString(key, "");
+    }
+
+    public void setBitmap(String key, Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,30,baos);
+        byte[] b = baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        setPreference(key, temp);
+    }
+
+    public Bitmap getBitmap(String key){
+        String temp = getPreferenceString(key);
+        try{
+            byte [] encodeByte = Base64.decode(temp, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e){
+            return null;
+        }
     }
 }
