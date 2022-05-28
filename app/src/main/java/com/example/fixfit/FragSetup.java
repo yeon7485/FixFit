@@ -110,6 +110,7 @@ public class FragSetup extends Fragment {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), image);
                 ((MainActivity) getActivity()).ImgProfile.setImageBitmap(bitmap);
+                ((MainActivity) getActivity()).setBitmap(((MainActivity) getActivity()).image, bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
