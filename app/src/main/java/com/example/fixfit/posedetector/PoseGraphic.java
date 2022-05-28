@@ -26,21 +26,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.google.common.primitives.Ints;
-import com.google.mlkit.vision.common.PointF3D;
 import com.example.fixfit.Camera.GraphicOverlay;
 import com.example.fixfit.Camera.GraphicOverlay.Graphic;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.mlkit.vision.common.PointF3D;
 import com.google.mlkit.vision.pose.Pose;
 import com.google.mlkit.vision.pose.PoseLandmark;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Locale;
 
 /**
@@ -60,7 +57,7 @@ public class PoseGraphic extends Graphic {
     private float zMin = Float.MAX_VALUE;
     private float zMax = Float.MIN_VALUE;
     private int poseCode;
-    private double neckAngle;
+    public double neckAngle;
 
     private final List<String> poseClassification;
     private final Paint classificationTextPaint;
@@ -68,6 +65,8 @@ public class PoseGraphic extends Graphic {
     private final Paint rightPaint;
     private final Paint whitePaint;
     private final Paint redPaint;
+
+    DatabaseReference dbAngle = FirebaseDatabase.getInstance().getReference("Angle");
 
     PoseGraphic(
             GraphicOverlay overlay,
@@ -104,6 +103,8 @@ public class PoseGraphic extends Graphic {
         redPaint.setStrokeWidth(STROKE_WIDTH);
         redPaint.setColor(Color.RED);
         redPaint.setTextSize(50);
+
+
     }
 
     @Override
@@ -203,6 +204,12 @@ public class PoseGraphic extends Graphic {
 
         if(poseCode == 101){
             drawLine(canvas, rightEar, rightShoulder, redPaint);
+            Date currentTime = Calendar.getInstance().getTime();
+            SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
+            SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
+            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
+            String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
+            dbAngle.child(date).setValue(String.format("%.1f", neckAngle));
         }
         else {
 
@@ -405,9 +412,6 @@ public class PoseGraphic extends Graphic {
         //return angle;
         return Math.abs(degree);
     }
-
-    public double getTechNeck(){
-        return neckAngle;
-    }
+    public double getNeck(){ return neckAngle; }
 
 }

@@ -1,7 +1,5 @@
 package com.example.fixfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fixfit.Camera.CameraSource;
 import com.example.fixfit.Camera.CameraSourcePreview;
 import com.example.fixfit.Camera.GraphicOverlay;
@@ -23,8 +23,6 @@ import com.example.fixfit.Camera.PreferenceUtils;
 import com.example.fixfit.Model.WorkoutModel;
 import com.example.fixfit.posedetector.PoseDetectorProcessor;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
-
-import org.checkerframework.checker.units.qual.g;
 
 import java.io.IOException;
 
@@ -82,10 +80,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
         createCameraSource();
         startCameraSource();
-//        cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
         Log.v("facing", String.valueOf(cameraSource.getCameraFacing()));
-//        preview.stop();
-//        startCameraSource();
 
 
 

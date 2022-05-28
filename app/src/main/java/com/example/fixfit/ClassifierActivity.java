@@ -1,193 +1,144 @@
-/*
- * Copyright 2019 The TensorFlow Authors. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.fixfit;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.media.ImageReader.OnImageAvailableListener;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.util.Size;
-import android.util.TypedValue;
-import android.widget.Button;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
-import java.util.List;
+import com.example.fixfit.Camera.GraphicOverlay;
+import com.example.fixfit.Camera.PreferenceUtils;
+import com.example.fixfit.Camera.VisionImageProcessor;
+import com.example.fixfit.posedetector.PoseDetectorProcessor;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 
-import com.example.fixfit.CameraActivity;
-import com.example.fixfit.env.BorderedText;
-import com.example.fixfit.env.Logger;
-import com.example.fixfit.tflite.Classifier;
-import com.example.fixfit.tflite.Classifier.Device;
-import com.example.fixfit.tflite.Classifier.Model;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
-public class ClassifierActivity extends CameraActivity implements OnImageAvailableListener {
-    private static final Logger LOGGER = new Logger();
-    private static final Size DESIRED_PREVIEW_SIZE = new Size(128, 128);
-    private static final float TEXT_SIZE_DIP = 10;
-    private Bitmap rgbFrameBitmap = null;
-    private long lastProcessingTimeMs;
-    private Integer sensorOrientation;
-    private Classifier classifier;
-    private BorderedText borderedText;
-    /** Input image size of the model along x axis. */
-    private int imageSizeX;
-    /** Input image size of the model along y axis. */
-    private int imageSizeY;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.camera_connection_fragment;
-    }
+public class ClassifierActivity extends AppCompatActivity {
 
-    @Override
-    protected Size getDesiredPreviewFrameSize() {
-        return DESIRED_PREVIEW_SIZE;
-    }
+    private static final String TAG = "ClassifierActivity";
 
-    @Override
-    public void onPreviewSizeChosen(final Size size, final int rotation) {
-        final float textSizePx =
-                TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
-        borderedText = new BorderedText(textSizePx);
-        borderedText.setTypeface(Typeface.MONOSPACE);
+    private static final int CLASSIFIER = 101;
 
-        recreateClassifier(getModel(), getDevice(), getNumThreads());
-        if (classifier == null) {
-            LOGGER.e("No classifier on preview!");
-            return;
-        }
+    private View rootView;
+    private ImageView preview;
+    private TextView neck_angle_tv, neck_load_tv;
+    private GraphicOverlay graphicOverlay;
+    private VisionImageProcessor imageProcessor;
+    private PoseDetectorProcessor poseImageProcessor;
+    private String angle = "";
 
-        previewWidth = size.getWidth();
-        previewHeight = size.getHeight();
-
-        sensorOrientation = rotation - getScreenOrientation();
-        LOGGER.i("Camera orientation relative to screen canvas: %d", sensorOrientation);
-
-        LOGGER.i("Initializing at size %dx%d", previewWidth, previewHeight);
-        rgbFrameBitmap = Bitmap.createBitmap(previewWidth, previewHeight, Config.ARGB_8888);
-    }
+    private DatabaseReference dbAngle = FirebaseDatabase.getInstance().getReference("Angle");
 
     @Override
-    protected void processImage() {
-        rgbFrameBitmap.setPixels(getRgbBytes(), 0, previewWidth, 0, 0, previewWidth, previewHeight);
-        final int cropSize = Math.min(previewWidth, previewHeight);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_classifier);
 
-        new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
+        preview = (ImageView) findViewById(R.id.preview);
+        rootView = findViewById(R.id.rootView);
+        neck_angle_tv = (TextView) findViewById(R.id.neck_angle_tv);
+        neck_load_tv = (TextView) findViewById(R.id.neck_load_tv);
+        graphicOverlay = findViewById(R.id.neck_overlay);
 
-                        if (classifier != null) {
-                            final long start_Time = SystemClock.uptimeMillis();
-                            final List<Classifier.Recognition> results =
-                                    classifier.recognizeImage(rgbFrameBitmap, sensorOrientation);
-                            lastProcessingTimeMs = SystemClock.uptimeMillis() - start_Time;
-                            LOGGER.v("Detect: %s", results);
+        getImage();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getAngle();
+            }
+        }, 100); //딜레이 타임 조절
 
-                            runOnUiThread(
-                                    new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            showResultsInBottomSheet(results);
-                                            showFrameInfo(previewWidth + "x" + previewHeight);
-                                            showCropInfo(imageSizeX + "x" + imageSizeY);
-                                            showCameraResolution(cropSize + "x" + cropSize);
-                                            showRotationInfo(String.valueOf(sensorOrientation));
-                                            showInference(lastProcessingTimeMs + "ms");
-                                        }
-                                    });
-                        }
-                        SystemClock.sleep(1000);  //1초 단위 맞추기 위함
-                        readyForNextImage();
-                    }
-                }).start();
+        neck_load_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NeckLoadActivity.class);
+                intent.putExtra("angle", angle);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    @Override
-    protected void onInferenceConfigurationChanged() {
-        if (rgbFrameBitmap == null) {
-            // Defer creation until we're getting camera frames.
-            return;
+    private void getImage() {
+        Bundle extras = getIntent().getExtras();
+        byte[] arr = extras.getByteArray("image");
+        Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
+
+        graphicOverlay.clear();
+
+        preview.setImageBitmap(image);
+        createImageProcessor();
+
+        if (imageProcessor != null) {
+            graphicOverlay.setImageSourceInfo(
+                    image.getWidth(), image.getHeight(), /* isFlipped= */ false);
+            imageProcessor.processBitmap(image, graphicOverlay);
+        } else {
+            Log.e(TAG, "Null imageProcessor, please check adb logs for imageProcessor creation error");
         }
-        final Device device = getDevice();
-        final Model model = getModel();
-        final int numThreads = getNumThreads();
-        runInBackground(() -> recreateClassifier(model, device, numThreads));
     }
 
-    private void recreateClassifier(Model model, Device device, int numThreads) {
-        if (classifier != null) {
-            LOGGER.d("Closing classifier.");
-            classifier.close();
-            classifier = null;
+    private void createImageProcessor() {
+        if (imageProcessor != null) {
+            imageProcessor.stop();
         }
-        if (device == Device.GPU && model == Model.QUANTIZED) {
-            LOGGER.d("Not creating classifier: GPU doesn't support quantized models.");
-            runOnUiThread(
-                    () -> {
-                        Toast.makeText(this, "GPU does not yet supported quantized models.", Toast.LENGTH_LONG)
-                                .show();
-                    });
-            return;
-        }
-        try {
-            LOGGER.d(
-                    "Creating classifier (model=%s, device=%s, numThreads=%d)", model, device, numThreads);
-            classifier = Classifier.create(this, model, device, numThreads);
-        } catch (IOException e) {
-            LOGGER.e(e, "Failed to create classifier.");
-        }
-
-        // Updates the input image size.
-        imageSizeX = classifier.getImageSizeX();
-        imageSizeY = classifier.getImageSizeY();
+        PoseDetectorOptionsBase poseDetectorOptions =
+                PreferenceUtils.getPoseDetectorOptionsForStillImage(this);
+        Log.i(TAG, "Using Pose Detector with options " + poseDetectorOptions);
+        boolean shouldShowInFrameLikelihood =
+                PreferenceUtils.shouldShowPoseDetectionInFrameLikelihoodStillImage(this);
+        boolean visualizeZ = PreferenceUtils.shouldPoseDetectionVisualizeZ(this);
+        boolean rescaleZ = PreferenceUtils.shouldPoseDetectionRescaleZForVisualization(this);
+        boolean runClassification = PreferenceUtils.shouldPoseDetectionRunClassification(this);
+        poseImageProcessor = new PoseDetectorProcessor(
+                this,
+                poseDetectorOptions,
+                CLASSIFIER,
+                shouldShowInFrameLikelihood,
+                visualizeZ,
+                rescaleZ,
+                runClassification,
+                /* isStreamMode = */ false);
+        imageProcessor = poseImageProcessor;
     }
+
+    private void getAngle() {
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
+        SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
+        String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
+
+        dbAngle.child(date).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting nickname", task.getException());
+                } else {
+                    angle = String.valueOf(task.getResult().getValue());
+                    neck_angle_tv.setText("나의 목 각도 : " + angle + "°");
+                }
+            }
+        });
+
+    }
+
 }
-//
-//public class ClassifierActivity extends AppCompatActivity {
-//
-//    private ImageView preview;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_classifier);
-//
-//        preview = (ImageView) findViewById(R.id.classifier_preview);
-//
-//        getImage();
-//
-//    }
-//
-//    private void getImage(){
-//        Bundle extras = getIntent().getExtras();
-//        byte[] arr = extras.getByteArray("image");
-//        Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
-//        preview.setImageBitmap(image);
-//
-//    }
-//}

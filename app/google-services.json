@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "599419177435",
+    "firebase_url": "https://fixfit-39ba0-default-rtdb.firebaseio.com",
+    "project_id": "fixfit-39ba0",
+    "storage_bucket": "fixfit-39ba0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599419177435:android:de881c645e7c71c3887ffe",
+        "android_client_info": {
+          "package_name": "com.example.fixfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599419177435-am6lfq61eg1m0k4ncuf70visacsa21kj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCojI-P2totnrbdOHpiK3gampltunBmLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599419177435-am6lfq61eg1m0k4ncuf70visacsa21kj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

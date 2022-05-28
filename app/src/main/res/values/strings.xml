@@ -6,16 +6,6 @@
     <string name="weather_app_id">20abdec9a85cf5140614bbaf66f9e329</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="model">Model:</string>
-    <string-array name="models">
-        <item>Quantized</item>
-        <item>Float</item>
-    </string-array>
-    <string name="device">Device:</string>
-    <string-array name="devices">
-        <item>CPU</item>
-        <item>GPU</item>
-        <item>NNAPI</item>
-    </string-array>
 
     <!-- Strings for camera settings. -->
     <string name="pref_category_key_camera" translatable="false">pckc</string>

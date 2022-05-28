@@ -82,7 +82,7 @@
             android:fontFamily="@font/cafe24_ssurround_air"
             android:gravity="center"
             android:lineSpacingExtra="10dp"
-            android:text="위의 예시와 같이 오른쪽을 보고\n상반신만 나오게 촬영해주세요 ☺"
+            android:text="위의 예시와 같이 오른쪽을 보고\n상반신만 나오게 촬영해주세요"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -91,7 +91,7 @@
             android:id="@+id/camera_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="10">

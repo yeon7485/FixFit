@@ -27,8 +27,8 @@ public class RehabilitationActivity extends AppCompatActivity{
     int[] neck_img = {R.drawable.neck_1};
     String[] neck_txt = {"목 스트레칭"};
 
-    int[] waist_img = {R.drawable.waist_1, R.drawable.waist_2, R.drawable.waist_3};
-    String[] waist_txt = {"등 들어올리기", "지면 누르기", "상체 일으키기"};
+    int[] waist_img = {R.drawable.waist_1, R.drawable.waist_2};
+    String[] waist_txt = {"등 들어올리기", "지면 누르기"};
 
     int[] knee_img = {R.drawable.knee_1};
     String[] knee_txt = {"앉아서 다리펴기"};
