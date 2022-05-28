@@ -1,28 +1,20 @@
 package com.example.fixfit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class GalleryActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,7 +49,7 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
                 getImage();
                 break;
             case R.id.classifier_btn:
-                intent = new Intent(this, ClassifierActivity2.class);
+                intent = new Intent(this, ClassifierActivity.class);
                 BitmapDrawable drawable = (BitmapDrawable) gallery_img.getDrawable();
                 Bitmap sendBitmap = drawable.getBitmap();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();

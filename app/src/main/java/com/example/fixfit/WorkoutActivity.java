@@ -1,5 +1,7 @@
 package com.example.fixfit;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
+
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -91,10 +94,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
         createCameraSource();
         startCameraSource();
-//        cameraSource.setFacing(CameraSource.CAMERA_FACING_FRONT);
         Log.v("facing", String.valueOf(cameraSource.getCameraFacing()));
-//        preview.stop();
-//        startCameraSource();
 
 
         workout_timer.setOnClickListener(new View.OnClickListener() {
@@ -208,8 +208,6 @@ public class WorkoutActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
-
                 mTimerRunning = false;
                 dialog_finish = (LinearLayout) View.inflate(WorkoutActivity.this, R.layout.dialog_finish, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
@@ -275,10 +273,12 @@ public class WorkoutActivity extends AppCompatActivity {
     private void showDialog() {
         dialog_timer = (LinearLayout) View.inflate(WorkoutActivity.this, R.layout.dialog_timer, null);
         AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
+
         Spinner spinner = (Spinner) dialog_timer.findViewById(R.id.timer_second);
         ArrayAdapter adapter = new ArrayAdapter(WorkoutActivity.this, android.R.layout.simple_spinner_item, seconds);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
         dlg.setView(dialog_timer);
         dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override

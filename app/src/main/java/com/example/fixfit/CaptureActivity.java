@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 
 public class CaptureActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,7 +46,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
                 startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
                 break;
             case R.id.classifier_btn:
-                intent = new Intent(this, ClassifierActivity2.class);
+                intent = new Intent(this, ClassifierActivity.class);
                 BitmapDrawable drawable = (BitmapDrawable) capture_img.getDrawable();
                 Bitmap sendBitmap = drawable.getBitmap();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
