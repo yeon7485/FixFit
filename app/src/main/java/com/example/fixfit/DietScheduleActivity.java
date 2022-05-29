@@ -26,6 +26,7 @@ public class DietScheduleActivity extends AppCompatActivity {
     private TextView timeView;
     private TextView monthView;
     private TextView monthSpecView;
+    private TextView change;
 
     private int year;
     private int month;
@@ -38,6 +39,7 @@ public class DietScheduleActivity extends AppCompatActivity {
         timeView = findViewById(R.id.frag_schedule_time);
         monthView = findViewById(R.id.frag_schedule_month);
         monthSpecView = findViewById(R.id.frag_schedule_month_spec);
+        change = findViewById(R.id.change);
 
         initSchedule();
 
@@ -47,7 +49,7 @@ public class DietScheduleActivity extends AppCompatActivity {
 
         initData();
 
-        timeView.setOnClickListener(new View.OnClickListener() {
+        change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 YearMonthPickerDialog pd = new YearMonthPickerDialog(year, month);
