@@ -81,9 +81,7 @@ public class ClassifierActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         byte[] arr = extras.getByteArray("image");
         Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
-
         graphicOverlay.clear();
-
         preview.setImageBitmap(image);
         createImageProcessor();
 

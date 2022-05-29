@@ -21,18 +21,19 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
                 android:id="@+id/btn1"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
-                android:src='@drawable/home_1' />
+                android:src='@drawable/ic_tech_neck'
+                app:tint="@color/main_color_1" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,13 +64,14 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="130dp"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:id="@+id/btn2"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
-                android:src='@drawable/home_2' />
+                android:src='@drawable/home_2'
+                app:tint="@color/main_color_1"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,13 +109,14 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="130dp"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:id="@+id/btn3"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
-                android:src='@drawable/home_3' />
+                android:src='@drawable/home_3'
+                app:tint="@color/main_color_1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,13 +149,14 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="130dp"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:id="@+id/btn4"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
-                android:src='@drawable/home_4' />
+                android:src='@drawable/home_4'
+                app:tint="@color/main_color_1"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,7 +164,8 @@
                 android:layout_marginTop="20dp"
                 android:text="운동 기록"
                 android:textSize="20dp"
-                android:layout_gravity="bottom|center" />
+                android:layout_gravity="bottom|center"
+                />
 
         </LinearLayout>
 

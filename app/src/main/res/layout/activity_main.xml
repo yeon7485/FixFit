@@ -119,7 +119,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="490dp"
+        android:layout_height="550dp"
         android:id="@+id/frameLayout"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -130,7 +130,6 @@
         app:backgroundTint="#FFCDCC"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-
         />
 
 </LinearLayout>
