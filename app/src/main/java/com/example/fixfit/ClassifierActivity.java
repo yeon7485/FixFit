@@ -64,7 +64,7 @@ public class ClassifierActivity extends AppCompatActivity {
             public void run() {
                 getAngle();
             }
-        }, 100); //딜레이 타임 조절
+        }, 200); //딜레이 타임 조절
 
         neck_load_tv.setOnClickListener(new View.OnClickListener() {
             @Override
