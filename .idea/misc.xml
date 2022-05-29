@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1235" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/border_square.xml" value="0.257" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/button_border.xml" value="0.257" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/button_drawer.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/ic_camera.xml" value="0.1875" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/ic_gallery.xml" value="0.1875" />
@@ -16,23 +18,26 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/oval_style.xml" value="0.1615" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/drawable/title_bar.xml" value="0.1615" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_capture.xml" value="0.2" />
-        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_classifier.xml" value="0.2" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_classifier.xml" value="0.19047619047619047" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_classifier2.xml" value="0.264" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_gallery.xml" value="0.2" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_main.xml" value="0.1490036231884058" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_neck_load.xml" value="0.176" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_real_time.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.23735408560311283" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_splash.xml" value="0.1125" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_tech_neck.xml" value="0.2" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_teck_neck2.xml" value="0.2109375" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_todo_routine.xml" value="0.10869565217391304" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_weather.xml" value="0.12335359675785208" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_workout.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/camera_connection_fragment.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_finish.xml" value="0.10131712259371833" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_profile.xml" value="0.12335359675785208" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_register_routine.xml" value="0.12335359675785208" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/dialog_timer.xml" value="0.1082427536231884" />
-        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/frag_home.xml" value="0.12335359675785208" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/frag_home.xml" value="0.264" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/item_workout.xml" value="0.264" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/new_task.xml" value="0.190625" />
@@ -40,6 +45,7 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/task_layout.xml" value="0.1125" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/tech_neck_realtime.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/menu/bottom_menu.xml" value="0.16574074074074074" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_main.xml" value="0.109375" />
         <entry key="..\:/Users/atomy/StudioProjects/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.109375" />
@@ -77,6 +83,9 @@
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1955" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_classifier.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

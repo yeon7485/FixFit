@@ -37,7 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="거북목 판정"
-                android:textSize="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/suncheon_b"
                 android:layout_gravity="center|bottom"/>
 
         </LinearLayout>
@@ -76,12 +78,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
                 android:text="자세 교정"
-                android:textSize="20dp" />
+                android:textSize="20sp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/suncheon_b"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="재활 치료"
-                android:textSize="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/suncheon_b"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
@@ -119,7 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="식단 기록"
-                android:textSize="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/suncheon_b"
                 android:layout_gravity="center|bottom"/>
 
         </LinearLayout>
@@ -160,6 +168,8 @@
                 android:layout_marginTop="20dp"
                 android:text="운동 기록"
                 android:textSize="20dp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/suncheon_b"
                 android:layout_gravity="bottom|center" />
 
         </LinearLayout>
