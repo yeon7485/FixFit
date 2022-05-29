@@ -2,17 +2,24 @@ package com.example.fixfit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.fixfit.fragment.InputRoutineDialog;
+import com.hudomju.swipe.SwipeToDismissTouchListener;
+import com.hudomju.swipe.adapter.ListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,6 +35,10 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
 
+    private SwipeToDismissTouchListener<ListViewAdapter> touchListener;
+
+
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +49,26 @@ public class ToDoRoutineActivity extends AppCompatActivity {
         list = findViewById(R.id.routine_list);
         adapter = new RoutineAdapter();
 
+        touchListener = new SwipeToDismissTouchListener<>(
+                new ListViewAdapter(list),
+                new SwipeToDismissTouchListener.DismissCallbacks<ListViewAdapter>() {
+                    @Override
+                    public boolean canDismiss(int position) {
+                        return true;
+                    }
+
+                    @Override
+                    public void onDismiss(ListViewAdapter view, int position) {
+
+                    }
+                });
+
         list.setAdapter(adapter);
 
         loadRoutines();
+
+        list.setOnTouchListener(touchListener);
+        list.setOnScrollListener((AbsListView.OnScrollListener) touchListener.makeScrollListener());
     }
 
     public void loadRoutines() {
@@ -87,6 +115,11 @@ public class ToDoRoutineActivity extends AppCompatActivity {
                 return 0;
         }
 
+        public void remove(int position) {
+            routines.remove(position);
+            notifyDataSetChanged();
+        }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if(position < routines.size()) {
@@ -110,13 +143,13 @@ public class ToDoRoutineActivity extends AppCompatActivity {
                     checkBox.setChecked(false);
                 }
 
-                convertView.findViewById(R.id.frag_routine_remove).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        routines.remove(position);
-                        adapter.notifyDataSetChanged();
-                    }
-                });
+//                convertView.findViewById(R.id.frag_routine_remove).setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        routines.remove(position);
+//                        adapter.notifyDataSetChanged();
+//                    }
+//                });
 
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -130,6 +163,14 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
                         editor.apply();
                     }
+                });
+
+                convertView.findViewById(R.id.delete).setOnClickListener(view -> {
+                    adapter.remove(position);
+                });
+
+                convertView.findViewById(R.id.undo).setOnClickListener(view -> {
+                    touchListener.undoPendingDismiss();
                 });
             } else {
                 convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.frag_routine_plus, parent, false);
