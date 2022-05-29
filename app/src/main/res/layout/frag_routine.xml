@@ -14,7 +14,7 @@
             android:id="@+id/frag_routine_remove"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/ic_baseline_keyboard_arrow_right" />
 
         <CheckBox
             android:id="@+id/frag_routine_checkbox"
