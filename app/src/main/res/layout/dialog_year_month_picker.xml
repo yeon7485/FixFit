@@ -46,6 +46,9 @@
             android:text="취소"
             android:layout_weight="1"
             android:textAllCaps="false"
+            android:background="@drawable/button_drawer"
+            android:textColor="#584DE3"
+            android:fontFamily="@font/suncheon_b"
             />
 
         <Button
@@ -55,6 +58,9 @@
             android:layout_height="wrap_content"
             android:text="확인"
             android:textAllCaps="false"
+            android:background="@drawable/button_drawer"
+            android:textColor="#584DE3"
+            android:fontFamily="@font/suncheon_b"
             />
 
     </LinearLayout>

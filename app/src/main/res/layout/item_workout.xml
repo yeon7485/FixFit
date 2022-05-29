@@ -23,6 +23,6 @@
         android:text="스트레칭"
         android:textSize="20sp"
         android:layout_gravity="center"
-        android:fontFamily="@font/cafe24_ssurround_air"/>
+        android:fontFamily="@font/suncheon_b"/>
 
 </LinearLayout>

@@ -33,12 +33,13 @@
                 android:adjustViewBounds="true"
                 android:background="@color/white"
                 android:src='@drawable/ic_tech_neck'
-                app:tint="@color/main_color_1" />
+                app:tint="#5F55E5" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="거북목 판정"
                 android:textSize="20sp"
+                android:layout_marginTop="20dp"
                 android:textColor="@color/text_color"
                 android:fontFamily="@font/suncheon_b"
                 android:layout_gravity="center|bottom"/>
@@ -73,7 +74,7 @@
                 android:adjustViewBounds="true"
                 android:background="@color/white"
                 android:src='@drawable/home_2'
-                app:tint="@color/main_color_1"/>
+                app:tint="#5F55E5"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,7 +123,7 @@
                 android:adjustViewBounds="true"
                 android:background="@color/white"
                 android:src='@drawable/home_3'
-                app:tint="@color/main_color_1"/>
+                app:tint="#5F55E5"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -164,7 +165,7 @@
                 android:adjustViewBounds="true"
                 android:background="@color/white"
                 android:src='@drawable/home_4'
-                app:tint="@color/main_color_1"/>
+                app:tint="#5F55E5"/>
 
             <TextView
                 android:layout_width="wrap_content"

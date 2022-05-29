@@ -5,12 +5,15 @@
     <!-- 테두리 내부 색상 설정 -->
     <gradient
         android:angle="90"
-        android:centerColor="@color/main_color_2"
-        android:endColor="#FFC884"
-        android:startColor="@color/main_color_1" />
+        android:centerColor="#4D54B2"
+        android:endColor="#4D54B2"
+        android:startColor="#4D54B2"
+        />
+
 
     <corners android:bottomLeftRadius="15dp"
         android:bottomRightRadius="15dp" />
+
 
 
 </shape>

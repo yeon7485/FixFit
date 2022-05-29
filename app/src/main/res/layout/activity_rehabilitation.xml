@@ -16,19 +16,20 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="15dp">
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
                 android:background="@drawable/oval_style" />
 
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_marginVertical="10dp"
+                android:padding="7dp"
                 android:src="@drawable/ic_rehabilitation"
                 app:tint="@color/main_color_1" />
         </FrameLayout>
@@ -36,29 +37,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/cafe24_ssurround"
+            android:fontFamily="@font/suncheon_b"
             android:gravity="center"
-            android:text="자세 교정 \n재활 치료"
-            android:textColor="@color/black"
-            android:textSize="27sp" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_logo_fixfit"
-            app:tint="@color/white" />
-
+            android:text="자세 교정 &amp; 재활 치료"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
     </LinearLayout>
 
 
-<!--    재활 치료 운동-->
+
+    <!--    재활 치료 운동-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
