@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".RehabilitationActivity">
 
-<!--    상단바-->
+    <!--    상단바-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -45,7 +45,6 @@
     </LinearLayout>
 
 
-
     <!--    재활 치료 운동-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -58,7 +57,7 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-<!--            허리 재활운동 -->
+            <!--            허리 재활운동 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -68,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:fontFamily="@font/cafe24_ssurround_air"
+                    android:fontFamily="@font/suncheon_b"
                     android:gravity="center"
                     android:text="목 재활운동"
                     android:textColor="@color/black"
@@ -84,13 +83,13 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/neck_recyclerview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/neck_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
 
-                    </androidx.recyclerview.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
@@ -100,10 +99,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
-                android:layout_marginVertical="20dp"/>
+                android:layout_marginVertical="20dp"
+                android:background="@color/black" />
 
-<!--            발목 재활운동 -->
+            <!--            발목 재활운동 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -113,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:fontFamily="@font/cafe24_ssurround_air"
+                    android:fontFamily="@font/suncheon_b"
                     android:gravity="center"
                     android:text="허리 재활운동"
                     android:textColor="@color/black"
@@ -146,10 +145,10 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/black"
-                android:layout_marginVertical="20dp"/>
+                android:layout_marginVertical="20dp"
+                android:background="@color/black" />
 
-<!--            머리/목 재활운동 -->
+            <!--            머리/목 재활운동 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -159,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:fontFamily="@font/cafe24_ssurround_air"
+                    android:fontFamily="@font/suncheon_b"
                     android:gravity="center"
                     android:text="무릎 자세 교정"
                     android:textColor="@color/black"

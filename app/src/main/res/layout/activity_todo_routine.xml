@@ -48,30 +48,31 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_marginStart="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_format_list_bulleted_24"
             android:layout_width="30dp"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_baseline_format_list_bulleted_24" />
 
         <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:text="오늘의 운동"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/suncheon_b"
+            android:text="오늘의 운동"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/routine_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

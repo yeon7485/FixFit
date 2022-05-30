@@ -5,29 +5,29 @@
         android:id="@+id/action_guide"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_directions_run_24"
-        android:title="Guide"/>
+        android:title="Guide" />
 
     <item
         android:id="@+id/action_list"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_list_alt_24"
-        android:title="List"/>
+        android:title="List" />
 
     <item
         android:id="@+id/action_home"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/action_weather"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_wb_sunny_24"
-        android:title="Weather"/>
+        android:title="Weather" />
 
     <item
         android:id="@+id/action_setup"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Setup"/>
+        android:title="Setup" />
 </menu>

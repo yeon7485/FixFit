@@ -50,10 +50,10 @@
 
     <!--    불러온 사진 이미지뷰-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginTop="40dp"
-        android:id="@+id/rootView"
         android:orientation="vertical">
 
         <ImageView
@@ -64,16 +64,16 @@
             android:src="@drawable/no_photo"
             app:layout_constraintEnd_toEndOf="@id/rootView"
             app:layout_constraintStart_toStartOf="@id/rootView"
-            app:layout_constraintTop_toTopOf="@id/rootView"/>
+            app:layout_constraintTop_toTopOf="@id/rootView" />
 
         <com.example.fixfit.Camera.GraphicOverlay
             android:id="@+id/neck_overlay"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/preview"
             app:layout_constraintLeft_toLeftOf="@id/preview"
             app:layout_constraintRight_toRightOf="@id/preview"
-            app:layout_constraintTop_toTopOf="@id/preview"
-            app:layout_constraintBottom_toBottomOf="@id/preview"/>
+            app:layout_constraintTop_toTopOf="@id/preview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,19 +93,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="40dp"
         android:layout_marginHorizontal="20dp"
-        android:gravity="right">
+        android:layout_marginTop="40dp"
+        android:gravity="right"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/neck_load_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/cafe24_ssurround_air"
-            android:text="내 목뼈가 받는 하중은? "
+            android:fontFamily="@font/suncheon_b"
             android:lineSpacingExtra="10dp"
+            android:text="내 목뼈가 받는 하중은? "
             android:textColor="@color/black"
             android:textSize="18sp" />
 

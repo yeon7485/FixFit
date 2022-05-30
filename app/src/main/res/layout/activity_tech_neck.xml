@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/cafe24_ssurround_air"
+            android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:lineSpacingExtra="10dp"
             android:text="위의 예시와 같이 오른쪽을 보고\n상반신만 나오게 촬영해주세요"
@@ -87,8 +87,8 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="5">
+                android:layout_weight="5"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="80dp"
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:fontFamily="@font/cafe24_ssurround_air"
+                    android:fontFamily="@font/suncheon_b"
                     android:gravity="center"
                     android:lineSpacingExtra="10dp"
                     android:text="사진\n촬영하기"
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
-                    android:fontFamily="@font/cafe24_ssurround_air"
+                    android:fontFamily="@font/suncheon_b"
                     android:gravity="center"
                     android:lineSpacingExtra="10dp"
                     android:text="갤러리에서\n가져오기"
