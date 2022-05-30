@@ -8,7 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/frag_routine_remove"
@@ -23,16 +24,18 @@
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:button="@drawable/custom_checkbox"
+            android:fontFamily="@font/suncheon_b"
+            android:padding="10dp"
             android:text="1234"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:weightSum="3">
 
         <TextView
@@ -41,6 +44,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:clickable="false"
+            android:fontFamily="@font/suncheon_b"
             android:gravity="center_vertical"
             android:hapticFeedbackEnabled="true"
             android:paddingStart="16dp"
@@ -52,6 +56,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="false"
+            android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:text="취소" />
 

@@ -60,7 +60,7 @@
             android:layout_width="270dp"
             android:layout_height="270dp"
             android:layout_gravity="center"
-            android:src="@drawable/no_photo"/>
+            android:src="@drawable/no_photo" />
 
     </LinearLayout>
 
@@ -77,13 +77,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="갤러리에서 불러오기"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:paddingVertical="20dp"
             android:paddingHorizontal="50dp"
-            android:textSize="20sp"
+            android:paddingVertical="20dp"
+            android:text="갤러리에서 불러오기"
             android:textColor="#584DE3"
-            android:background="@drawable/button_drawer"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/classifier_btn"
@@ -91,13 +91,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="거북목 판정하러 가기"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:paddingVertical="20dp"
             android:paddingHorizontal="50dp"
-            android:textSize="20sp"
+            android:paddingVertical="20dp"
+            android:text="거북목 판정하러 가기"
             android:textColor="#584DE3"
-            android:background="@drawable/button_drawer"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 

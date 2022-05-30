@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,18 +14,20 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:text="이름"
-            android:textSize="12sp"
-            android:gravity="center"/>
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/dlgName"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:hint="이름을 입력하시오"
-            android:textSize="12sp"
-            android:gravity="center" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,9 +40,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:text="성별"
-            android:textSize="12sp"
-            android:gravity="center"/>
+            android:textSize="12sp" />
 
         <RadioGroup
             android:id="@+id/dialog_rg"
@@ -53,15 +56,17 @@
                 android:id="@+id/dialog_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
                 android:text="남자"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <RadioButton
                 android:id="@+id/dialog_woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
                 android:text="여자"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </RadioGroup>
     </LinearLayout>
 
@@ -75,18 +80,20 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:text="키"
-            android:textSize="12sp"
-            android:gravity="center"/>
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/dlgHeight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:hint="키를 입력하시오"
-            android:textSize="12sp"
-            android:gravity="center"/>
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -99,20 +106,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:text="생년월일"
-            android:textSize="12sp"
-            android:gravity="center"/>
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/dlgBirth"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
+            android:fontFamily="@font/suncheon_b"
+            android:gravity="center"
             android:hint="생년월일을 입력하시오 (예: 1997.01.01)"
-            android:textSize="12sp"
-            android:gravity="center" />
+            android:textSize="12sp" />
     </LinearLayout>
-
 
 
 </LinearLayout>

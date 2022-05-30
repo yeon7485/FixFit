@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.util.Base64;
 import android.util.Size;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import de.hdodenhof.circleimageview.CircleImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public final String image = "image";
 
     TextView tName, tSex, tHeight, tBirth;
-    ImageView ImgProfile;
+    CircleImageView ImgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
                 bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
-                ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
+                ImgProfile = (CircleImageView) findViewById(R.id.ImgProfile);
                 ImgProfile.setImageBitmap(getBitmap(image));
             }
         }, 1000);

@@ -64,6 +64,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="80dp"
             android:background="@drawable/border"
+            android:fontFamily="@font/suncheon_b"
             android:padding="30dp"
             android:textSize="20sp"
             android:visibility="invisible" />
@@ -84,6 +85,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+                android:fontFamily="@font/suncheon_b"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
@@ -99,6 +101,7 @@
                 android:layout_marginRight="8dp"
                 android:background="@drawable/border"
                 android:ems="10"
+                android:fontFamily="@font/suncheon_b"
                 android:hint="내용을 입력하세요."
                 android:inputType="textMultiLine"
                 android:padding="10dp"
@@ -119,8 +122,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/button_drawer"
-                android:text="저장"
                 android:fontFamily="@font/suncheon_b"
+                android:text="저장"
                 android:textColor="#584DE3" />
 
 
@@ -139,9 +142,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:background="@drawable/button_drawer"
+                android:fontFamily="@font/suncheon_b"
                 android:text="수정"
                 android:textColor="#584DE3"
-                android:fontFamily="@font/suncheon_b"
                 android:visibility="invisible" />
 
             <Button
@@ -150,9 +153,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:background="@drawable/button_drawer"
+                android:fontFamily="@font/suncheon_b"
                 android:text="삭제"
                 android:textColor="#584DE3"
-                android:fontFamily="@font/suncheon_b"
                 android:visibility="invisible"></Button>
         </LinearLayout>
     </FrameLayout>

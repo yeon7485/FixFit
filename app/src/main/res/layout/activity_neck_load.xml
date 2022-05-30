@@ -124,32 +124,34 @@
 
         </RelativeLayout>
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
-    android:orientation="vertical"
-    android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/cafe24_ssurround_air"
-        android:lineSpacingExtra="10dp"
-        android:text="내 목뼈가 받는 하중은"
-        android:textColor="@color/black"
-        android:textSize="22sp" />
-    <TextView
-        android:id="@+id/neck_load_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/cafe24_ssurround_air"
-        android:layout_marginTop="20dp"
-        android:text="약 kg"
-        android:textColor="@color/black"
-        android:textSize="22sp" />
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/suncheon_b"
+            android:lineSpacingExtra="10dp"
+            android:text="내 목뼈가 받는 하중은"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/neck_load_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/suncheon_b"
+            android:text="약 kg"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/camera_btn"
