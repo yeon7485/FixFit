@@ -37,36 +37,45 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        startActivity(new Intent(this, SplashActivity.class));
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        String code = intent.getStringExtra("noFirst");
+        if(code==null){
+            startActivity(new Intent(this, SplashActivity.class));
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    firstSetting();
+                }
+            }, 1000);
+        }
+        else{
+            firstSetting();
+        }
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setContentView(R.layout.activity_main);
-                tName = findViewById(R.id.tName);
-                tSex = findViewById(R.id.tSex);
-                tHeight = findViewById(R.id.tHeight);
-                tBirth = findViewById(R.id.tBirth);
+    }
 
-                tName.setText(getPreferenceString("name"));
-                tSex.setText(getPreferenceString("sex"));
-                tHeight.setText(getPreferenceString("height"));
-                tBirth.setText(getPreferenceString("birth"));
+    private void firstSetting(){
+        setContentView(R.layout.activity_main);
+        tName = findViewById(R.id.tName);
+        tSex = findViewById(R.id.tSex);
+        tHeight = findViewById(R.id.tHeight);
+        tBirth = findViewById(R.id.tBirth);
 
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
+        tName.setText(getPreferenceString("name"));
+        tSex.setText(getPreferenceString("sex"));
+        tHeight.setText(getPreferenceString("height"));
+        tBirth.setText(getPreferenceString("birth"));
 
-                BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
-                bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
 
-                ImgProfile = (CircleImageView) findViewById(R.id.ImgProfile);
-                ImgProfile.setImageBitmap(getBitmap(image));
-            }
-        }, 1000);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
 
-
+        ImgProfile = (CircleImageView) findViewById(R.id.ImgProfile);
+        ImgProfile.setImageBitmap(getBitmap(image));
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{

@@ -70,6 +70,7 @@ public class NeckLoadActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.home_btn:
                 intent = new Intent(this, MainActivity.class);
+                intent.putExtra("noFirst", "noFirst");
                 startActivity(intent);
                 finish();
                 break;
