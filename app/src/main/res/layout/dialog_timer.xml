@@ -20,12 +20,12 @@
         android:layout_gravity="center"
         android:background="@drawable/spinner_background">
 
-    <Spinner
-        android:id="@+id/timer_second"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:spinnerMode="dropdown" />
+        <Spinner
+            android:id="@+id/timer_second"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:spinnerMode="dropdown" />
 
     </LinearLayout>
 </LinearLayout>
