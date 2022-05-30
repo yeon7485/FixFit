@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:columnCount="2"
     android:rowCount="2">
@@ -26,23 +26,25 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/btn1"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:id="@+id/btn1"
-                android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
+                android:padding="13dp"
+                android:scaleType="fitCenter"
                 android:src='@drawable/ic_tech_neck'
-                app:tint="#5F55E5" />
+                app:tint="@color/main_color_1" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="거북목 판정"
-                android:textSize="20sp"
+                android:layout_gravity="center|bottom"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/text_color"
                 android:fontFamily="@font/suncheon_b"
-                android:layout_gravity="center|bottom"/>
+                android:text="거북목 판정"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -62,36 +64,39 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/btn2"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:id="@+id/btn2"
-                android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src='@drawable/home_2'
-                app:tint="#5F55E5"/>
+                app:tint="@color/main_color_1"
+                android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:fontFamily="@font/suncheon_b"
                 android:text="자세 교정"
-                android:textSize="20sp"
                 android:textColor="@color/text_color"
-                android:fontFamily="@font/suncheon_b"/>
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="재활 치료"
-                android:textSize="20sp"
-                android:textColor="@color/text_color"
+                android:layout_gravity="center"
                 android:fontFamily="@font/suncheon_b"
-                android:layout_gravity="center"/>
+                android:text="재활 치료"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -116,23 +121,24 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/btn3"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:id="@+id/btn3"
-                android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src='@drawable/home_3'
-                app:tint="#5F55E5"/>
+                app:tint="@color/main_color_1" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
                 android:layout_marginTop="20dp"
-                android:text="식단 기록"
-                android:textSize="20sp"
-                android:textColor="@color/text_color"
                 android:fontFamily="@font/suncheon_b"
-                android:layout_gravity="center|bottom"/>
+                android:text="식단 기록"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -158,24 +164,24 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/btn4"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:id="@+id/btn4"
-                android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:background="@color/white"
+                android:scaleType="fitCenter"
                 android:src='@drawable/home_4'
-                app:tint="#5F55E5"/>
+                app:tint="@color/main_color_1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
                 android:layout_marginTop="20dp"
-                android:text="운동 기록"
-                android:textSize="20dp"
-                android:textColor="@color/text_color"
                 android:fontFamily="@font/suncheon_b"
-                android:layout_gravity="bottom|center" />
+                android:text="운동 기록"
+                android:textColor="@color/text_color"
+                android:textSize="20dp" />
 
         </LinearLayout>
 

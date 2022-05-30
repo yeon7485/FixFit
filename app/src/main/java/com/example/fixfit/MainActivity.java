@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Base64;
+import android.util.Size;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,27 +37,35 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startActivity(new Intent(this, SplashActivity.class));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setContentView(R.layout.activity_main);
+                tName = findViewById(R.id.tName);
+                tSex = findViewById(R.id.tSex);
+                tHeight = findViewById(R.id.tHeight);
+                tBirth = findViewById(R.id.tBirth);
 
-        tName = findViewById(R.id.tName);
-        tSex = findViewById(R.id.tSex);
-        tHeight = findViewById(R.id.tHeight);
-        tBirth = findViewById(R.id.tBirth);
+                tName.setText(getPreferenceString("name"));
+                tSex.setText(getPreferenceString("sex"));
+                tHeight.setText(getPreferenceString("height"));
+                tBirth.setText(getPreferenceString("birth"));
 
-        tName.setText(getPreferenceString("name"));
-        tSex.setText(getPreferenceString("sex"));
-        tHeight.setText(getPreferenceString("height"));
-        tBirth.setText(getPreferenceString("birth"));
-        
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
-           
-        ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
-        ImgProfile.setImageBitmap(getBitmap(image));
+                BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+                bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
+                ImgProfile = (ImageView) findViewById(R.id.ImgProfile);
+                ImgProfile.setImageBitmap(getBitmap(image));
+            }
+        }, 1000);
+
+
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
