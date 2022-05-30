@@ -26,6 +26,12 @@
         android:theme="@style/Theme.FixFit"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".NeckLoadActivity"
             android:exported="false" />
         <activity
@@ -42,7 +48,7 @@
             android:exported="true" />
         <activity
             android:name=".TechNeckActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".WorkoutActivity"
             android:exported="false" />
