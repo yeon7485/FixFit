@@ -29,6 +29,7 @@ public class WorkOutDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -45,6 +46,8 @@ public class WorkOutDialog extends DialogFragment {
         listener.OnLoadedListener();
         return builder.create();
     }
+
+
 
     public TextView getTime() {
         return time;
