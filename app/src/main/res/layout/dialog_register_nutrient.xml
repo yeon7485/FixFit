@@ -7,58 +7,59 @@
     <Spinner
         android:id="@+id/dialog_register_type"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/dialog_register_input"
-        android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:padding="3dp"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/dialog_register_n1"
-            android:text="탄수화물"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#584DE3"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:background="@drawable/button_drawer"/>
+            android:text="탄수화물"
+            android:textColor="#584DE3" />
 
         <Button
             android:id="@+id/dialog_register_n2"
-            android:text="지방"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#584DE3"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:background="@drawable/button_drawer"/>
+            android:text="지방"
+            android:textColor="#584DE3" />
 
         <Button
             android:id="@+id/dialog_register_n3"
-            android:text="단백질"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#584DE3"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:background="@drawable/button_drawer"/>
+            android:text="단백질"
+            android:textColor="#584DE3" />
 
         <Button
             android:id="@+id/dialog_register_cancel"
-            android:text="취소"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#584DE3"
+            android:background="@drawable/button_drawer"
             android:fontFamily="@font/suncheon_b"
-            android:background="@drawable/button_drawer"/>
+            android:text="취소"
+            android:textColor="#584DE3" />
 
     </LinearLayout>
 </LinearLayout>

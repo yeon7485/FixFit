@@ -3,180 +3,202 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/schedule_view_nutrient"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
-        android:text="- 4. 7. (목)"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
         android:id="@+id/dialog_view_nutrient_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/suncheon_b"
+        android:text="- 4. 7. (목)"
+        android:textSize="20sp" />
 
     <View
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <TextView
-        android:text="몸무게"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/suncheon_b"
+        android:text="몸무게"
+        android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:text=""
-            android:textSize="20sp"
             android:id="@+id/dialog_view_nutrient_kg"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
 
         <TextView
-            android:text="kg"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/suncheon_b"
+            android:text="kg"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <TextView
-        android:text="섭취 칼로리"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/suncheon_b"
+        android:text="섭취 칼로리"
+        android:textSize="20sp" />
 
 
     <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:text=""
-            android:textSize="20sp"
             android:id="@+id/dialog_view_nutrient_kcal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
 
         <TextView
-            android:text="kcal"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/suncheon_b"
+            android:text="kcal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <TextView
-        android:text="섭취 칼로리"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/suncheon_b"
+        android:text="섭취 칼로리"
+        android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="120dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <TextView
-                android:text="탄수화물"
-                android:textSize="20sp"
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:gravity="center"
+                android:text="탄수화물"
+                android:textSize="20sp" />
+
             <ImageView
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
                 android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
             <TextView
-                android:text="100kcal"
                 android:id="@+id/dialog_view_nutrient_n1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:text="100kcal" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="120dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <TextView
-                android:text="지방"
-                android:textSize="20sp"
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:gravity="center"
+                android:text="지방"
+                android:textSize="20sp" />
+
             <ImageView
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
                 android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
             <TextView
-                android:text="100kcal"
                 android:id="@+id/dialog_view_nutrient_n2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:text="100kcal" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="120dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <TextView
-                android:text="단백질"
-                android:textSize="20sp"
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:gravity="center"
+                android:text="단백질"
+                android:textSize="20sp" />
+
             <ImageView
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
                 android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
             <TextView
-                android:text="100kcal"
                 android:id="@+id/dialog_view_nutrient_n3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/suncheon_b"
+                android:text="100kcal" />
         </LinearLayout>
     </LinearLayout>
 
     <View
-        android:background="@color/gray"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 </LinearLayout>
