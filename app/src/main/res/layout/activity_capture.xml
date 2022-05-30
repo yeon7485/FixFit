@@ -82,7 +82,7 @@
             android:paddingHorizontal="50dp"
             android:paddingVertical="20dp"
             android:text="다시 촬영하기"
-            android:textColor="#584DE3"
+            android:textColor="@color/main_color_3"
             android:textSize="20sp" />
 
         <Button
@@ -96,7 +96,7 @@
             android:paddingHorizontal="50dp"
             android:paddingVertical="20dp"
             android:text="거북목 판정하러 가기"
-            android:textColor="#584DE3"
+            android:textColor="@color/main_color_3"
             android:textSize="20sp" />
 
     </LinearLayout>

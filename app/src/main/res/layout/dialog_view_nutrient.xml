@@ -13,6 +13,7 @@
         android:layout_margin="10dp"
         android:fontFamily="@font/suncheon_b"
         android:text="- 4. 7. (목)"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <View
@@ -27,6 +28,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/suncheon_b"
         android:text="몸무게"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -40,14 +42,17 @@
             android:id="@+id/dialog_view_nutrient_kg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/suncheon_r"
             android:text=""
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/suncheon_b"
+            android:fontFamily="@font/suncheon_r"
             android:text="kg"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -63,6 +68,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/suncheon_b"
         android:text="섭취 칼로리"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
 
@@ -77,14 +83,17 @@
             android:id="@+id/dialog_view_nutrient_kcal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/suncheon_r"
             android:text=""
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/suncheon_b"
+            android:fontFamily="@font/suncheon_r"
             android:text="kcal"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -100,6 +109,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/suncheon_b"
         android:text="섭취 칼로리"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -120,6 +130,7 @@
                 android:fontFamily="@font/suncheon_b"
                 android:gravity="center"
                 android:text="탄수화물"
+                android:textColor="@color/text_color"
                 android:textSize="20sp" />
 
             <ImageView
@@ -132,8 +143,9 @@
                 android:id="@+id/dialog_view_nutrient_n1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/suncheon_b"
-                android:text="100kcal" />
+                android:fontFamily="@font/suncheon_r"
+                android:text="100kcal"
+                android:textColor="@color/text_color" />
         </LinearLayout>
 
 
@@ -150,6 +162,7 @@
                 android:fontFamily="@font/suncheon_b"
                 android:gravity="center"
                 android:text="지방"
+                android:textColor="@color/text_color"
                 android:textSize="20sp" />
 
             <ImageView
@@ -162,8 +175,9 @@
                 android:id="@+id/dialog_view_nutrient_n2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/suncheon_b"
-                android:text="100kcal" />
+                android:fontFamily="@font/suncheon_r"
+                android:text="100kcal"
+                android:textColor="@color/text_color" />
         </LinearLayout>
 
 
@@ -177,9 +191,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/suncheon_b"
+                android:fontFamily="@font/suncheon_r"
                 android:gravity="center"
                 android:text="단백질"
+                android:textColor="@color/text_color"
                 android:textSize="20sp" />
 
             <ImageView
@@ -192,8 +207,9 @@
                 android:id="@+id/dialog_view_nutrient_n3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/suncheon_b"
-                android:text="100kcal" />
+                android:fontFamily="@font/suncheon_r"
+                android:text="100kcal"
+                android:textColor="@color/text_color" />
         </LinearLayout>
     </LinearLayout>
 

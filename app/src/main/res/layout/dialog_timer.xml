@@ -11,7 +11,7 @@
         android:layout_margin="30dp"
         android:fontFamily="@font/suncheon_b"
         android:text="시간을 선택하세요."
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <LinearLayout

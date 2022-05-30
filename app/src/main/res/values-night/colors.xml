@@ -12,19 +12,19 @@
     <color name="grey_500">#B3B3B3</color>
     <color name="grey_200">#919191</color>
     <color name="main_color_1">#4D54B2</color>
-    <color name="main_color_2">#4D54B2</color>
-    <color name="main_color_3">#4D54B2</color>
-    <color name="text_color">#FF000000</color>
-    <color name="background">#FFFFFF</color>
-    <color name="background_card">#FFFFFF</color>
+    <color name="main_color_2">#000000</color>
+    <color name="main_color_3">#A6A2D4</color>
+    <color name="text_color">#ffffff</color>
+    <color name="background">#000000</color>
+    <color name="background_card">#424242</color>
 
     <color name="schedule_one_1">#57F92E</color>
     <color name="schedule_one_2">#0090FF</color>
     <color name="schedule_one_3">#F92E7F</color>
     <color name="schedule_one_4">#F9F92E</color>
 
-    <color name="gray">#808080</color>
-    <color name="changeWhite">#ffffff</color>
-    <color name="changeBlack">#000000</color>
-    <color name="health_box">#F1F1F3</color>
+    <color name="gray">#B3B3B3</color>
+    <color name="changeWhite">#000000</color>
+    <color name="changeBlack">#ffffff</color>
+    <color name="health_box">#000000</color>
 </resources>

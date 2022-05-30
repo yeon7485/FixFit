@@ -11,54 +11,44 @@
         android:layout_margin="30dp"
         android:fontFamily="@font/suncheon_b"
         android:text="테마를 선택하세요."
-        android:textColor="@color/black"
-        android:textSize="25sp" />
+        android:textColor="@color/text_color"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="30dp">
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal">
 
         <RadioGroup
-            android:id="@+id/idRGroup"
+            android:id="@+id/RGroup"
             android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:weightSum="3"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
             android:outlineAmbientShadowColor="@color/main_color_1"
             android:outlineSpotShadowColor="@color/main_color_1"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:weightSum="2">
 
             <RadioButton
-                android:id="@+id/idRBLight"
-                android:layout_width="0dp"
+                android:id="@+id/RB_Light"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:fontFamily="@font/suncheon_r"
                 android:text="밝은"
-                android:textSize="20sp"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/text_color"
+                android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/idRBDark"
-                android:layout_width="0dp"
+                android:id="@+id/RB_Dark"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_marginLeft="80dp"
                 android:fontFamily="@font/suncheon_r"
                 android:text="어두운"
-                android:textSize="20sp"
-                android:textColor="@color/text_color" />
-
-            <RadioButton
-                android:id="@+id/idRBDefault"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="@font/suncheon_r"
-                android:text="기본"
-                android:textSize="20sp"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/text_color"
+                android:textSize="18sp" />
         </RadioGroup>
     </LinearLayout>
 

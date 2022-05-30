@@ -60,6 +60,7 @@
             android:layout_margin="5dp"
             android:fontFamily="@font/suncheon_b"
             android:text="2022년 4월"
+            android:textColor="@color/gray"
             android:textSize="16sp"
             grid:layout_constraintStart_toStartOf="parent"
             grid:layout_constraintTop_toTopOf="parent" />
@@ -74,6 +75,7 @@
             android:paddingTop="4dp"
             android:paddingEnd="8dp"
             android:text="날짜 변경"
+            android:textColor="@color/gray"
             android:textSize="16sp"
             grid:layout_constraintEnd_toEndOf="parent"
             grid:layout_constraintTop_toTopOf="parent" />
@@ -88,6 +90,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="4"
+        android:textColor="@color/text_color"
         android:textSize="40sp" />
 
     <TextView
@@ -97,6 +100,8 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:text="April"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/suncheon_b"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -109,6 +114,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="SUN"
+            android:fontFamily="@font/suncheon_b"
             android:textColor="#ff0000" />
 
         <TextView
@@ -117,23 +123,26 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="MON"
-            android:textColor="#000000" />
+            android:fontFamily="@font/suncheon_b"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:fontFamily="@font/suncheon_b"
             android:text="TUE"
-            android:textColor="#000000" />
+            android:textColor="@color/text_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:fontFamily="@font/suncheon_b"
             android:text="WED"
-            android:textColor="#000000" />
+            android:textColor="@color/text_color" />
 
         <TextView
             android:layout_width="0dp"
@@ -141,7 +150,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="THU"
-            android:textColor="#000000" />
+            android:fontFamily="@font/suncheon_b"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:layout_width="0dp"
@@ -149,7 +159,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="FRI"
-            android:textColor="#000000" />
+            android:fontFamily="@font/suncheon_b"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:layout_width="0dp"
@@ -157,6 +168,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="SAT"
+            android:fontFamily="@font/suncheon_b"
             android:textColor="#0000ff" />
     </LinearLayout>
 

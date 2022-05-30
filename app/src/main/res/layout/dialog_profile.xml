@@ -2,7 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="30dp"
+        android:fontFamily="@font/suncheon_b"
+        android:text="프로필 설정"
+        android:textColor="@color/text_color"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +28,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:text="이름"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
 
         <EditText
@@ -27,6 +39,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:hint="이름을 입력하시오"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -43,6 +56,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:text="성별"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
 
         <RadioGroup
@@ -58,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/suncheon_b"
                 android:text="남자"
+                android:textColor="@color/text_color"
                 android:textSize="12sp" />
 
             <RadioButton
@@ -66,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/suncheon_b"
                 android:text="여자"
+                android:textColor="@color/text_color"
                 android:textSize="12sp" />
         </RadioGroup>
     </LinearLayout>
@@ -83,6 +99,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:text="키"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
 
         <EditText
@@ -93,6 +110,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:hint="키를 입력하시오"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -109,6 +127,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:text="생년월일"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
 
         <EditText
@@ -119,6 +138,7 @@
             android:fontFamily="@font/suncheon_b"
             android:gravity="center"
             android:hint="생년월일을 입력하시오 (예: 1997.01.01)"
+            android:textColor="@color/text_color"
             android:textSize="12sp" />
     </LinearLayout>
 

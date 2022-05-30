@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public final String PREFERENCE = "com.example.fixfit";
     public final String image = "image";
+    String themeColor;
 
     TextView tName, tSex, tHeight, tBirth;
     CircleImageView ImgProfile;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void firstSetting(){
         setContentView(R.layout.activity_main);
+        themeColor = ThemeUtil.modLoad(getApplicationContext());
+        ThemeUtil.applyTheme(themeColor);
+
         tName = findViewById(R.id.tName);
         tSex = findViewById(R.id.tSex);
         tHeight = findViewById(R.id.tHeight);
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-    
+
     public void getTextData(String name, String sex, String height, String birth){
         setPreference("name", name);
         setPreference("sex", sex);
@@ -121,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         tHeight.setText(getPreferenceString("height"));
         tBirth.setText(getPreferenceString("birth"));
     }
-   
+
     public void setPreference(String key, String value){
         SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
