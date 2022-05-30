@@ -128,7 +128,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -145,7 +145,7 @@
             android:id="@+id/neck_load_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/suncheon_b"
             android:text="약 kg"
             android:textColor="@color/black"
@@ -154,12 +154,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/camera_btn"
+        android:id="@+id/home_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
         android:weightSum="10">
 
         <LinearLayout
@@ -169,19 +170,20 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="79dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_camera"
+                android:src="@drawable/ic_home"
+                android:padding="10dp"
                 app:tint="@color/main_color_1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
                 android:fontFamily="@font/suncheon_r"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:lineSpacingExtra="10dp"
                 android:text="홈으로\n돌아가기"
                 android:textColor="@color/black"
@@ -190,7 +192,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/gallery_btn"
+            android:id="@+id/stretch_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -200,20 +202,20 @@
                 android:layout_width="70dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_gallery"
+                android:src="@drawable/ic_neck_stretch"
                 app:tint="@color/main_color_1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/cafe24_ssurround_air"
+                android:fontFamily="@font/suncheon_r"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:lineSpacingExtra="10dp"
-                android:text="갤러리에서\n가져오기"
+                android:text="스트레칭\n하러 가기"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -84,11 +84,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/cafe24_ssurround_air"
+        android:fontFamily="@font/suncheon_b"
         android:gravity="center"
         android:lineSpacingExtra="10dp"
         android:textColor="@color/black"
-        android:textSize="22sp" />
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/suncheon_b"
+            android:fontFamily="@font/suncheon_r"
             android:lineSpacingExtra="10dp"
             android:text="내 목뼈가 받는 하중은? "
             android:textColor="@color/black"

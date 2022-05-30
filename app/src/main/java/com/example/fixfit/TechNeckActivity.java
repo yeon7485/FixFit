@@ -18,9 +18,6 @@ public class TechNeckActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tech_neck);
 
-//        tech_neck_realtime = (LinearLayout) findViewById(R.id.tech_neck_realtime);
-//        tech_neck_realtime.setOnClickListener(this);
-
         camera_btn = (LinearLayout) findViewById(R.id.camera_btn);
         gallery_btn = (LinearLayout) findViewById(R.id.gallery_btn);
         camera_btn.setOnClickListener(this);
@@ -31,10 +28,6 @@ public class TechNeckActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
-//            case R.id.tech_neck_realtime:
-//                intent = new Intent(this, ClassifierActivity.class);
-//                startActivity(intent);
-//                break;
             case R.id.camera_btn:
                 intent = new Intent(this, CaptureActivity.class);
                 startActivity(intent);

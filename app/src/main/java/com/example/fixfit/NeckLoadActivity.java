@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class NeckLoadActivity extends AppCompatActivity {
+public class NeckLoadActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView neck_load_tv;
     private ImageView neck_0, neck_15, neck_30, neck_45, neck_60;
+    private LinearLayout home_btn, stretch_btn;
     private double angle;
 
     @Override
@@ -25,11 +28,14 @@ public class NeckLoadActivity extends AppCompatActivity {
         neck_30 = (ImageView) findViewById(R.id.neck_30);
         neck_45 = (ImageView) findViewById(R.id.neck_45);
         neck_60 = (ImageView) findViewById(R.id.neck_60);
+        home_btn = (LinearLayout) findViewById(R.id.home_btn);
+        stretch_btn = (LinearLayout) findViewById(R.id.stretch_btn);
+
+        home_btn.setOnClickListener(this);
+        stretch_btn.setOnClickListener(this);
 
         Intent intent = getIntent();
         angle = Double.parseDouble(intent.getStringExtra("angle"));
-
-
 
         setVisibleImg(angle);
 
@@ -55,6 +61,22 @@ public class NeckLoadActivity extends AppCompatActivity {
         else{
             neck_60.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 27.2kg!");
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.home_btn:
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.stretch_btn:
+                intent = new Intent(this, RehabilitationActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 
