@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         startActivity(new Intent(this, SplashActivity.class));
         super.onCreate(savedInstanceState);
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

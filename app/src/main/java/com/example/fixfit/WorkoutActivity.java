@@ -1,14 +1,18 @@
 package com.example.fixfit;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -275,17 +279,23 @@ public class WorkoutActivity extends AppCompatActivity {
         AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
 
         Spinner spinner = (Spinner) dialog_timer.findViewById(R.id.timer_second);
-        ArrayAdapter adapter = new ArrayAdapter(WorkoutActivity.this, android.R.layout.simple_spinner_item, seconds);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter adapter = new ArrayAdapter(WorkoutActivity.this, R.layout.item_spinner, seconds);
+
+        adapter.setDropDownViewResource(R.layout.item_spinner);
         spinner.setAdapter(adapter);
 
         dlg.setView(dialog_timer);
         dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                long time = Long.parseLong(spinner.getSelectedItem().toString()) * 1000;
                 Log.v("timer", spinner.getSelectedItem().toString());
-                timerStartStop(time);
+                if (spinner.getSelectedItem().toString().equals("-초-")) {
+                    Toast.makeText(getApplicationContext(), "초를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    long time = Long.parseLong(spinner.getSelectedItem().toString()) * 1000;
+                    timerStartStop(time);
+                }
+
             }
         });
         dlg.show();
