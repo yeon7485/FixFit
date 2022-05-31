@@ -14,13 +14,10 @@ import com.example.fixfit.R;
 public class WorkOutDialog extends DialogFragment {
 
     private TextView time;
-
     private TextView pose1000;
     private TextView pose2000;
-
     private TextView pose2001;
     private TextView pose3000;
-
     private OnLoadedListener listener;
 
     public void setListener(OnLoadedListener listener) {
@@ -48,7 +45,6 @@ public class WorkOutDialog extends DialogFragment {
     }
 
 
-
     public TextView getTime() {
         return time;
     }
@@ -56,12 +52,15 @@ public class WorkOutDialog extends DialogFragment {
     public TextView getPose1000() {
         return pose1000;
     }
+
     public TextView getPose2000() {
         return pose2000;
     }
+
     public TextView getPose2001() {
         return pose2001;
     }
+
     public TextView getPose3000() {
         return pose3000;
     }

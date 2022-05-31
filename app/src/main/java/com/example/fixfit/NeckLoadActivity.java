@@ -1,16 +1,15 @@
 package com.example.fixfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class NeckLoadActivity extends AppCompatActivity implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class NeckLoadActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView neck_load_tv;
     private ImageView neck_0, neck_15, neck_30, neck_45, neck_60;
@@ -41,24 +40,20 @@ public class NeckLoadActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void setVisibleImg(double angle){
-        if(angle < 15){
+    private void setVisibleImg(double angle) {
+        if (angle < 15) {
             neck_0.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 4.5~5.4kg!");
-        }
-        else if(angle < 30){
+        } else if (angle < 30) {
             neck_15.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 12.2kg!");
-        }
-        else if(angle < 45){
+        } else if (angle < 45) {
             neck_30.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 18.1kg!");
-        }
-        else if(angle < 60){
+        } else if (angle < 60) {
             neck_45.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 22.2kg!");
-        }
-        else{
+        } else {
             neck_60.setVisibility(View.VISIBLE);
             neck_load_tv.setText("약 27.2kg!");
         }

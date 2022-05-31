@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -58,7 +57,7 @@ public class ScheduleOne extends LinearLayout {
     }
 
     public void turnOn(int index) {
-        switch(index) {
+        switch (index) {
             case 1:
                 view1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.schedule_one_1));
                 break;
@@ -75,7 +74,7 @@ public class ScheduleOne extends LinearLayout {
     }
 
     public void turnOff(int index) {
-        switch(index) {
+        switch (index) {
             case 1:
                 view1.setBackground(null);
                 break;

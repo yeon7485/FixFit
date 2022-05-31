@@ -1,16 +1,15 @@
 package com.example.fixfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class TechNeckActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    LinearLayout tech_neck_realtime;
+    //    LinearLayout tech_neck_realtime;
     LinearLayout camera_btn, gallery_btn;
 
     @Override

@@ -14,7 +14,7 @@ public class APIClient {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-        Log.d(TAG, "APIClient >> url : "+url);
+        Log.d(TAG, "APIClient >> url : " + url);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)

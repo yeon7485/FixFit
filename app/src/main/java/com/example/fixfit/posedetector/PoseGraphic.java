@@ -202,7 +202,7 @@ public class PoseGraphic extends Graphic {
                 pose.getPoseLandmark(PoseLandmark.LEFT_EAR),
                 pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER));
 
-        if(poseCode == 101){
+        if (poseCode == 101) {
             drawLine(canvas, rightEar, rightShoulder, redPaint);
             Date currentTime = Calendar.getInstance().getTime();
             SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
@@ -210,8 +210,7 @@ public class PoseGraphic extends Graphic {
             SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
             String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
             dbAngle.child(date).setValue(String.format("%.1f", neckAngle));
-        }
-        else {
+        } else {
 
             drawLine(canvas, leftShoulder, rightShoulder, whitePaint);
             drawLine(canvas, leftHip, rightHip, whitePaint);
@@ -341,12 +340,11 @@ public class PoseGraphic extends Graphic {
     void drawPoint(Canvas canvas, PoseLandmark landmark, Paint paint) {
         PointF3D point = landmark.getPosition3D();
         maybeUpdatePaintColor(paint, canvas, point.getZ());
-        if(poseCode == 101){
+        if (poseCode == 101) {
             if (landmark.getLandmarkType() == PoseLandmark.RIGHT_EAR || landmark.getLandmarkType() == PoseLandmark.RIGHT_SHOULDER) {
                 canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
             }
-        }
-        else {
+        } else {
             if (landmark.getLandmarkType() == 0 || (landmark.getLandmarkType() >= 11 && landmark.getLandmarkType() <= 16)) {
                 canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
             }
@@ -397,21 +395,24 @@ public class PoseGraphic extends Graphic {
     }
 
     public double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
-        double dy = endPoint.getPosition().y-startPoint.getPosition().y;
-        double dx = endPoint.getPosition().x-startPoint.getPosition().x;
-        double angle = Math.atan(dy/dx) * (180.0/Math.PI);
+        double dy = endPoint.getPosition().y - startPoint.getPosition().y;
+        double dx = endPoint.getPosition().x - startPoint.getPosition().x;
+        double angle = Math.atan(dy / dx) * (180.0 / Math.PI);
         double degree = Math.toDegrees(Math.atan2(dx, dy));
 
 
-        if(dx < 0.0) {
+        if (dx < 0.0) {
             angle += 180.0;
         } else {
-            if(dy<0.0) angle += 360.0;
+            if (dy < 0.0) angle += 360.0;
         }
 
         //return angle;
         return Math.abs(degree);
     }
-    public double getNeck(){ return neckAngle; }
+
+    public double getNeck() {
+        return neckAngle;
+    }
 
 }

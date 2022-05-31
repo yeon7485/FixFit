@@ -6,24 +6,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import androidx.fragment.app.DialogFragment;
 
 import com.example.fixfit.R;
 
-import java.util.Arrays;
-
 public class InputRoutineDialog extends DialogFragment {
 
     private EditText input;
-
     private Button btnConfirm;
     private Button btnCancel;
-
     private InputRoutineDialog.OnConfirmClickListener listener;
 
     @Override

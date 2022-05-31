@@ -9,9 +9,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
-import android.util.Size;
 import android.view.MenuItem;
-import de.hdodenhof.circleimageview.CircleImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +20,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.ByteArrayOutputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String code = intent.getStringExtra("noFirst");
-        if(code==null){
+        if (code == null) {
             startActivity(new Intent(this, SplashActivity.class));
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -49,14 +49,13 @@ public class MainActivity extends AppCompatActivity {
                     firstSetting();
                 }
             }, 1000);
-        }
-        else{
+        } else {
             firstSetting();
         }
 
     }
 
-    private void firstSetting(){
+    private void firstSetting() {
         setContentView(R.layout.activity_main);
         tName = findViewById(R.id.tName);
         tSex = findViewById(R.id.tSex);
@@ -78,13 +77,12 @@ public class MainActivity extends AppCompatActivity {
         ImgProfile.setImageBitmap(getBitmap(image));
     }
 
-    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            switch (item.getItemId())
-            {
+            switch (item.getItemId()) {
                 case R.id.action_home:
                     transaction.replace(R.id.frameLayout, fragHome).commitAllowingStateLoss();
                     break;
@@ -109,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-    
-    public void getTextData(String name, String sex, String height, String birth){
+
+    public void getTextData(String name, String sex, String height, String birth) {
         setPreference("name", name);
         setPreference("sex", sex);
         setPreference("height", height + " cm");
@@ -121,34 +119,34 @@ public class MainActivity extends AppCompatActivity {
         tHeight.setText(getPreferenceString("height"));
         tBirth.setText(getPreferenceString("birth"));
     }
-   
-    public void setPreference(String key, String value){
+
+    public void setPreference(String key, String value) {
         SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
         editor.commit();
     }
 
-    public String getPreferenceString(String key){
+    public String getPreferenceString(String key) {
         SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
         return pref.getString(key, "");
     }
 
-    public void setBitmap(String key, Bitmap bitmap){
+    public void setBitmap(String key, Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,30,baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 30, baos);
         byte[] b = baos.toByteArray();
         String temp = Base64.encodeToString(b, Base64.DEFAULT);
         setPreference(key, temp);
     }
 
-    public Bitmap getBitmap(String key){
+    public Bitmap getBitmap(String key) {
         String temp = getPreferenceString(key);
-        try{
-            byte [] encodeByte = Base64.decode(temp, Base64.DEFAULT);
+        try {
+            byte[] encodeByte = Base64.decode(temp, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             return bitmap;
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }

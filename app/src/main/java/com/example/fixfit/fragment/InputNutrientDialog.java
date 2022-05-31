@@ -21,14 +21,11 @@ import java.util.Arrays;
 public class InputNutrientDialog extends DialogFragment {
 
     private EditText input;
-
     private Button btnConfirm1;
     private Button btnConfirm2;
     private Button btnConfirm3;
     private Button btnCancel;
-
     private Spinner spinner;
-
     private InputNutrientDialog.OnConfirmClickListener listener;
 
     @Override
@@ -46,7 +43,7 @@ public class InputNutrientDialog extends DialogFragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 3) {
+                if (position == 3) {
 
                     btnConfirm1.setText("등록");
                     btnConfirm2.setEnabled(false);

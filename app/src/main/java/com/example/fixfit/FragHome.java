@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 public class FragHome extends Fragment {
     ImageButton btn1, btn2, btn3, btn4;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
