@@ -71,7 +71,7 @@
             android:gravity="center"
             android:lineSpacingExtra="10dp"
             android:text="위의 예시와 같이 오른쪽을 보고\n상반신만 나오게 촬영해주세요"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="22sp" />
 
 
@@ -95,7 +95,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_camera"
-                    app:tint="@color/main_color_1" />
+                    app:tint="@color/main_color_3" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
                     android:gravity="center"
                     android:lineSpacingExtra="10dp"
                     android:text="사진\n촬영하기"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="25sp" />
 
             </LinearLayout>
@@ -123,7 +123,7 @@
                     android:layout_height="80dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_gallery"
-                    app:tint="@color/main_color_1" />
+                    app:tint="@color/main_color_3" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -134,7 +134,7 @@
                     android:gravity="center"
                     android:lineSpacingExtra="10dp"
                     android:text="갤러리에서\n가져오기"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="25sp" />
 
             </LinearLayout>

@@ -12,6 +12,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/suncheon_b"
         android:text="123456"
+        android:textColor="@color/text_color"
         android:textSize="12sp" />
 
     <TextView
@@ -21,6 +22,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/suncheon_b"
         android:text=""
+        android:textColor="@color/text_color"
         android:textSize="8sp" />
 
     <View

@@ -43,7 +43,7 @@
             android:fontFamily="@font/suncheon_b"
             android:text="취소"
             android:textAllCaps="false"
-            android:textColor="#584DE3" />
+            android:textColor="@color/main_color_3" />
 
         <Button
             android:id="@+id/btn_confirm"
@@ -55,7 +55,7 @@
             android:fontFamily="@font/suncheon_b"
             android:text="확인"
             android:textAllCaps="false"
-            android:textColor="#584DE3" />
+            android:textColor="@color/main_color_3" />
 
     </LinearLayout>
 </LinearLayout>

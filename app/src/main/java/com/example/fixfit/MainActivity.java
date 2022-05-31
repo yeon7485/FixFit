@@ -9,7 +9,9 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
+import android.util.Size;
 import android.view.MenuItem;
+import de.hdodenhof.circleimageview.CircleImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,8 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.ByteArrayOutputStream;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragHome fragHome = new FragHome();
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public final String PREFERENCE = "com.example.fixfit";
     public final String image = "image";
+    String themeColor;
 
     TextView tName, tSex, tHeight, tBirth;
     CircleImageView ImgProfile;
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void firstSetting() {
         setContentView(R.layout.activity_main);
+        themeColor = ThemeUtil.modLoad(getApplicationContext());
+        ThemeUtil.applyTheme(themeColor);
+
         tName = findViewById(R.id.tName);
         tSex = findViewById(R.id.tSex);
         tHeight = findViewById(R.id.tHeight);
@@ -107,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     }
-
-    public void getTextData(String name, String sex, String height, String birth) {
+    
+    public void getTextData(String name, String sex, String height, String birth){
         setPreference("name", name);
         setPreference("sex", sex);
         setPreference("height", height + " cm");
@@ -119,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
         tHeight.setText(getPreferenceString("height"));
         tBirth.setText(getPreferenceString("birth"));
     }
-
-    public void setPreference(String key, String value) {
+   
+    public void setPreference(String key, String value){
         SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);

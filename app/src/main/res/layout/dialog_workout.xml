@@ -13,6 +13,7 @@
         android:layout_margin="10dp"
         android:fontFamily="@font/suncheon_b"
         android:text="- 2022.5.27"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <View
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="목 스트레칭"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <View
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="  0"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
@@ -52,6 +55,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="set"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -74,6 +78,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="등 들어올리기"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <View
@@ -86,6 +91,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="  0"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
@@ -93,6 +99,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="set"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -115,6 +122,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="지면 누르기"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <View
@@ -127,6 +135,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="  0"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
@@ -134,6 +143,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="set"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -156,6 +166,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="앉아서 다리펴기"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <View
@@ -168,6 +179,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="  0"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
@@ -175,6 +187,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/suncheon_b"
             android:text="set"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>

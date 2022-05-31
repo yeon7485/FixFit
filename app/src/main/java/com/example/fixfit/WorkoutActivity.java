@@ -216,7 +216,7 @@ public class WorkoutActivity extends AppCompatActivity {
                 dialog_finish = (LinearLayout) View.inflate(WorkoutActivity.this, R.layout.dialog_finish, null);
                 AlertDialog.Builder dlg = new AlertDialog.Builder(WorkoutActivity.this);
                 dlg.setView(dialog_finish);
-                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                dlg.setPositiveButton("운동 끝내기", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (poseCode) {
@@ -265,7 +265,7 @@ public class WorkoutActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-                dlg.setNegativeButton("취소", null);
+                dlg.setNegativeButton("계속", null);
                 dlg.show();
             }
         }.start();

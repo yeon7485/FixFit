@@ -59,14 +59,16 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
-            android:src="@drawable/ic_baseline_format_list_bulleted_24" />
+            android:src="@drawable/ic_baseline_format_list_bulleted_24"
+            app:tint="@color/gray" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:fontFamily="@font/suncheon_b"
-            android:text="오늘의 운동"
+            android:text="오늘의 목록"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>

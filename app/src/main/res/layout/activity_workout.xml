@@ -59,7 +59,7 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/suncheon_b"
             android:text="운동 이름"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="22sp" />
 
         <ImageView
@@ -81,9 +81,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/suncheon_b"
+            android:fontFamily="@font/suncheon_r"
             android:text="화면을 보시고 천천히 동작을 따라하세요"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -124,7 +124,7 @@
             android:layout_gravity="right"
             android:fontFamily="@font/suncheon_b"
             android:text="TIMER  "
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <TextView
@@ -134,7 +134,7 @@
             android:layout_gravity="right"
             android:fontFamily="@font/suncheon_b"
             android:text="00 : 00"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
 
