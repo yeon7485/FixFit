@@ -167,6 +167,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
                 convertView.findViewById(R.id.delete).setOnClickListener(view -> {
                     adapter.remove(position);
+                    saveRoutines();
                 });
 
                 convertView.findViewById(R.id.undo).setOnClickListener(view -> {
