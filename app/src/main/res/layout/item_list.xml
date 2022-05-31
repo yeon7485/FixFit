@@ -8,4 +8,4 @@
     android:padding="15dp"
     android:text="프로필 설정"
     android:textColor="@color/text_color"
-    android:textSize="18sp" />
+    android:textSize="18sp"/>
