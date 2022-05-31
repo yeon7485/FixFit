@@ -83,13 +83,22 @@ public class FragSetup extends Fragment {
 
                                 int checkedId = dialog_rg.getCheckedRadioButtonId();
                                 RadioButton rb = (RadioButton) dialogView.findViewById(checkedId);
+                                if (rb == null) {
+                                    Toast.makeText(getActivity(), "모든 항목을 작성하여 주세요", Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    String sex = rb.getText().toString();
 
-                                String sex = rb.getText().toString();
+                                    if(dlgName.length() != 0 && dlgHeight.length() != 0 && dlgBirth.length() != 0){
+                                        MainActivity main = (MainActivity) getActivity();
+                                        main.getTextData(name, sex, height, birth);
 
-                                MainActivity main = (MainActivity) getActivity();
-                                main.getTextData(name, sex, height, birth);
-
-                                Toast.makeText(getActivity(), "수정완료", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), "수정완료", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        Toast.makeText(getActivity(), "모든 항목을 작성하여 주세요", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
                             }
                         });
 
