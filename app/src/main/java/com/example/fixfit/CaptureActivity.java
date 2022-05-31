@@ -1,8 +1,10 @@
 package com.example.fixfit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -31,6 +33,8 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
 
         capture_btn.setOnClickListener(this);
         classifier_btn.setOnClickListener(this);
+        // 카메라 권한
+        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
 
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(i, REQUEST_IMAGE_CAPTURE);
@@ -62,17 +66,23 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // 카메라 촬영을 하면 이미지뷰에 사진 삽입
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            // Bundle로 데이터를 입력
-            Bundle extras = data.getExtras();
-            // Bitmap으로 컨버전
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            // 이미지뷰에 Bitmap으로 이미지를 입력
-            capture_img.setImageBitmap(imageBitmap);
-        } else if (resultCode == RESULT_CANCELED) {
-            Toast.makeText(this, "사진 촬영 취소", Toast.LENGTH_LONG).show();
+        // 카메라 권한 확인
+        if (ActivityCompat.checkSelfPermission(CaptureActivity.this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            // 카메라 촬영을 하면 이미지뷰에 사진 삽입
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                // Bundle로 데이터를 입력
+                Bundle extras = data.getExtras();
+                // Bitmap으로 컨버전
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                // 이미지뷰에 Bitmap으로 이미지를 입력
+                capture_img.setImageBitmap(imageBitmap);
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "사진 촬영 취소", Toast.LENGTH_LONG).show();
+            }
         }
+        else{
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
+        }
+
     }
 }

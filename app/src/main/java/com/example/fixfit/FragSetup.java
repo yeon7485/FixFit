@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class FragSetup extends Fragment {
         final RadioGroup dialog_rg = (RadioGroup) dialogView.findViewById(R.id.dialog_rg);
         final RadioGroup theme_rg = (RadioGroup) dialogTheme.findViewById(R.id.RGroup);
 
-        String[] data = {"프로필 설정", "프로필 이미지 설정", "글자 크기 설정"};
+        String[] data = {"프로필 설정", "프로필 이미지 설정", "테마 설정"};
 
 
         ListView list = (ListView) view.findViewById(R.id.list);
@@ -104,14 +105,19 @@ public class FragSetup extends Fragment {
                     if (dialogTheme.getParent() != null)
                         ((ViewGroup) dialogTheme.getParent()).removeView(dialogTheme);
                     builder.setView(dialogTheme);
+                    RadioButton light = (RadioButton) dialogTheme.findViewById(R.id.RB_Light);
+                    RadioButton dark = (RadioButton) dialogTheme.findViewById(R.id.RB_Dark);
+                    Log.v("rb", light.getText().toString());
+                    if(ThemeUtil.modLoad(getContext()).equals("light")){
+                        light.setChecked(true);
+                    } else{
+                        dark.setChecked(true);
+                    }
 
                     builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             int checkedId = theme_rg.getCheckedRadioButtonId();
-//                            RadioButton rb = (RadioButton) dialogTheme.findViewById(checkedId);
-//                            String theme = rb.getText().toString();
-
                             switch (checkedId) {
                                 case R.id.RB_Light:
                                     themeColor = ThemeUtil.LIGHT_MODE;

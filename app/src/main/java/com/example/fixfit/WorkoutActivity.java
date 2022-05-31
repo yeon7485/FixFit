@@ -67,12 +67,8 @@ public class WorkoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workout);
-        workout_txt = (TextView) findViewById(R.id.workout_txt);
-        workout_img = (ImageView) findViewById(R.id.workout_img);
-        workout_timer = (LinearLayout) findViewById(R.id.workout_timer);
-        workout_time_txt = (TextView) findViewById(R.id.workout_time_txt);
 
+        // 아이템 받아오기
         Intent intent = getIntent();
         if (intent != null) {
             Bundle bld = intent.getExtras();
@@ -84,29 +80,41 @@ public class WorkoutActivity extends AppCompatActivity {
             this.poseCode = (int) bld.get("code");
         }
 
+        if (poseCode == 1001) {
+            setContentView(R.layout.activity_stretch);
+        } else {
+            setContentView(R.layout.activity_workout);
+
+            workout_timer = (LinearLayout) findViewById(R.id.workout_timer);
+            workout_time_txt = (TextView) findViewById(R.id.workout_time_txt);
+
+            preview = findViewById(R.id.workout_view);
+            if (preview == null) {
+                Log.d(TAG, "Preview is null");
+            }
+            graphicOverlay = findViewById(R.id.workout_overlay);
+            if (graphicOverlay == null) {
+                Log.d(TAG, "graphicOverlay is null");
+            }
+
+            createCameraSource();
+            startCameraSource();
+            Log.v("facing", String.valueOf(cameraSource.getCameraFacing()));
+
+            workout_timer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showDialog();
+                }
+            });
+        }
+
+        workout_txt = (TextView) findViewById(R.id.workout_txt);
+        workout_img = (ImageView) findViewById(R.id.workout_img);
+
         workout_txt.setText(item.getWorkoutName());
         workout_img.setImageResource(item.getImgResId());
 
-        preview = findViewById(R.id.workout_view);
-        if (preview == null) {
-            Log.d(TAG, "Preview is null");
-        }
-        graphicOverlay = findViewById(R.id.workout_overlay);
-        if (graphicOverlay == null) {
-            Log.d(TAG, "graphicOverlay is null");
-        }
-
-        createCameraSource();
-        startCameraSource();
-        Log.v("facing", String.valueOf(cameraSource.getCameraFacing()));
-
-
-        workout_timer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
 
         Date currentTime = Calendar.getInstance().getTime();
         SimpleDateFormat dayFormat = new SimpleDateFormat("dd", Locale.KOREA);
@@ -173,8 +181,11 @@ public class WorkoutActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
-        createCameraSource();
-        startCameraSource();
+        if (poseCode != 1001) {
+            createCameraSource();
+            startCameraSource();
+        }
+
     }
 
     /**
@@ -183,7 +194,8 @@ public class WorkoutActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        preview.stop();
+        if (poseCode != 1001)
+            preview.stop();
     }
 
     @Override
@@ -196,8 +208,6 @@ public class WorkoutActivity extends AppCompatActivity {
 
     // 타이머
     private void startTimer(long time) {
-
-
         mCountDownTimer = new CountDownTimer(time + 1000, 1000) {
             @Override
             public void onTick(long l) {

@@ -86,7 +86,6 @@ public class PoseGraphic extends Graphic {
         this.poseClassification = poseClassification;
         classificationTextPaint = new Paint();
         classificationTextPaint.setColor(Color.WHITE);
-//    classificationTextPaint.setTextSize(POSE_CLASSIFICATION_TEXT_SIZE);
         classificationTextPaint.setShadowLayer(5.0f, 0f, 0f, Color.BLACK);
 
         whitePaint = new Paint();
@@ -202,7 +201,8 @@ public class PoseGraphic extends Graphic {
                 pose.getPoseLandmark(PoseLandmark.LEFT_EAR),
                 pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER));
 
-        if (poseCode == 101) {
+        // 거북목 판정 기능
+        if(poseCode == 101){
             drawLine(canvas, rightEar, rightShoulder, redPaint);
             Date currentTime = Calendar.getInstance().getTime();
             SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
@@ -210,12 +210,14 @@ public class PoseGraphic extends Graphic {
             SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
             String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
             dbAngle.child(date).setValue(String.format("%.1f", neckAngle));
-        } else {
+        }
+        // 자세 교정 기능
+        else {
 
             drawLine(canvas, leftShoulder, rightShoulder, whitePaint);
             drawLine(canvas, leftHip, rightHip, whitePaint);
 
-            long arm = 0, shoulder = 0, hip = 0, knee = 0, lKnee = 0, rKnee = 0, foot = 0;
+            long arm = 0, shoulder = 0, lHip = 0, rHip = 0, knee = 0, lKnee = 0, rKnee = 0, foot = 0;
             Log.v("poseCode", String.valueOf(poseCode));
             if (poseCode < 2000) {
                 switch (poseCode) {
@@ -229,20 +231,38 @@ public class PoseGraphic extends Graphic {
                     case 2000:
                         arm = 175;
                         shoulder = 113;
-                        hip = 83;
+                        lHip = 83;
+                        rHip = 83;
                         knee = 90;
                         break;
                     case 2001:
                         arm = 175;
                         shoulder = 113;
-                        hip = 83;
+                        lHip = 83;
+                        rHip = 83;
                         knee = 94;
+                        break;
+                    case 2002:
+                        arm = 176;
+                        shoulder = 50;
+                        lHip = 97;
+                        rHip = 97;
+                        knee = 90;
+                        break;
+                    case 2003:
+                        arm = 170;
+                        shoulder = 75;
+                        lHip = 112;
+                        rHip = 177;
+                        lKnee = 90;
+                        rKnee = 125;
                         break;
                 }
             } else {
                 switch (poseCode) {
                     case 3000:
-                        hip = 97;
+                        lHip = 97;
+                        rHip = 97;
                         lKnee = 150;
                         rKnee = 90;
                         foot = 90;
@@ -297,9 +317,10 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, rightElbow, rightShoulder, leftPaint);
                 }
             }
+            // 허리, 무릎 운동일 때
             if (poseCode >= 2000) {
                 // 왼쪽 힙 각도
-                if (round(leftHipAngle) >= (hip - 15) && round(leftHipAngle) <= (hip + 15)) {
+                if (round(leftHipAngle) >= (lHip - 15) && round(leftHipAngle) <= (lHip + 15)) {
                     drawLine(canvas, leftShoulder, leftHip, rightPaint);
                     drawLine(canvas, leftHip, leftKnee, rightPaint);
                 } else {
@@ -307,7 +328,7 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, leftHip, leftKnee, leftPaint);
                 }
                 // 오른쪽 힙 각도
-                if (round(rightHipAngle) >= (hip - 15) && round(rightHipAngle) <= (hip + 15)) {
+                if (round(rightHipAngle) >= (rHip - 15) && round(rightHipAngle) <= (rHip + 15)) {
                     drawLine(canvas, rightShoulder, rightHip, rightPaint);
                     drawLine(canvas, rightHip, rightKnee, rightPaint);
                 } else {
@@ -340,11 +361,12 @@ public class PoseGraphic extends Graphic {
     void drawPoint(Canvas canvas, PoseLandmark landmark, Paint paint) {
         PointF3D point = landmark.getPosition3D();
         maybeUpdatePaintColor(paint, canvas, point.getZ());
-        if (poseCode == 101) {
+        if(poseCode == 101){
             if (landmark.getLandmarkType() == PoseLandmark.RIGHT_EAR || landmark.getLandmarkType() == PoseLandmark.RIGHT_SHOULDER) {
                 canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
             }
-        } else {
+        }
+        else {
             if (landmark.getLandmarkType() == 0 || (landmark.getLandmarkType() >= 11 && landmark.getLandmarkType() <= 16)) {
                 canvas.drawCircle(translateX(point.getX()), translateY(point.getY()), DOT_RADIUS, paint);
             }
@@ -395,24 +417,21 @@ public class PoseGraphic extends Graphic {
     }
 
     public double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
-        double dy = endPoint.getPosition().y - startPoint.getPosition().y;
-        double dx = endPoint.getPosition().x - startPoint.getPosition().x;
-        double angle = Math.atan(dy / dx) * (180.0 / Math.PI);
+        double dy = endPoint.getPosition().y-startPoint.getPosition().y;
+        double dx = endPoint.getPosition().x-startPoint.getPosition().x;
+        double angle = Math.atan(dy/dx) * (180.0/Math.PI);
         double degree = Math.toDegrees(Math.atan2(dx, dy));
 
 
-        if (dx < 0.0) {
+        if(dx < 0.0) {
             angle += 180.0;
         } else {
-            if (dy < 0.0) angle += 360.0;
+            if(dy<0.0) angle += 360.0;
         }
 
         //return angle;
         return Math.abs(degree);
     }
-
-    public double getNeck() {
-        return neckAngle;
-    }
+    public double getNeck(){ return neckAngle; }
 
 }

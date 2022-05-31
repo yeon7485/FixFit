@@ -1,5 +1,10 @@
 package com.example.fixfit;
 
+import static java.security.AccessController.getContext;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,8 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fixfit.Model.ScheduleOne;
 import com.example.fixfit.fragment.InputNutrientDialog;
@@ -65,13 +68,13 @@ public class DietScheduleActivity extends AppCompatActivity {
     }
 
 
-    private static String[] monthText = new String[]{
+    private static String[] monthText = new String[] {
             "January", "February", "March", "April",
             "May", "June", "July", "August",
             "September", "October", "November", "December"
     };
 
-    private static String[] weekText = new String[]{
+    private static String[] weekText = new String[] {
             "", "일", "월", "화", "수", "목", "금", "토"
     };
 
@@ -91,7 +94,7 @@ public class DietScheduleActivity extends AppCompatActivity {
         Log.d("scheduleview", "start: " + start);
 
         // past
-        for (int i = start - 1; i >= 0; i--) {
+        for(int i = start - 1; i >= 0; i--) {
             calendar.add(Calendar.DATE, -1);
             schedules.get(i).getDate().setText(String.valueOf(calendar.get(Calendar.DATE)));
             schedules.get(i).getDate().setTextColor(Color.GRAY);
@@ -110,10 +113,10 @@ public class DietScheduleActivity extends AppCompatActivity {
         int max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         Log.d("scheduleview", "max: " + max);
 
-        for (int i = start; i < start + max; i++) {
+        for(int i = start; i < start + max; i++) {
             schedules.get(i).getDate().setText(String.valueOf(calendar.get(Calendar.DATE)));
 
-            switch (i % 7 + 1) {
+            switch(i%7 + 1) {
                 case Calendar.SUNDAY:
                     schedules.get(i).getDate().setTextColor(Color.RED);
                     break;
@@ -121,7 +124,7 @@ public class DietScheduleActivity extends AppCompatActivity {
                     schedules.get(i).getDate().setTextColor(Color.BLUE);
                     break;
                 default:
-                    schedules.get(i).getDate().setTextColor(Color.WHITE);
+                    schedules.get(i).getDate().setTextColor(ContextCompat.getColor(this, R.color.text_color));
                     break;
             }
 
@@ -130,7 +133,7 @@ public class DietScheduleActivity extends AppCompatActivity {
         }
 
         // future
-        for (int i = start + max; i < schedules.size(); i++) {
+        for(int i = start + max; i < schedules.size(); i++) {
             schedules.get(i).getDate().setText(String.valueOf(calendar.get(Calendar.DATE)));
             schedules.get(i).getDate().setTextColor(Color.GRAY);
 
@@ -141,7 +144,7 @@ public class DietScheduleActivity extends AppCompatActivity {
         SharedPreferences scheduleSaves = getSharedPreferences("schedules", MODE_PRIVATE);
 
         // 저장 여부 체크
-        for (int i = 0; i < schedules.size(); i++) {
+        for(int i = 0; i < schedules.size(); i++) {
             int currentMonth = indexFirst.get(Calendar.MONTH) + 1;
             int currentDate = indexFirst.get(Calendar.DATE);
             int week = indexFirst.get(Calendar.DAY_OF_WEEK);
@@ -154,7 +157,7 @@ public class DietScheduleActivity extends AppCompatActivity {
             //숫자: 0 = 아침 1 = 점심 2 = 저녁 3 = 몸무게
             //숫자2: 0=탄 1=단 2=지
 
-            int totalKcal0 = (int) (4.1 * (getNutrientCompact(scheduleSaves, time, 0, 0) +
+            int totalKcal0 = (int)(4.1 * (getNutrientCompact(scheduleSaves, time, 0, 0) +
                     getNutrientCompact(scheduleSaves, time, 1, 0) +
                     getNutrientCompact(scheduleSaves, time, 2, 0)));
 
@@ -170,14 +173,10 @@ public class DietScheduleActivity extends AppCompatActivity {
 
             int weight = getWeight(scheduleSaves, time);
 
-            if (totalKcal0 > 0) schedule.turnOn(1);
-            else schedule.turnOff(1);
-            if (totalKcal1 > 0) schedule.turnOn(2);
-            else schedule.turnOff(2);
-            if (totalKcal2 > 0) schedule.turnOn(3);
-            else schedule.turnOff(3);
-            if (totalKcal > 0) schedule.turnOn(4);
-            else schedule.turnOff(4);
+            if(totalKcal0 > 0) schedule.turnOn(1); else schedule.turnOff(1);
+            if(totalKcal1 > 0) schedule.turnOn(2); else schedule.turnOff(2);
+            if(totalKcal2 > 0) schedule.turnOn(3); else schedule.turnOff(3);
+            if(totalKcal > 0) schedule.turnOn(4); else schedule.turnOff(4);
 
             schedule.setOnClickListener(view -> {
                 NutrientViewDialog dialog = new NutrientViewDialog();
@@ -228,7 +227,7 @@ public class DietScheduleActivity extends AppCompatActivity {
     }
 
     public int getNutrient(SharedPreferences scheduleSaves, String key) {
-        if (scheduleSaves.contains(key)) {
+        if(scheduleSaves.contains(key)) {
             return scheduleSaves.getInt(key, 0);
         }
         return 0;
@@ -254,7 +253,7 @@ public class DietScheduleActivity extends AppCompatActivity {
     }
 
     public void initSchedulesLine(LinearLayout layout) {
-        for (int i = 0; i < layout.getChildCount(); i++) {
+        for(int i = 0; i < layout.getChildCount(); i++) {
             ScheduleOne scheduleOne = (ScheduleOne) layout.getChildAt(i);
             schedules.add(scheduleOne);
         }
