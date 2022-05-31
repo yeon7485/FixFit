@@ -122,16 +122,12 @@ public class ToDoRoutineActivity extends AppCompatActivity {
             if (position < routines.size()) {
                 convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.frag_routine, parent, false);
                 CheckBox checkBox = convertView.findViewById(R.id.frag_routine_checkbox);
-
                 Calendar calendar = Calendar.getInstance();
-
                 String routineName = routines.get(position);
                 int year = calendar.get(Calendar.YEAR);
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DATE);
-
                 String key = year + "-" + month + "-" + day + "-" + routineName;
-
                 checkBox.setText(routineName);
 
                 if (preferences.contains(key)) {

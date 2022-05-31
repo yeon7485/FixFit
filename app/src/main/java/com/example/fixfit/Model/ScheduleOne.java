@@ -1,5 +1,6 @@
 package com.example.fixfit.Model;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -41,11 +42,11 @@ public class ScheduleOne extends LinearLayout {
         initView();
     }
 
+    @SuppressLint("ResourceAsColor")
     private void initView() {
         String infService = Context.LAYOUT_INFLATER_SERVICE;
         LayoutInflater li = (LayoutInflater) getContext().getSystemService(infService);
         View v = li.inflate(R.layout.schedule_one, this, false);
-
         addView(v);
 
         date = findViewById(R.id.schedule_one_date);
@@ -70,6 +71,7 @@ public class ScheduleOne extends LinearLayout {
             case 4:
                 view4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.schedule_one_4));
                 break;
+
         }
     }
 

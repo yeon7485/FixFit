@@ -121,7 +121,7 @@ public class DietScheduleActivity extends AppCompatActivity {
                     schedules.get(i).getDate().setTextColor(Color.BLUE);
                     break;
                 default:
-                    schedules.get(i).getDate().setTextColor(Color.BLACK);
+                    schedules.get(i).getDate().setTextColor(Color.WHITE);
                     break;
             }
 
