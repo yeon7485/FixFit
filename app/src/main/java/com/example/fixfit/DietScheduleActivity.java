@@ -1,6 +1,9 @@
 package com.example.fixfit;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -121,7 +124,7 @@ public class DietScheduleActivity extends AppCompatActivity {
                     schedules.get(i).getDate().setTextColor(Color.BLUE);
                     break;
                 default:
-                    schedules.get(i).getDate().setTextColor(Color.BLACK);
+                    schedules.get(i).getDate().setTextColor(ContextCompat.getColor(this, R.color.text_color));
                     break;
             }
 

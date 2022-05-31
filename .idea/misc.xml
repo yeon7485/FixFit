@@ -62,7 +62,7 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/new_task.xml" value="0.190625" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/realtime.xml" value="0.136" />
-        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/schedule_one.xml" value="0.1272644927536232" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/schedule_one.xml" value="0.264" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/task_layout.xml" value="0.4" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/tech_neck_realtime.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
@@ -107,8 +107,6 @@
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine.xml" value="0.33" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_routine_plus.xml" value="0.13496376811594202" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/frag_setup.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/item_list.xml" value="0.2441123188405797" />
-        <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/item_spinner.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/item_workout.xml" value="0.24864130434782608" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/schedule_one.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/cjmbe/Desktop/HW/2022-01/CAPDI 1/FixFit01/app/src/main/res/layout/task_layout.xml" value="0.24864130434782608" />

@@ -50,6 +50,7 @@ public class ScheduleOne extends LinearLayout {
         addView(v);
 
         date = findViewById(R.id.schedule_one_date);
+
         spec = findViewById(R.id.schedule_one_date_spec);
         view1 = findViewById(R.id.schedule_one_1);
         view2 = findViewById(R.id.schedule_one_2);
