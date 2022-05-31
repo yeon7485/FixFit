@@ -61,7 +61,7 @@ public class PoseGraphic extends Graphic {
 
     private final List<String> poseClassification;
     private final Paint classificationTextPaint;
-    private final Paint leftPaint;
+    private final Paint wrongPaint;
     private final Paint rightPaint;
     private final Paint whitePaint;
     private final Paint redPaint;
@@ -92,9 +92,9 @@ public class PoseGraphic extends Graphic {
         whitePaint.setStrokeWidth(STROKE_WIDTH);
         whitePaint.setColor(Color.WHITE);
         whitePaint.setTextSize(IN_FRAME_LIKELIHOOD_TEXT_SIZE);
-        leftPaint = new Paint();
-        leftPaint.setStrokeWidth(STROKE_WIDTH);
-        leftPaint.setColor(Color.RED);
+        wrongPaint = new Paint();
+        wrongPaint.setStrokeWidth(STROKE_WIDTH);
+        wrongPaint.setColor(Color.RED);
         rightPaint = new Paint();
         rightPaint.setStrokeWidth(STROKE_WIDTH);
         rightPaint.setColor(Color.GREEN);
@@ -233,29 +233,24 @@ public class PoseGraphic extends Graphic {
                         shoulder = 113;
                         lHip = 83;
                         rHip = 83;
-                        knee = 90;
+                        lKnee = 90;
+                        rKnee = 90;
                         break;
                     case 2001:
-                        arm = 175;
-                        shoulder = 113;
-                        lHip = 83;
-                        rHip = 83;
-                        knee = 94;
-                        break;
-                    case 2002:
                         arm = 176;
                         shoulder = 50;
                         lHip = 97;
                         rHip = 97;
-                        knee = 90;
+                        lKnee = 90;
+                        rKnee = 90;
                         break;
-                    case 2003:
+                    case 2002:
                         arm = 170;
                         shoulder = 75;
                         lHip = 112;
-                        rHip = 177;
+                        rHip = 160;
                         lKnee = 90;
-                        rKnee = 125;
+                        rKnee = 160;
                         break;
                 }
             } else {
@@ -288,16 +283,16 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, leftShoulder, leftElbow, rightPaint);
                     drawLine(canvas, leftElbow, leftWrist, rightPaint);
                 } else {
-                    drawLine(canvas, leftShoulder, leftElbow, leftPaint);
-                    drawLine(canvas, leftElbow, leftWrist, leftPaint);
+                    drawLine(canvas, leftShoulder, leftElbow, wrongPaint);
+                    drawLine(canvas, leftElbow, leftWrist, wrongPaint);
                 }
                 // 오른쪽 팔 각도
                 if (round(rightArmAngle) >= (arm - 15) && round(rightArmAngle) <= (arm + 15)) {
                     drawLine(canvas, rightShoulder, rightElbow, rightPaint);
                     drawLine(canvas, rightElbow, rightWrist, rightPaint);
                 } else {
-                    drawLine(canvas, rightShoulder, rightElbow, leftPaint);
-                    drawLine(canvas, rightElbow, rightWrist, leftPaint);
+                    drawLine(canvas, rightShoulder, rightElbow, wrongPaint);
+                    drawLine(canvas, rightElbow, rightWrist, wrongPaint);
                 }
 
                 // 왼쪽 어깨 각도
@@ -305,16 +300,16 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, leftShoulder, leftHip, rightPaint);
                     drawLine(canvas, leftElbow, leftShoulder, rightPaint);
                 } else {
-                    drawLine(canvas, leftShoulder, leftHip, leftPaint);
-                    drawLine(canvas, leftElbow, leftShoulder, leftPaint);
+                    drawLine(canvas, leftShoulder, leftHip, wrongPaint);
+                    drawLine(canvas, leftElbow, leftShoulder, wrongPaint);
                 }
                 // 오른쪽 어깨 각도
                 if (round(rightShoulderAngle) >= (shoulder - 15) && round(rightShoulderAngle) <= (shoulder + 15)) {
                     drawLine(canvas, rightShoulder, rightHip, rightPaint);
                     drawLine(canvas, rightElbow, rightShoulder, rightPaint);
                 } else {
-                    drawLine(canvas, rightShoulder, rightHip, leftPaint);
-                    drawLine(canvas, rightElbow, rightShoulder, leftPaint);
+                    drawLine(canvas, rightShoulder, rightHip, wrongPaint);
+                    drawLine(canvas, rightElbow, rightShoulder, wrongPaint);
                 }
             }
             // 허리, 무릎 운동일 때
@@ -324,16 +319,16 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, leftShoulder, leftHip, rightPaint);
                     drawLine(canvas, leftHip, leftKnee, rightPaint);
                 } else {
-                    drawLine(canvas, leftShoulder, leftHip, leftPaint);
-                    drawLine(canvas, leftHip, leftKnee, leftPaint);
+                    drawLine(canvas, leftShoulder, leftHip, wrongPaint);
+                    drawLine(canvas, leftHip, leftKnee, wrongPaint);
                 }
                 // 오른쪽 힙 각도
                 if (round(rightHipAngle) >= (rHip - 15) && round(rightHipAngle) <= (rHip + 15)) {
                     drawLine(canvas, rightShoulder, rightHip, rightPaint);
                     drawLine(canvas, rightHip, rightKnee, rightPaint);
                 } else {
-                    drawLine(canvas, rightShoulder, rightHip, leftPaint);
-                    drawLine(canvas, rightHip, rightKnee, leftPaint);
+                    drawLine(canvas, rightShoulder, rightHip, wrongPaint);
+                    drawLine(canvas, rightHip, rightKnee, wrongPaint);
                 }
 
                 // 왼쪽 무릎 각도
@@ -341,16 +336,16 @@ public class PoseGraphic extends Graphic {
                     drawLine(canvas, leftKnee, leftHip, rightPaint);
                     drawLine(canvas, leftKnee, leftAnkle, rightPaint);
                 } else {
-                    drawLine(canvas, leftKnee, leftHip, leftPaint);
-                    drawLine(canvas, leftKnee, leftAnkle, leftPaint);
+                    drawLine(canvas, leftKnee, leftHip, wrongPaint);
+                    drawLine(canvas, leftKnee, leftAnkle, wrongPaint);
                 }
                 // 오른쪽 무릎 각도
                 if (round(rightKneeAngle) >= (rKnee - 15) && round(rightKneeAngle) <= (rKnee + 15)) {
                     drawLine(canvas, rightKnee, rightHip, rightPaint);
                     drawLine(canvas, rightKnee, rightAnkle, rightPaint);
                 } else {
-                    drawLine(canvas, rightKnee, rightHip, leftPaint);
-                    drawLine(canvas, rightKnee, rightAnkle, leftPaint);
+                    drawLine(canvas, rightKnee, rightHip, wrongPaint);
+                    drawLine(canvas, rightKnee, rightAnkle, wrongPaint);
                 }
             }
 
@@ -409,9 +404,9 @@ public class PoseGraphic extends Graphic {
                                 lastPoint.getPosition().x - midPoint.getPosition().x)
                                 - atan2(firstPoint.getPosition().y - midPoint.getPosition().y,
                                 firstPoint.getPosition().x - midPoint.getPosition().x));
-        result = Math.abs(result); // Angle should never be negative
+        result = Math.abs(result);
         if (result > 180) {
-            result = (360.0 - result); // Always get the acute representation of the angle
+            result = (360.0 - result);
         }
         return result;
     }
@@ -419,19 +414,9 @@ public class PoseGraphic extends Graphic {
     public double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
         double dy = endPoint.getPosition().y-startPoint.getPosition().y;
         double dx = endPoint.getPosition().x-startPoint.getPosition().x;
-        double angle = Math.atan(dy/dx) * (180.0/Math.PI);
         double degree = Math.toDegrees(Math.atan2(dx, dy));
 
 
-        if(dx < 0.0) {
-            angle += 180.0;
-        } else {
-            if(dy<0.0) angle += 360.0;
-        }
-
-        //return angle;
         return Math.abs(degree);
     }
-    public double getNeck(){ return neckAngle; }
-
 }

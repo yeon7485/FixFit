@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.fixfit.Camera.CameraSource;
 import com.example.fixfit.Camera.CameraSourcePreview;
@@ -95,6 +97,10 @@ public class WorkoutActivity extends AppCompatActivity {
             graphicOverlay = findViewById(R.id.workout_overlay);
             if (graphicOverlay == null) {
                 Log.d(TAG, "graphicOverlay is null");
+            }
+
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
             }
 
             createCameraSource();
