@@ -127,7 +127,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
             if(position < routines.size()) {
                 convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.frag_routine, parent, false);
                 CheckBox checkBox = convertView.findViewById(R.id.frag_routine_checkbox);
-                checkBox.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.text_color));
+
 
                 Calendar calendar = Calendar.getInstance();
 
