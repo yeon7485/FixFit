@@ -274,7 +274,53 @@ public class WorkoutActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-                dlg.setNegativeButton("계속", null);
+                dlg.setNegativeButton("계속", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (poseCode) {
+                            case 1000:
+                                db.child(date).child("1000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("1000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 2000:
+                                db.child(date).child("2000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("2000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 2001:
+                                db.child(date).child("2001").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("2001").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                            case 3000:
+                                db.child(date).child("3000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        String v = String.valueOf(task.getResult().getValue());
+                                        int value = Integer.parseInt(v) + 1;
+                                        db.child(date).child("3000").setValue(String.valueOf(value));
+                                    }
+                                });
+                                break;
+                        }
+                    }
+                });
                 dlg.show();
             }
         }.start();

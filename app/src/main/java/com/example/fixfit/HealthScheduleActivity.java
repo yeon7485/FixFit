@@ -79,7 +79,10 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 dialog.show(getSupportFragmentManager(), "DialogWorkOut");
 
                 dialog.setListener(() -> {
-                    String date = year + "-" + (month + 1) + "-" + dayOfMonth;
+                    String date = year + "-" + (month + 1) + "-";
+                    if(dayOfMonth < 10)
+                        date += "0";
+                    date += dayOfMonth;
                     dialog.getTime().setText(" - " + year + ". " + (month + 1) + "." + dayOfMonth);
 //                    dialog.getPose1000().setText(String.valueOf(0));
 //                    dialog.getPose2000().setText(String.valueOf(0));
