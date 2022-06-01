@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TechNeckActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //    LinearLayout tech_neck_realtime;
     LinearLayout camera_btn, gallery_btn;
 
     @Override

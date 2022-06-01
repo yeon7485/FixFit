@@ -1,21 +1,18 @@
 package com.example.fixfit;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -60,6 +57,7 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
                 intent = new Intent(this, ClassifierActivity.class);
                 BitmapDrawable drawable = (BitmapDrawable) gallery_img.getDrawable();
                 Bitmap sendBitmap = drawable.getBitmap();
+                // 이미지가 없으면
                 if(sendBitmap == bit){
                     Toast.makeText(this, "이미지가 없습니다.", Toast.LENGTH_SHORT).show();
                 }

@@ -37,7 +37,6 @@ public class WeatherActivity extends AppCompatActivity {
     TextView tv_wind, tv_cloud, tv_humidity;
     APIService apiInterface = null;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,6 @@ public class WeatherActivity extends AppCompatActivity {
         initView();
         requestNetwork();
     }
-
 
     /* view 를 설정하는 메소드 */
     private void initView() {

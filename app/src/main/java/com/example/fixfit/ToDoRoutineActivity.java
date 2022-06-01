@@ -1,17 +1,12 @@
 package com.example.fixfit;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -78,7 +73,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
         routines.clear();
 
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             routines.add(preferences.getString("routine" + i, ""));
         }
 
@@ -90,7 +85,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("size", routines.size());
 
-        for(int i = 0; i < routines.size(); i++) {
+        for (int i = 0; i < routines.size(); i++) {
             editor.putString("routine" + i, routines.get(i));
         }
 
@@ -111,7 +106,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
         @Override
         public long getItemId(int position) {
-            if(position < routines.size())
+            if (position < routines.size())
                 return routines.get(position).hashCode();
             else
                 return 0;
@@ -124,7 +119,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if(position < routines.size()) {
+            if (position < routines.size()) {
                 convertView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.frag_routine, parent, false);
                 CheckBox checkBox = convertView.findViewById(R.id.frag_routine_checkbox);
 
@@ -140,7 +135,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
 
                 checkBox.setText(routineName);
 
-                if(preferences.contains(key)) {
+                if (preferences.contains(key)) {
                     checkBox.setChecked(true);
                 } else {
                     checkBox.setChecked(false);
@@ -158,7 +153,7 @@ public class ToDoRoutineActivity extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         SharedPreferences.Editor editor = preferences.edit();
-                        if(isChecked) {
+                        if (isChecked) {
                             editor.putBoolean(key, true);
                         } else {
                             editor.remove(key);

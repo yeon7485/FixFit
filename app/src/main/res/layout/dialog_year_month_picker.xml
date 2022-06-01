@@ -15,13 +15,13 @@
             android:id="@+id/picker_year"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
-            android:layout_margin="10dp"></NumberPicker>
+            android:layout_margin="10dp" />
 
         <NumberPicker
             android:id="@+id/picker_month"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
-            android:layout_margin="10dp"></NumberPicker>
+            android:layout_margin="10dp" />
 
     </LinearLayout>
 

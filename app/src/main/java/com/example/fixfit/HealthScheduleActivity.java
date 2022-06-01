@@ -2,7 +2,6 @@ package com.example.fixfit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-//<!--김성윤 (운동스케줄러 버전 1)-->
 public class HealthScheduleActivity extends AppCompatActivity {
     public String fname = null;
     public String str = null;
