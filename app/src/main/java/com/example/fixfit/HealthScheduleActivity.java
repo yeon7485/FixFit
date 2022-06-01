@@ -34,7 +34,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
     public CalendarView calendarView;
     public Button cha_Btn, del_Btn, save_Btn;
     public TextView diaryTextView, textView2;
-    //    public TextView textView3;
     public EditText contextEditText;
     public FrameLayout schedule_layout;
     public String ViewIndex = "0";
@@ -52,13 +51,8 @@ public class HealthScheduleActivity extends AppCompatActivity {
         del_Btn = findViewById(R.id.del_Btn);
         cha_Btn = findViewById(R.id.cha_Btn);
         textView2 = findViewById(R.id.textView2);
-//        textView3=findViewById(R.id.textView3);
         contextEditText = findViewById(R.id.contextEditText);
         schedule_layout = findViewById(R.id.schedule_layout);
-        //로그인 및 회원가입 엑티비티에서 이름을 받아옴
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        final String userID = intent.getStringExtra("userID");
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -71,7 +65,7 @@ public class HealthScheduleActivity extends AppCompatActivity {
                 del_Btn.setVisibility(View.INVISIBLE);
                 diaryTextView.setText(String.format("%d / %d / %d  운동일지", year, month + 1, dayOfMonth));
                 contextEditText.setText("");
-                checkDay(year, month, dayOfMonth, userID);
+                checkDay(year, month, dayOfMonth);
 
                 //dialog 띄우기
                 WorkOutDialog dialog = new WorkOutDialog();
@@ -84,10 +78,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
                         date += "0";
                     date += dayOfMonth;
                     dialog.getTime().setText(" - " + year + ". " + (month + 1) + "." + dayOfMonth);
-//                    dialog.getPose1000().setText(String.valueOf(0));
-//                    dialog.getPose2000().setText(String.valueOf(0));
-//                    dialog.getPose2001().setText(String.valueOf(0));
-//                    dialog.getPose3000().setText(String.valueOf(0));
                     db.child(date).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -144,7 +134,7 @@ public class HealthScheduleActivity extends AppCompatActivity {
         });
     }
 
-    public void checkDay(int cYear, int cMonth, int cDay, String userID) {
+    public void checkDay(int cYear, int cMonth, int cDay) {
         fname = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt";//저장할 파일 이름설정
         FileInputStream fis = null;//FileStream fis 변수
 
