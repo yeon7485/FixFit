@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,9 +70,14 @@ public class ClassifierActivity extends AppCompatActivity {
         neck_load_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NeckLoadActivity.class);
-                intent.putExtra("angle", angle);
-                startActivity(intent);
+                if(angle.equals("null")){
+                    Toast.makeText(getApplicationContext(), "각도가 측정되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), NeckLoadActivity.class);
+                    intent.putExtra("angle", angle);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -132,7 +138,12 @@ public class ClassifierActivity extends AppCompatActivity {
                     Log.e("firebase", "Error getting nickname", task.getException());
                 } else {
                     angle = String.valueOf(task.getResult().getValue());
-                    neck_angle_tv.setText("나의 목 각도 : " + angle + "°");
+                    if(angle.equals("null")){
+                        Toast.makeText(getApplicationContext(), "각도가 측정되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        neck_angle_tv.setText("나의 목 각도 : " + angle + "°");
+                    }
                 }
             }
         });

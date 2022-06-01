@@ -111,6 +111,8 @@ public class PoseGraphic extends Graphic {
         List<PoseLandmark> landmarks = pose.getAllPoseLandmarks();
 
         if (landmarks.isEmpty()) {
+            String date = getDate();
+            dbAngle.child(date).setValue("null");
             return;
         }
 
@@ -138,11 +140,6 @@ public class PoseGraphic extends Graphic {
         PoseLandmark rightKnee = pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE);
         PoseLandmark leftAnkle = pose.getPoseLandmark(PoseLandmark.LEFT_ANKLE);
         PoseLandmark rightAnkle = pose.getPoseLandmark(PoseLandmark.RIGHT_ANKLE);
-
-        PoseLandmark leftHeel = pose.getPoseLandmark(PoseLandmark.LEFT_HEEL);
-        PoseLandmark rightHeel = pose.getPoseLandmark(PoseLandmark.RIGHT_HEEL);
-        PoseLandmark leftFootIndex = pose.getPoseLandmark(PoseLandmark.LEFT_FOOT_INDEX);
-        PoseLandmark rightFootIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX);
 
 
         //각도 계산
@@ -204,11 +201,7 @@ public class PoseGraphic extends Graphic {
         // 거북목 판정 기능
         if(poseCode == 101){
             drawLine(canvas, rightEar, rightShoulder, redPaint);
-            Date currentTime = Calendar.getInstance().getTime();
-            SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
-            SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
-            SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
-            String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
+            String date = getDate();
             dbAngle.child(date).setValue(String.format("%.1f", neckAngle));
         }
         // 자세 교정 기능
@@ -411,12 +404,21 @@ public class PoseGraphic extends Graphic {
         return result;
     }
 
-    public double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
+    private double getNeckAngle(PoseLandmark startPoint, PoseLandmark endPoint) {
         double dy = endPoint.getPosition().y-startPoint.getPosition().y;
         double dx = endPoint.getPosition().x-startPoint.getPosition().x;
         double degree = Math.toDegrees(Math.atan2(dx, dy));
 
 
         return Math.abs(degree);
+    }
+
+    private String getDate(){
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat dayFormat = new SimpleDateFormat("d", Locale.KOREA);
+        SimpleDateFormat monthFormat = new SimpleDateFormat("M", Locale.KOREA);
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
+        String date = yearFormat.format(currentTime) + "-" + monthFormat.format(currentTime) + "-" + dayFormat.format(currentTime);
+        return date;
     }
 }
