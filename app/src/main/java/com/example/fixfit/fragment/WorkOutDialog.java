@@ -18,7 +18,6 @@ public class WorkOutDialog extends DialogFragment {
     private TextView pose2000;
     private TextView pose2001;
     private TextView pose2002;
-    private TextView pose3000;
 
     private OnLoadedListener listener;
 
@@ -40,7 +39,6 @@ public class WorkOutDialog extends DialogFragment {
         pose2000 = dialog.findViewById(R.id.pose2000);
         pose2001 = dialog.findViewById(R.id.pose2001);
         pose2002 = dialog.findViewById(R.id.pose2002);
-        pose3000 = dialog.findViewById(R.id.pose3000);
 
         builder.setView(dialog);
         listener.OnLoadedListener();
@@ -67,9 +65,6 @@ public class WorkOutDialog extends DialogFragment {
         return pose2002;
     }
 
-    public TextView getPose3000() {
-        return pose3000;
-    }
 
     public interface OnLoadedListener {
         void OnLoadedListener();

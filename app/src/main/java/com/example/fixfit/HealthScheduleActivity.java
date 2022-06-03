@@ -92,9 +92,6 @@ public class HealthScheduleActivity extends AppCompatActivity {
                                 if (ds.getKey().equals("2002")) {
                                     dialog.getPose2002().setText(String.valueOf(ds.getValue()));
                                 }
-                                if (ds.getKey().equals("3000")) {
-                                    dialog.getPose3000().setText(String.valueOf(ds.getValue()));
-                                }
                             }
                         }
 

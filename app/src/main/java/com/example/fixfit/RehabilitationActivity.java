@@ -44,7 +44,7 @@ public class RehabilitationActivity extends AppCompatActivity {
     String[] waist_txt = {"등 들어올리기", "윗몸 일으키기", "다리 뒤로 차기"};
 
     int[] knee_img = {R.drawable.knee_1};
-    String[] knee_txt = {"앉아서 다리펴기"};
+    String[] knee_txt = {"무릎 스트레칭"};
 
     WorkoutAdapter neck_adapter;
     WorkoutAdapter waist_adapter;
@@ -113,7 +113,6 @@ public class RehabilitationActivity extends AppCompatActivity {
                     map.put("2000", "0");
                     map.put("2001", "0");
                     map.put("2002", "0");
-                    map.put("3000", "0");
                     db.child(date).setValue(map);
                 }
             }

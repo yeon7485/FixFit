@@ -76,7 +76,8 @@
                 android:id="@+id/workout_img"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@drawable/knee_stretch_1"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
                 android:layout_marginVertical="20dp"
                 android:fontFamily="@font/suncheon_r"
                 android:lineSpacingExtra="10dp"
-                android:text="엄지손가락으로 턱 끝을 받친다.\n천천히 위쪽으로 밀어 목 앞쪽 근육의 이완을 느끼며 멈춘다."
+                android:text="골반을 세우고 의자에 앉아서 한쪽 다리를 앞으로 쭉 뻗는다."
                 android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
@@ -93,7 +94,7 @@
                 android:layout_height="170dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/stretch_1" />
+                android:src="@drawable/knee_stretch_2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +102,7 @@
                 android:layout_marginVertical="20dp"
                 android:fontFamily="@font/suncheon_r"
                 android:lineSpacingExtra="10dp"
-                android:text="등과 허리를 곧게 펴고 양손으로 머리 뒤를 잡아 천천히 머리를 앞으로 당긴다."
+                android:text="발 끝을 몸쪽으로 당기고(플렉스), 다시 발끝을 펴준다(포인트). 무릎 위치는 고정한 채 허벅지 앞쪽에 힘을 주고 무릎 안쪽을 늘어나는 느낌을 준다."
                 android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
@@ -110,7 +111,7 @@
                 android:layout_height="170dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/stretch_2" />
+                android:src="@drawable/knee_stretch_3" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,60 +119,10 @@
                 android:layout_marginVertical="20dp"
                 android:fontFamily="@font/suncheon_r"
                 android:lineSpacingExtra="10dp"
-                android:text="턱 끝을 살짝 뒤로 당기면서 손가락으로 가볍게 얹어 지그시 밀어준다."
+                android:text="길게 접은 수건으로 발 앞꿈치를 감싼다. 수건을 양손으로 잡고 몸쪽으로 허벅지가 들리지 않게 한 후 최대한 당긴 상태에서 10초 정도 멈춘 뒤 힘을 풀어준다. 10~20번 반복한다."
                 android:textColor="@color/text_color"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/stretch_3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:fontFamily="@font/suncheon_r"
-                android:lineSpacingExtra="10dp"
-                android:text="고개를 45도 정도 옆으로 돌리고 한 손으로 머리를 뒤쪽을 잡아 앞으로 숙인다.\n반대쪽 손은 등 뒤에서 고정한다.(교대로 실시)"
-                android:textColor="@color/text_color"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/stretch_4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:fontFamily="@font/suncheon_r"
-                android:lineSpacingExtra="10dp"
-                android:text="한 손을 머리 앞, 뒤에 대고 지그시 민다. 이 때 손이 미는 대로 밀리지 않도록 목 근육의 힘으로 지지한다.\n목 근육의 운동하고자 하는 방향을 반대쪽에서 손으로 힘주어 버틴다."
-                android:textColor="@color/text_color"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/stretch_5" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:fontFamily="@font/suncheon_r"
-                android:lineSpacingExtra="10dp"
-                android:text="위와 같은 방법으로 한 손을 머리의 양 옆면에 대고 지그시 민다."
-                android:textColor="@color/text_color"
-                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

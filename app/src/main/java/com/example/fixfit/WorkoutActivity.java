@@ -76,8 +76,11 @@ public class WorkoutActivity extends AppCompatActivity {
         }
 
         if (poseCode == 1001) {
-            setContentView(R.layout.activity_stretch);
-        } else {
+            setContentView(R.layout.activity_neck_stretch);
+        } else if(poseCode == 3000){
+            setContentView(R.layout.activity_knee_stretch);
+        }
+        else {
             setContentView(R.layout.activity_workout);
 
             workout_timer = (LinearLayout) findViewById(R.id.workout_timer);
@@ -112,7 +115,9 @@ public class WorkoutActivity extends AppCompatActivity {
         workout_img = (ImageView) findViewById(R.id.workout_img);
 
         workout_txt.setText(item.getWorkoutName());
-        workout_img.setImageResource(item.getImgResId());
+        if((poseCode != 1001) && (poseCode != 3000)){
+            workout_img.setImageResource(item.getImgResId());
+        }
 
 
         Date currentTime = Calendar.getInstance().getTime();
@@ -180,7 +185,7 @@ public class WorkoutActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
-        if (poseCode != 1001) {
+        if ((poseCode != 1001) && (poseCode != 3000)) {
             createCameraSource();
             startCameraSource();
         }
@@ -193,7 +198,7 @@ public class WorkoutActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (poseCode != 1001)
+        if ((poseCode != 1001) && (poseCode != 3000))
             preview.stop();
     }
 
@@ -259,16 +264,6 @@ public class WorkoutActivity extends AppCompatActivity {
                                     }
                                 });
                                 break;
-                            case 3000:
-                                db.child(date).child("3000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                        String v = String.valueOf(task.getResult().getValue());
-                                        int value = Integer.parseInt(v) + 1;
-                                        db.child(date).child("3000").setValue(String.valueOf(value));
-                                    }
-                                });
-                                break;
                         }
 
                         finish();
@@ -305,16 +300,6 @@ public class WorkoutActivity extends AppCompatActivity {
                                         String v = String.valueOf(task.getResult().getValue());
                                         int value = Integer.parseInt(v) + 1;
                                         db.child(date).child("2001").setValue(String.valueOf(value));
-                                    }
-                                });
-                                break;
-                            case 3000:
-                                db.child(date).child("3000").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                        String v = String.valueOf(task.getResult().getValue());
-                                        int value = Integer.parseInt(v) + 1;
-                                        db.child(date).child("3000").setValue(String.valueOf(value));
                                     }
                                 });
                                 break;

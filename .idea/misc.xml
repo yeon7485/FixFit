@@ -46,8 +46,10 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_diet_schedule.xml" value="0.1272644927536232" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_gallery.xml" value="0.2" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_health_schedule.xml" value="0.1" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_knee_stretch.xml" value="0.25364583333333335" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_main.xml" value="0.1490036231884058" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_neck_load.xml" value="0.176" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_neck_stretch.xml" value="0.24814814814814815" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_real_time.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_rehabilitation.xml" value="0.23735408560311283" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/activity_splash.xml" value="0.1125" />
@@ -85,6 +87,7 @@
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/tech_neck_realtime.xml" value="0.1" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/layout/todo_list.xml" value="0.190625" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/menu/bottom_menu.xml" value="0.17037037037037037" />
+        <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/mipmap-anydpi-v26/ic_icon.xml" value="0.166" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/mipmap-anydpi-v26/ic_icon_round.xml" value="0.1135" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2215" />
         <entry key="..\:/Seyeon/STUDY/FixFit/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2215" />
