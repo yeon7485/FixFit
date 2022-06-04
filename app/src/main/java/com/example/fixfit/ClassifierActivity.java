@@ -36,6 +36,7 @@ public class ClassifierActivity extends AppCompatActivity {
     private static final String TAG = "ClassifierActivity";
 
     private static final int CLASSIFIER = 101;
+    private int tag;
 
     private View rootView;
     private ImageView preview;
@@ -44,6 +45,7 @@ public class ClassifierActivity extends AppCompatActivity {
     private VisionImageProcessor imageProcessor;
     private PoseDetectorProcessor poseImageProcessor;
     private String angle = "";
+    private byte[] arr;
 
     private DatabaseReference dbAngle = FirebaseDatabase.getInstance().getReference("Angle");
 
@@ -76,6 +78,7 @@ public class ClassifierActivity extends AppCompatActivity {
                 else{
                     Intent intent = new Intent(getApplicationContext(), NeckLoadActivity.class);
                     intent.putExtra("angle", angle);
+                    intent.putExtra("image", arr);
                     startActivity(intent);
                 }
             }
@@ -85,7 +88,8 @@ public class ClassifierActivity extends AppCompatActivity {
 
     private void getImage() {
         Bundle extras = getIntent().getExtras();
-        byte[] arr = extras.getByteArray("image");
+        arr = extras.getByteArray("image");
+        tag = extras.getInt("tag");
         Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
         graphicOverlay.clear();
         preview.setImageBitmap(image);
@@ -148,6 +152,19 @@ public class ClassifierActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent;
+        if(tag == 1){
+            intent = new Intent(this, CaptureActivity.class);
+        }
+        else{
+            intent = new Intent(this, GalleryActivity.class);
+        }
+        intent.putExtra("image", arr);
+        startActivity(intent);
+        finish();
     }
 
 }

@@ -7,12 +7,14 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -20,11 +22,10 @@ import java.io.InputStream;
 public class GalleryActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int REQUEST_CHOOSE_IMAGE = 102;
-
+    private static final int GALLERY_ACT = 2;
     private ImageView gallery_img;
     Button gallery_btn, classifier_btn;
 
-    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,17 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
 
         gallery_btn.setOnClickListener(this);
         classifier_btn.setOnClickListener(this);
+        Bundle extras = getIntent().getExtras();
+        if(extras == null) {
+            getImage();
+        }
+        // 판정 화면에서 뒤로가기로 넘어왔을 때
+        else{
+            byte[] arr = extras.getByteArray("image");
+            Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
+            gallery_img.setImageBitmap(image);
+        }
 
-        getImage();
 
     }
 
@@ -66,7 +76,9 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
                     sendBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     byte[] byteArray = stream.toByteArray();
                     intent.putExtra("image", byteArray);
+                    intent.putExtra("tag", GALLERY_ACT);
                     startActivity(intent);
+                    finish();
                 }
                 break;
         }

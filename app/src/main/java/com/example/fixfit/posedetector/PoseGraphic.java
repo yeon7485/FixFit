@@ -194,14 +194,15 @@ public class PoseGraphic extends Graphic {
                 pose.getPoseLandmark(PoseLandmark.RIGHT_ANKLE),
                 pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX));
 
-        neckAngle = getNeckAngle(
-                pose.getPoseLandmark(PoseLandmark.LEFT_EAR),
-                pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER));
+
 
         // 거북목 판정 기능
         if(poseCode == 101){
-            drawLine(canvas, rightEar, rightShoulder, redPaint);
             String date = getDate();
+            drawLine(canvas, rightEar, rightShoulder, redPaint);
+            neckAngle = getNeckAngle(
+                    pose.getPoseLandmark(PoseLandmark.LEFT_EAR),
+                    pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER));
             dbAngle.child(date).setValue(String.format("%.1f", neckAngle));
         }
         // 자세 교정 기능

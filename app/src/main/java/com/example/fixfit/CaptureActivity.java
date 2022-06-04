@@ -6,9 +6,11 @@ import androidx.core.app.ActivityCompat;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +21,7 @@ import java.io.ByteArrayOutputStream;
 public class CaptureActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int REQUEST_IMAGE_CAPTURE = 101;
+    private static final int CAPTURE_ACT = 1;
     private ImageView capture_img;
     Button capture_btn, classifier_btn;
 
@@ -33,11 +36,21 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
 
         capture_btn.setOnClickListener(this);
         classifier_btn.setOnClickListener(this);
-        // 카메라 권한
-        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
 
-        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(i, REQUEST_IMAGE_CAPTURE);
+        Bundle extras = getIntent().getExtras();
+        if(extras == null) {
+            // 카메라 권한
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA}, 1);
+
+            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(i, REQUEST_IMAGE_CAPTURE);
+        }
+        // 판정 화면에서 뒤로가기로 넘어왔을 때
+        else{
+            byte[] arr = extras.getByteArray("image");
+            Bitmap image = BitmapFactory.decodeByteArray(arr, 0, arr.length);
+            capture_img.setImageBitmap(image);
+        }
 
     }
 
@@ -57,8 +70,9 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
                 sendBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
                 intent.putExtra("image", byteArray);
+                intent.putExtra("tag", CAPTURE_ACT);
                 startActivity(intent);
-
+                finish();
                 break;
         }
     }

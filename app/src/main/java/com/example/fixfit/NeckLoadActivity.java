@@ -15,6 +15,7 @@ public class NeckLoadActivity extends AppCompatActivity implements View.OnClickL
     private ImageView neck_0, neck_15, neck_30, neck_45, neck_60;
     private LinearLayout home_btn, stretch_btn;
     private double angle;
+    private byte[] arr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class NeckLoadActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         angle = Double.parseDouble(intent.getStringExtra("angle"));
+        Bundle extras = getIntent().getExtras();
+        arr = extras.getByteArray("image");
 
         setVisibleImg(angle);
 
@@ -74,6 +77,14 @@ public class NeckLoadActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(intent);
                 break;
         }
+    }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, ClassifierActivity.class);
+        intent.putExtra("image", arr);
+        startActivity(intent);
+        finish();
     }
 
 }
