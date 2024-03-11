@@ -1,4 +1,5 @@
 # FixFit
+![image](https://github.com/yeon7485/FixFit/assets/55083958/99613f3d-d5f4-4d8b-add0-3b5278a73c00)
 
 FixFit은 실내 운동 시설을 사용하지 못해 집에서 재활 운동을 필요로 하는 사람을 위한 프로젝트입니다.
    
